@@ -1,0 +1,62 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+\begin{document}
+	\begin{tikzpicture}[scale=4]
+		\tikzset{grid lines/.style={color=blue!50,very thin}} % set style
+		%\clip (-2,-0.2) rectangle (2,0.8); %isolate area bounded by the clip dimensions
+		\draw[step=.5cm,gray,very thin] (-1.4,-1.4) grid (1.4,1.4); %light grid
+		\draw[->] (-1.5,0) -- (1.5,0) coordinate (x axis); %vertical line
+		\draw[->] (0,-1.5) -- (0,1.5) coordinate (y axis);%horizontal line
+		\draw (0,0) circle (1cm);
+		\filldraw[fill=green!20!white,draw=green!50!black]
+			(0,0) -- (3mm,0mm) arc (0:30:3mm) -- cycle;
+		\draw[red,very thick] (30:1cm) -- node[left=1pt,fill=white] {$\sin \alpha$} (30:1cm |- x axis);
+		\draw[blue,very thick] (30:1cm |- x axis) -- node[below=2pt,fill=white] {$\cos \alpha$} (0,0);
+
+		\path [name path=up] (1,0) -- (1,1);
+		\path [name path=sloped] (0,0) -- (30:1.25cm);
+		
+		\draw [name intersections={of=up and sloped, by=t}]
+			[very thick,orange] (1,0) -- node [right=1pt,fill=white]
+			{$\displaystyle \tan \alpha \color{black}=
+			\frac{{\color{red}\sin \alpha}}{\color{blue}\cos \alpha}$} (t);
+		\draw (0,0) -- (t);
+
+		\foreach \x/\xtext in {-1, -0.5/-\frac{1}{2}, 1}
+			\draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north,fill=white] {$\xtext$};
+		\foreach \y/\ytext in {-1, -0.5/-\frac{1}{2}, 0.5/\frac{1}{2}, 1}
+			\draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,fill=white] {$\ytext$};
+
+	\end{tikzpicture}
+	\\
+	\\
+%	\tikz \draw (-1.5,0) -- (1.5,0) -- (0,-1.5) -- (0,1.5);\\
+%	\begin{tikzpicture}	%curved line between points
+%		\filldraw [gray]
+%			(0,0) circle (2pt)
+%			(1,1) circle (2pt)
+%			(2,1) circle (2pt)
+%			(2,0) circle (2pt);
+%		\draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
+%	\end{tikzpicture}
+%
+%	\begin{tikzpicture} %curved half circle
+%		\draw (-1.5,0) -- (1.5,0);
+%		\draw (0,-1.5) -- (0,1.5);
+%		\draw (-1,0) .. controls (-1,0.555) and (-0.555,1) .. (0,1) .. controls (0.555,1) and (1,0.555) .. (1,0);
+%	\end{tikzpicture}
+%	
+%	\tikz \draw (0,0) circle (10pt); %full circle
+%	\tikz \draw (0,0) ellipse (20pt and 10pt); %ellipse
+%	\tikz \draw (0,0) arc (0:315:1.75cm and 1cm); % specify 2 radii to get an elliptical arc
+%	\tikz \draw (0,0) rectangle (1,1) (0,0) parabola (1,1); %parabola operation
+%	\tikz \draw[x=1pt,y=1pt] (0,0) parabola bend (4,16) (6,12); %can place the location of the bend
+%	\tikz \draw[x=1.57ex,y=1ex] (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0) (0,1) cos (1,0) sin (2,-1) cos (3,0) sin (4,1);
+%	\begin{tikzpicture}[line width=5pt] %show -- cycle command
+%		\draw (0,0) -- (1,0) -- (1,1) -- (0,0);
+%		\draw (2,0) -- (3,0) -- (3,1) -- cycle
+%		\useasboundinbox (0,1.5); %make bounding box higher
+%	\end{tikzpicture}
+	
+\end{document}

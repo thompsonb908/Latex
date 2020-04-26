@@ -1,0 +1,51 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,positioning,fit}
+\usepackage[latin1]{inputenc}
+\usepackage{ifthen}
+\tikzset{state1/.style={circle,draw=red!50,fill=red!20}}
+\tikzset{state/.style={circle,draw=blue!50,fill=blue!20}}
+\begin{document}
+	\begin{tikzpicture} [node distance=2cm,>=stealth']
+		
+		\clip (-9.5,1) rectangle (6,-13);
+
+		\node[state1] (0) {$\left( 0 \right) $};
+		\node[state] (5) [below left=of 0] {$\left( 5 \right)$};
+		\node[state] (10) [below left=of 5] {$\left( 10 \right) $};
+		\node[state] (15) [below left=of 10] {$\left( 15 \right) $};
+		\node[state] (20) [below left=of 15] {$\left( 20 \right) $};
+		\node[state] (25) [below right=of 0] {$\left( 25 \right) $};
+		\node[state] (30) [below left=of 25] {$\left( 30 \right) $};
+		\node[state] (35) [below left=of 30] {$\left( 35 \right) $};
+		\node[state] (40) [below left=of 35] {$\left( 40 \right) $};
+		\node[state] (45) [below left=of 40] {$\left( 45 \right) $};
+		\node[state] (50) [below right=of 25] {$\left( 50 \right) $};
+		\node[state1] (55) [below left=of 50] {$\left( 55 \right) $};
+		
+
+		\draw [->] 	(0)	edge 	node[e1,above left]	{$+5$}	(5)
+				(0)	edge	node[e2,above right]	{$+25$}	(25)
+				(5)	edge	node[e3,above left]	{$+5$}	(10)
+				(5)	edge	node[e4,above right]	{$+25$}	(30)
+				(25)	edge	node[e5,above left]	{$+5$}	(30)
+				(25)	edge	node[e6,above right]	{$+25$} (50)
+				(10)	edge	node[e7,above left]	{$+5$}	(15)
+				(10)	edge	node[e8,above right]	{$+25$}	(35)
+				(30)	edge	node[e9,above left]	{$+5$}	(35)
+				(30)	edge	node[e10,above right]	{$+25$}	(55)
+				(50)	edge	node[e11,above left]	{$+5$}	(55)
+				(15)	edge	node[e12,above left]	{$+5$}	(20)
+				(15)	edge	node[e13,above right]	{$+25$}	(40)
+				(35)	edge	node[e14,above left]	{$+5$}	(40)
+				(20)	edge	node[e15,above right]	{$+25$}	(45)
+				(40)	edge	node[e16,above left]	{$+5$}	(45);
+
+
+		\draw [->] (20) edge[out=-90,in=-4,looseness=2] node[e17,above left] {$+5$} (25);
+		\draw [->] (45) edge[out=-90,in=-90,looseness=.5] node[e18,above left] {$+5$} (50);
+		
+
+	\end{tikzpicture}
+\end{document}

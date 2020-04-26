@@ -1,0 +1,31 @@
+\documentclass[a4paper]{article}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\begin{document}
+	\begin{tikzpicture}
+		\draw[latex-latex] (-4.5,0)--(7.5,0);
+		\foreach \x in {-4,-3, ...,7}
+		{
+		    \draw (\x,0.25) -- (\x,-0.25) node[below] {$\x$}
+		}
+		\foreach \x [count = \xi] in {000,001,010,011,100,101,110,111}
+		{
+			\node at (\xi -1,-1.25) {\x}
+		}
+		\node at (-2,-1.25) {Unsigned};
+		\foreach \x [count = \xi] in {100,101,110,111,000,001,010,011}
+		{
+			\node at (\xi - 5, -2.25) {\x}
+		}
+		\node at (5.5,-2.25) {Two's Complement};
+		\foreach \x [count = \xi] in {111,110,101,, 001,010,011}
+		{
+			\node at (\xi - 4,-3.25) {\x}
+		}
+		\node[below] at (0,-3.25) {100};
+		\node[above] at (0,-3.25) {000};
+		\node at (5.5,-3.25) {Sign/Magnitude};
+	\end{tikzpicture}
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata, intersections,calc}
+
+
+\begin{document}
+	\begin{tikzpicture}[->,stealth', line width=2pt,auto,node distance=6cm]
+		\tikzstyle{every state}=[draw, minimum size=4cm,align=center]
+		\tikzstyle{initial}=[pin={[pin distance=1cm,
+		pin edge={<-,latex,black,line width=2.5pt}]left:Reset}]
+		\node[state] (s4) [label={[align=center]135:S4: Mem\\Writeback}] {RegDst $=0$ \\ MemtoReg $=1$ \\ RegWrite};
+		\node[state,above of=s4] (s3) [label=135:S3: MemRead] {IorD $=0$};
+		\node[state,right of=s3] (s5) [label=above:S5:MemWrite] {IorD $=1$ \\ MemWrite};
+		\node[state,right of=s5] (s7) [label={[align=center]135:S7 ALU\\Writeback}] {RegDst $=1$ \\ MemtoReg $=0$ \\ RegWrite};
+		\node[state,above of=s3] (s2) [label=135:S2: MemAdr] {ALUSrcA $=1$ \\ALUSrcB $=10$ \\ ALUOp $=00$};
+		\node[state,above of=s7] (s6) [label=135:S6: Execute] {ALUSrcA $=1$ \\ ALUSrcB $= 00$ \\ ALUOp $=10$};
+		\node[state,right of=s6] (s8) [label=above:S8: Branch] {ALUSrcA $=1$ \\ ALUSrcB $=00$ \\ ALUOp = $01$ \\ PCSrc $=1$ \\ Branch};
+		\node[right of=s7] (e1) {};
+		\node[state,right of=e1,fill=blue!25] (n2) {PCSrc $=1$ \\ PCWrite};
+		\node[above of=n2] (e2) {};
+		\node[state,above right of=s8,fill=blue!25] (n1) {ALUSrcA $=1$ \\ ALUSrcB $=00$ \\ALUOp $=01$ \\PCSrc $=1$ \\Branch};
+		\node[state] (s1) at (9.5,18.5) [label=135:S1: Decode] {ALUSrcA $=0$ \\ ALUSrcB $=11$ \\ALUOp $=00$};
+		\node[state,initial,left of=s1] (s0) [label=135:S0: Fetch] {IorD $=0$ \\ ALUSrcA $=0$ \\ ALUSrcB $=01$ \\ ALUOp $=00$ \\ PCSrc $=0$ \\ IRWrite \\ PCWrite};
+		
+		\path (s0) edge (s1)
+		(s1)	edge node[swap] {Op = R-Type} (s6)
+		edge node[align=center] {Op = \texttt{lw}\\or\\Op = \texttt{sw}} (s2)
+		edge node {Op = BEQ} (s8)
+		(s2) edge node[swap] {Op = \texttt{lw}} (s3)
+		edge node {Op = \texttt{sw}} (s5)
+		(s3) edge (s4)
+		(s6) edge (s7)
+		(s1) edge node {Op = \texttt{bnq}} (n1)
+		(n1) edge (n2);
+		\draw[->,line width=2pt] (s4.east) -- (27,0) -| (27,22) -| (s0.north);
+		\draw[-,line width=2pt] (s5.south) -- (6,0);
+		\draw[-,line width=2pt] (s7.south) -- (12,0);
+		\draw[-,line width=2pt] (s8.south) -- (18,0);
+		\draw[-,line width=2pt] (n2.south) -- (24,0);
+	\end{tikzpicture}
+\end{document}

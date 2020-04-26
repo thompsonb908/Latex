@@ -1,0 +1,102 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage{forest}
+\usetikzlibrary{trees}
+
+\begin{document}
+
+\tikzset{
+	every node/.style={circle,semithick,draw=blue!75,fill=blue!20},
+	end_node/.style={circle,semithick,draw=red!75,fill=red!20}
+}
+\forestset{
+	tree style/.style={
+		for tree={
+			every node,
+			parent anchor=south,
+			child anchor=north
+		}
+	}
+}
+	\begin{forest}
+		tree style
+		[$\left( 0 \right)$,end_node
+		  [$\left( 5 \right) $
+		    [$\left( 10 \right) $
+		      [$\left( 15 \right)$
+		        [$\left( 20 \right) $
+			  [$\left( 25 \right) $ 
+			    [$\left( 30 \right) $
+			      [$\left( 35 \right) $ 
+			        [$\left( 40 \right) $ 
+			          [$\left( 45 \right) $ 
+			            [$\left( 50 \right) $ 
+			              [$\left( 55 \right) $,end_node]
+			            ]
+			          ]
+			        ]
+			      ]
+			        [$\left( 55 \right) $,end_node]
+			      ]
+			      [$\left( 50 \right) $ 
+			        [$\left( 55 \right) $,end_node]
+			      ]
+			    ] 
+			    [$\left( 45 \right) $ 
+			      [$\left( 50 \right) $ 
+			        [$\left( 55 \right) $,end_node]
+			      ]
+			    ]
+			  ]
+			  [$\left( 40 \right)$
+			    [$\left( 45 \right) $ 
+			      [$\left( 50 \right) $ 
+			        [$\left( 55 \right) $,end_node]
+			      ]
+			    ]
+			  ]
+		      ]
+		      [$\left( 35 \right) $
+		        [$\left( 40 \right) $ 
+		          [$\left( 45 \right) $ 
+		            [$\left( 50 \right) $ 
+		              [$\left( 55 \right) $,end_node]
+		            ]
+		          ]
+			]
+		      ]
+		    ]
+		    [$\left( 30 \right) $
+		      [$\left( 35 \right)$
+		        [$\left( 40 \right) $
+			  [$\left( 45 \right) $
+			    [$\left( 50 \right) $ 
+			      [$\left( 55 \right) $,end_node]
+			    ]
+			  ]
+			]
+		      ]
+		      [$\left( 55 \right) $,end_node]
+		    ]
+		  ]
+		[$\left( 25 \right) $
+		  [$\left( 30 \right) $
+		    [$\left( 35 \right) $
+		      [$\left( 40 \right) $
+		        [$\left( 45 \right) $ 
+		          [$\left( 50 \right) $ 
+		            [$\left( 55 \right) $,end_node]
+		          ]
+		        ]
+		      ]
+		    ]
+		    [$\left( 55 \right) $,end_node]
+		  ]
+		    [$\left( 50 \right) $ 
+		      [$\left( 55 \right) $,end_node]
+		    ]
+		]
+	     ]
+	\end{forest}
+\end{document}
