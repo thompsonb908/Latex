@@ -90,7 +90,10 @@
 	functionality. The main focus of the paper was to show an extended functionality attack
 	on smart lights to leak data from secure locations or cause epileptic people to have
 	seizures. This assumes that there is already an infected computer and the attacker is
-	using the lights to retrieve the compromised data.
+	using the lights to retrieve the compromised data. This attack is a major breach in
+	integrity and availability because the attacker can turn the light on or off, removing
+	the availability of the light(s) or it could have a larger impact on the system by providing
+	an channel for compromised data to escape from the would be extremely difficult to trace.
 
 	Williams et al \cite{williams} conducted a large scale Nessus vulnerability scan on 156,680
 	consumer IoT devices and found that 12\% of these devices contained a vulnerability of
@@ -99,8 +102,15 @@
 	consumer IoT devices could be susceptible to attacks. Considering the number of devices
 	is expected to grow by 21 percent annually, rising to 18 billion between 2016 and 2022
 	\cite{ericson}
-	that are being added each year, this percentage is not acceptable and could cause major
-	security issues in the future if companies do not improve the security on IoT devices.
+	this percentage is not acceptable and could cause major security issues or data breaches
+	in the future if companies do not improve the security of their IoT devices.
+
+	In general, IoT is still fairly new as a technology, and its benefits are still being
+	developed, but as people are developing new methods to utilize the IoT, they are not
+	considering the confidentiality, integrity, or availability flaws of their system.
+	Cisco released a video on their Youtube channel \cite{cisco} about the anatomy of an
+	IoT attack and how attackers could use an unsecure device to gain access to more critical
+	systems.
 
 	\newpage
 	\bibliography{homework17.bib}{}
