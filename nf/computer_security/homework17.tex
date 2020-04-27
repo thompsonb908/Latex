@@ -26,7 +26,8 @@
 %\usepackage{parskip} % Left justifies new paragraphs.
 \linespread{1.1} 
 
-\usepackage{cite}
+\usepackage[backend=biber,sorting=ynt]{biblatex}
+\addbibresource{./homework17.bib}
 
 %figure support
 \usepackage{import}
@@ -113,6 +114,6 @@
 	systems.
 
 	\newpage
-	\bibliography{homework17.bib}{}
-	\bibliographystyle{plain}
+
+	\printbibliography
 \end{document}
