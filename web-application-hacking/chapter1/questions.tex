@@ -1,0 +1,14 @@
+\begin{enumerate}
+    \item Why are an application's mechanisms for handling user access only as strong as the weakest of these components?
+    \item What is the difference between a session and a session token?
+    \item Why is it not always possible to use a whitelist-based approach to input validation?
+    \item You are attacking an application that implements an administrative function. You do not have any valid credentials to use the function. Why should you nevertheless pay close attention to it?
+    \item An input validation mechanism designed to block cross-site scripting attacks performs the following sequence of steps on an item of input: \begin{enumerate}
+        \item Strip any \verb|<script>| expressions that appear.
+        \item Truncate the input to 50 characters.
+        \item URL-decode the input.
+        \item If any items were deleted return to step 1.
+    \end{enumerate}
+    Can you bypass this validation mechanism to smuggle the following data past it?
+    \verb|"><scrpt>alert("foo")</script>|
+\end{enumerate}
