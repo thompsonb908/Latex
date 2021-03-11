@@ -1,4 +1,4 @@
-\section{Chapter 2: Languages}
+\section{Languages}
 
 \begin{itemize}
     \item Mathematical models of computers
@@ -87,3 +87,31 @@ Let \(S\) be a set of words. \(S^*\) is the language formed by concatenating wor
     &\text{that start with b and those that contain a double b}\}
 \end{align*}
 Factoring is not always unique, if \(S=\{xx,xxx\}\) and \(xxxxxxx \in S^*\), then there are multiple ways to break up the word between the words in \(S\).
+
+The Kleene closure of an alphabet \(\Sigma\) always produces an infinite language unless \(\Sigma\) is empty. Only for infinite languages, the Kleene closure of two sets can end up being the same language even if the two sets started with were not.
+\begin{align*}
+    S &= \{a,b,ab\} & T &= \{a, b, bb\} & S^* &= T^*
+\end{align*}
+
+\subsection{Positive Closure (Plus)}
+The language with all concatenations that contain at least one word from \(S\) and one letter from \(\Sigma\).\\
+(\(S^*\) possibly without \(\Lambda\).)
+
+If \(\Lambda\) is a member of \(S\), \(S^* = S+\).
+
+\textbf{Equality of sets}\\
+\(S=T\): \ \(S \subset T\) and \(T \subset S\)
+
+\textbf{Subsets}\\
+\(S \subset T\): for all \(x\) in \(S\), \(x\) is also in \(T\).
+
+\begin{theorem}
+    For any set of words \(S\), we have \(S^{**}=S^*\).
+\end{theorem}
+\begin{proof}
+    \textbf{Case 1:} \(S^{**} \subset S^*\)\\
+    Every word in \(S^{**}\) is made up of factors from \(S^*\) (definition of Kleene star). Every word in \(S^*\) is made up of factors from \(S\). Therefore every word in \(S^{**}\) is made up of factors from \(S\).\\
+    \textbf{Case 2:} \(S^* \subset S^{**}\)\\
+    For any set A, we can show that \(A \subset A^*\). Let \(w\) be a word in \(A\). Then \(w\) is certainly in \(A^*\). If we consider \(S^*\) as our set \(A\), we can conclude \(S^* \subset S^{**}\).\\
+    By definition of equality of sets, we have \(S^* = S^{**}\).
+\end{proof}
