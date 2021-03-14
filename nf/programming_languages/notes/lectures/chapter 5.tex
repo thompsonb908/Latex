@@ -59,6 +59,6 @@ Characterize states by the purposes they serve.\\
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\linewidth]{lectures/figures/5-4fa.pdf}
+    \caption{Finite Automata accepting the language \((a+b)^*(aa+bb)(a+b)^*\)}
 \end{figure}
-The Language defined by this automata is: \((a+b)^*(aa+bb)(a+b)^*\)\\
 There are two \textquote{direct} paths to get from state 1 to state 4, either the path $1 \rightarrow 2 \rightarrow 4$ or from $1 \rightarrow 3 \rightarrow 4$. The loop between states 2 and 3 signify that there could be any number of letters at the start, this is the first \((a+b)^*\). Only when the pattern \(aa\) or \(bb\) appears we can continue to state 4, \((aa+bb)\), once in state 4, any number of letters can be accepted this is the second \((a+b)^*\). 

@@ -20,6 +20,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Remove indent between paragraphs
+\usepackage{parskip}
+
 %    Good website with common symbols
 % http://www.artofproblemsolving.com/wiki/index.php/LaTeX%3ASymbols
 %    How to change enumeration using enumitem package
@@ -38,4 +41,10 @@
 %\usepackage[backend=biber,style=mla,showmedium=false]{biblatex}
 %\addbibresource{}
 
-\newtheorem{theorem}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Example}[section]
+
+% Figure numbering based on section
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
