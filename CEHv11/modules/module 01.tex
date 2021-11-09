@@ -1,0 +1,190 @@
+\section{Introduction to Ethical Hacking}
+\subsection{Module Objectives}
+\begin{itemize}
+    \item Understand elements of information security.
+    \item Understand information security attacks and information warfare.
+    \item Overview of cyber kill chain methodology, TTps, and IoCs.
+    \item Overview of hacking concepts, types, and phases.
+    \item Understanding ethical hacking concepts and its scope.
+    \item Overview of information security controls.
+    \item Overview of information security acts and laws.
+\end{itemize}
+
+\subsection{Information Security Overview}
+
+\subsubsection{Elements of Information Security}
+\begin{itemize}
+    \item \textbf{Confidentiality}\\
+    Confidentiality is the assurance that the information is accessible only to authorized users.
+    Control methods are data classification, data encryption, and proper disposal of equipment.
+    \item \textbf{Integrity}\\
+    Integrity is the trustworthiness of data or resources in the prevention of improper and unauthorized changes--the assurance that data is accurate. 
+    Control methods are checksums and access control.
+    \item \textbf{Availability}\\
+    Availability is the assurance that systems are accessible when required by authorized users.
+    Methods to maintain data availability can include disk arrays for redundant systems and clustered machines, antivirus software to combat malware, and distributed denial-of-service (DDoS) prevention systems.
+    \item \textbf{Authenticity}\\
+    Authenticity refers to the characteristics of communication, documents, or any data that ensures the quality of being genuine or uncorrupted.
+    The major role of authentication is to confirm that the user is genuine.
+    Control methods include biometrics, smart cards, and digital certificates.
+    \item \textbf{Non-Repudiation}\\
+    Non-Repudiation is a way to guarantee that the sender of a message cannot later deny having sent the message and that the recipient cannot deny having received the message.
+    Individuals and organizations use digital signatures to ensure non-repudiation.
+\end{itemize}
+
+\subsubsection{Motives, Goals and Objectives of Information Security Attacks}
+
+\begin{equation*}
+    \text{Attack} = \text{Motive (Goal)} + \text{Method} + \text{Vulnerability}
+\end{equation*}
+A motive originates from the notion that the target system stores or processes something valuable, this leads to the threat of an attack on the system.
+
+\subsubsection{Motives}
+\begin{itemize}
+    \item Disrupt business continuity
+    \item Perform information theft
+    \item Manipulate data
+    \item Create fear and chaos by disrupting critical infrastructures
+    \item Bring financial loss to the target
+    \item Propagate religious or political beliefs
+    \item Achieve a state's military Objectives
+    \item Damage the reputation of the target
+    \item Take revenge
+    \item Demand ransom
+\end{itemize} 
+
+\subsubsection{Classification of Attacks}
+\begin{itemize}
+    \item Passive Attacks: Monitor network traffic for reconnaissance on network activities using sniffers.
+    used for gathering data useful in active attacks.
+    \item Active Attacks: Tamper with data in transit or disrupt communication or services between systems to bypass or break into secured systems.
+    Attackers launch an attack on the target system by sending traffic actively that can be detected.
+    \item Close-in Attacks: Attacker is in close proximity to the target.
+    Used to gather or modify information or disrupt its access.
+    \item Insider Attacks: Performed by trusted persons who have physical access to critical assets of the target.
+    \item Disruption Attacks: Attackers tamper with hardware or software prior to installation.
+\end{itemize}
+
+\subsubsection{Information warfare}
+Refers to the use of information and communication technologies (ICT) for competitive advantages over an opponent.
+\begin{itemize}
+    \item Command and control warfare (C2 warfare)
+    \item Intelligence-based warfare
+    \item Electronic warfare
+    \item Psychological warfare
+    \item Hacker warfare
+    \item Economic warfare
+    \item Cyberwarfare
+\end{itemize}
+
+\subsection{Cyber Kill Chain Concepts}
+The cyber kill chain is a way to illustrate how attacks occur and possible threats at different stages of an attack as well as countermeasures.
+
+\subsubsection{Cyber Kill Chain Methodology}
+A component of intelligence based defense for the identification and prevention of malicious intrusion activities.
+
+Attacks can happen in seven phases:
+\begin{itemize}
+    \item Reconnaissance: collection of information about target to probe for weaknesses.
+    \begin{itemize}
+        \item Public information on the internet
+        \item Network information
+        \item system information
+        \item organizational information
+    \end{itemize}
+    \item Weaponization: identification of vulnerabilities based on data collected.
+    \begin{itemize}
+        \item Identify appropriate malware
+        \item create payload
+        \item deliver to target
+        \item leverage exploits
+    \end{itemize}
+    \item Delivery: Measures the effectiveness of security controls implemented by the target based on whether or not the intrusion attempt succeeds.
+    \begin{itemize}
+        \item Phishing emails
+        \item USB drives
+        \item Website attacks
+        \item Hacking tools against operating systems, applications,\dots
+    \end{itemize}
+    \item Exploitation: Trigger of the malicious code to exploit the vulnerability
+    \item Installation: adversary downloads and installs more malicious software on the target system to maintain access to the network for an extended period.
+    \item Command and Control: adversary creates a command and control channel that establishes two-way communication.
+    \item Actions on Objectives: Adversary controls the victim system and gains access to confidential data, disrupts services or network, or destroys operational capability of the target.
+    May use this as a launching point for new attacks.
+\end{itemize}
+
+\subsubsection{Tactics, Techniques, and Procedures (TTPs)}
+TTPs refer to the patterns of activities and methods associated with specific threat actors.
+\begin{itemize}
+    \item Tactics: The way a threat actor operates during the different phases of the attack.
+    \item Techniques: Technical methods used by an attacker to achieve intermediate results during the attack.
+    \item Procedures: Organizational approaches that threat actors follow to launch an attack.
+\end{itemize}
+TTP helps identify and profile attackers or APTs and learn more about how attacks occur.
+
+\subsubsection{Adversary Behavioral identification}
+Identification of the common methods or techniques followed by an adversary to launch attacks on or to penetrate an organization's network.
+Gives security professionals insight into upcoming threats and exploits.
+\begin{itemize}
+    \item Internal Reconnaissance: Methods used once inside a target network for enumeration.
+    Monitor activity by checking for unusual commands and packet capturing tools.
+    \item Use of PowerShell: Automating data exfiltration.
+    Can check the PowerShell logs or Windows Event logs.
+    \item Unspecified Proxy activities
+    \item Use of command-line interface
+    \item HTTP user agent
+    \item Command and Control server
+    \item Use of DNS tunneling
+    \item Use of web shell
+    \item Data staging
+\end{itemize}
+
+\subsubsection{Indicators of compromise (IoCs)}
+Clues, artifacts, and pieces of forensic data found on the network or operating system of an organization that indicate a potential intrusion.
+\begin{itemize}
+    \item Email Indicators
+    \begin{itemize}
+        \item Sender's email address
+        \item Email subject
+        \item attachments or links
+    \end{itemize}
+    \item Network Indicators
+    \begin{itemize}
+        \item URLs
+        \item Domain names
+        \item IP addresses
+    \end{itemize}
+    \item Host-Based Indicators
+    \begin{itemize}
+        \item Filenames
+        \item File Hashes
+        \item Registry keys
+        \item DLLs
+        \item Mutex
+    \end{itemize}
+    \item Behavioral Indicators
+    \begin{itemize}
+        \item Document executing PowerShell script
+        \item Remote command execution
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Key Indicators of Compromize (IoCs)}
+\begin{itemize}
+    \item Unusual outbound network traffic
+    \item Unusual activity through a privileged user account
+    \item Geographical anomalies
+    \item Multiple login failures
+    \item Increased database read volume 
+    \item Large HTML response size
+    \item Multiple requests for the same file
+    \item Mismatched port-application traffic
+    \item Suspicious registry or system file changes
+    \item Unusual DNS requests
+    \item Unexpected patching of systems
+    \item Signs of Distributed Denial-of-Service (DDoS) activity
+    \item Bundles of data in the wrong place
+    \item Web traffic win superhuman behavior
+\end{itemize}
+
+\subsection{Hacking Concepts}
