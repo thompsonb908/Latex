@@ -1,0 +1,104 @@
+\section{Definitions}
+\begin{itemize}
+    \item CIA Triad: 
+    \begin{itemize}
+        \item Confidentiality: unauthorized access to information.
+        \item Integrity: Trustworthiness of data
+        \item Availability: accessible when required
+        \item (Other) Non-repudiation: Sender of a message cannot deny having sent the message, same for receiver.
+        \item (Other) Authenticity: quality of being genuine
+    \end{itemize}
+	\item OSI model - Open System Interconnection model
+	\item Local Area Network (LAN): Computer network that connects two or more computers within a limited area.
+	\item Virtual Local Area Network (VLAN): Broadcast domain that is divided in a computer network at the data link layer (OSI layer 2).
+	\item Wide Area Network (WAN): Covers larger area than a LAN, typically involves telecommunication circuits for a special purpose, ie: banking network. Nodes are more than 10 miles apart.
+	\item Time to live (TTL): time period a message can live on the network before it is discarded. (8-bits). Number of seconds or number of hops?
+	\item User Datagram Protocol (UDP): light weight communication protocol that gives no assurance of delivery.
+	If the application receives out of order packets they are destroyed rather than worrying about reordering them.
+	\item Transmission Control Protocol (TCP): 
+	\item Internet of Things (IoT): Devices with embedded software and network access.
+	
+	\item Malware: software created to harm or infiltrate a computer system without the owners consent.
+	\begin{itemize}
+        \item Virus: Create copies of themselves in other programs and activate from a trigger event.
+        \item Worm
+        \item Spyware
+        \item Trojan
+    \end{itemize}
+    \item Information Security Policy: set of rules sanction by an organization to ensure that user of networks abide by the prescriptions regarding the security of data stored within the boundaries of the organization.
+    \item Event: Something that happens that is detectable
+    \item Incident: an event that violates policy.
+    \item Certificate Authority: Organization that issues digital certificates.
+    \item Vulnerability Scanner: Computer program designed to assess computer systems, network or applications for known weaknesses.
+    \item Uniform Resource Locator (URL): reference to a web resource. Is a specific type of URI.
+    \item Uniform Resource Identifier (URI): Unique sequence of characters that identifies a logical or physical resource used by web technologies. the \verb|http://| part of the url.
+    \item DNS Zone transfer: Used to duplicate or make copies of DNS data across a number of DNS servers or to back up DNS files.
+    \item Open-source intelligence: to describe identifying information about a target using freely available sources.
+    \item Defence in breadth: planned, systematic set of multi-disciplinary activities that seek to identify, manage, and reduce risk of exploitable vulnerabilities at every stage of the system, network, or sub-component lifecycle.
+    \item Defence in depth (DiD): Information security approach in which a series of security mechanisms and controls are layered throughout a computer network.
+    \item Lawful Interception: Process of legally intercepting communications betwen two or more parties for surveillance on telecommunications, VoIP, data, and multiservice networks.
+    \item Internet Zones
+    \begin{itemize}
+        \item Internet (uncontrolled zone): outside the boundary of your organization.
+        \item Internet DMZ (controlled zone): Internet-facing controlled zone that contains components in which clients may directly communicate with. Usually buffered by two firewalls one from internet to DMZ and one from DMZ to the internal network.
+        \item Production network (restricted zone): A restricted zone supports functions to which access must be strictly controlled; direct access from an uncontrolled network should not be permitted. In a large enterprise, several network zones might be designated as restricted. As with an internet DMZ, a restricted zone is typically bounded by one or more firewalls that filter incoming and outgoing traffic.
+        \item Intranet (controlled zone): is not heavily restricted in use, but an appropriate span of control is in place to assure that network traffic does not compromise the operation of critical business functions.
+        \item Management network (secured zone): In a secured zone, access is tightly controlled and available to only to a small number of authorized users. Access to one area of the zone does not necessarily apply to another area of the zone.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Attacks}
+\begin{itemize}
+    \item SQL Injection:
+	\begin{itemize}
+        \item In-band SQL Injection: Attacker uses the same communication channel to launch the attack and gather results. (error-based and union-based SQL injection).
+    \end{itemize}
+    \item Bluetooth
+    \begin{itemize}
+        \item Bluesnarfing: Theft of information from a target device using a bluetooth connection.
+        \item Bluejacking: Transmission of data to a target device using a bluetooth connection.
+    \end{itemize}
+    \item Operating System Attacks
+    \item Application-Level Attacks
+    \item Shrink Wrap Code Attacks
+    \item Misconfiguration Attacks
+    \item DHCP starvation attack: Broadcasting DHCP requests with spoofed MAC addresses to expend the available address pool, denying access to new users.
+    \item MAC flooding attack: Attacker floods the switch MAC table to push legitimate MAC addresses out of the switch. This causes significant amounts of frames to be broadcasted to all ports.
+\end{itemize}
+
+\subsection{Organizations}
+\begin{itemize}
+    \item Open Web Application Security Project (OWASP): International non-profit organization focused on web application security.
+    \item Federal Risk and Authorization Management Program (FedRAMP): Cloud computing regulatory effort, government-wide, delivers systemized approach to security assessment, authorization, and continuous monitoring of cloud products and services.
+\end{itemize}
+
+\subsection{Cloud computing}
+\begin{itemize}
+    \item Platform as a service (PaaS): Third-party provider delivers hardware and software tools to users over the internet. PaaS frees developers from having to install in-house hardware and software to develop or run a new application.
+    \item Infrastructure as a Service (IaaS):
+    \item Hardware as a Service (HaaS):
+    \item Software as a Service (SaaS):
+    \item Models:
+    \begin{itemize}
+        \item Private
+        \item Public
+        \item Community: Infrastructure is shared by several organizations, usually with the same policy and compliance considerations.
+        \item Hybrid
+    \end{itemize}
+\end{itemize}
+
+\subsection{Cryptography}
+\begin{itemize}
+    \item Ciphers
+    \begin{itemize}
+        \item Symmetric Ciphers: Single key is used for encryption and decryption
+        \begin{itemize}
+            \item Data Encryption Standard (DES): Symmetric-key block cipher with key size of 56-bits
+            \item Triple Data Encryption Algorithm (3DES, TDES, TDEA): Applies the DES algorithm 3 times to each data block. Key length of \(56 \times 3 = 168\) bits when 3 independent keys are used, or 112 when two keys are independent. 
+        \end{itemize}
+        \item Asymmetric Ciphers (Public key cryptography): One key can encrypt and one key can decrypt.
+        \begin{itemize}
+            \item 
+        \end{itemize}
+    \end{itemize}
+\end{itemize}

@@ -290,4 +290,67 @@ The distinction between ethical hackers and crackers is consent.
 Security controls prevent the occurrence of unwanted events and reduce risk to assets.
 Basic security concepts are Confidentiality, Integrity, Availability (CIA).
 Concepts related to users accessing information are authentication, authorization, and non-repudiation.
-This section covers Information Assurance (IA), defence in depth, risk management, cyber threat intelligence, threat modeling, incident management and AI and ML concepts.
+This section covers Information Assurance (IA), defence in depth, risk management, cyber threat intelligence, threat modeling, incident management and AI and ML concepts. 
+
+\subsubsection{Information Assurance (IA)}
+Assurance of Confidentiality, availability, integrity and authenticity of information and information systems is protected during the usage , processing, storage and transmission of information.
+\begin{itemize}
+    \item Develop local policies, processes and guidance.
+    \item Designing network and user authentication strategies.
+    \item Identifying network vulnerabilities and threats.
+    \item Identifying problem and resource requirements.
+    \item Creating plans for identified resource requirements.
+    \item Applying appropriate information assurance controls.
+    \item Performing certification and accreditation
+    \item Providing information assurance training.
+\end{itemize}
+
+\subsubsection{What is Risk?}
+Degree of uncertainty or expectation that an adverse event may cause damage to the system.
+Risks are categorized into  different levels according to their estimated impact on the system.
+A risk matrix is used to scale risk according to the probability, likelihood, and consequence or impact of the risk. 
+\begin{itemize}
+    \item Probability of the occurrence of a threat or and event that will damage the organization.
+    \item Possibility of a threat acting upon internal or external vulnerability and causing harm to a resource.
+    \item The product of the likelihood that an event will occur and the impact that the event might have on an information technology asset.
+\end{itemize}
+\begin{equation*}
+    \text{RISK} = \text{Threats} \times \text{vulnerabilities} \times \text{Impact}
+\end{equation*}
+The impact of and event on an information asset is the product of vulnerability in the asset and the asset's value to it's stakeholders.
+IT risk can be expanded to:
+\begin{equation*}
+    \text{RISK} = \text{Threat} \times \text{Vulnerability} \times \text{Asset Value }
+\end{equation*}
+
+\begin{equation*}
+    \text{Level of Risk} = \text{Consequence} \times \text{Likelihood}
+\end{equation*}
+\begin{table*}
+    %\centering
+    \begin{tabular}{|l|l|l|}
+        \hline
+        \textbf{Risk Level} & \textbf{Consequence} & \textbf{Action}\\
+        \hline
+        \textbf{Extreme or High} & Serious or imminent danger & \begin{minipage}[t]{0.4\textwidth}
+            \begin{itemize}
+                \item Immediate measures are required to combat the risk
+                \item Identify and impose controls to reduce the risk to a reasonably low level
+            \end{itemize}
+        \end{minipage} \\
+        \hline
+        \textbf{Medium} & Moderate danger & \begin{minipage}[t]{0.4\textwidth}
+            \begin{itemize}
+                \item Immediate action is not required, but action should be implemented Quickly
+                \item Implement controls as soon as possible to reduce the risk to a reasonably low level  
+            \end{itemize}
+        \end{minipage}\\
+        \hline
+        \textbf{Low} & Negligible danger & \begin{minipage}[t]{0.4\textwidth}
+            \begin{itemize}
+                \item Take preventative steps to mitigate the effects of risk
+            \end{itemize}
+        \end{minipage}\\
+        \hline
+    \end{tabular}
+\end{table*}
