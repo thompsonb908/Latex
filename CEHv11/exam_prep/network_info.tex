@@ -1,0 +1,46 @@
+\section{Network Information}
+
+\subsection{Classes of IPv4 Addresses}
+\begin{itemize}
+    \item Class A ranges:\\
+    Class A addresses are for networks with large number of total hosts.
+    \begin{itemize}
+        \item Public IP range 1.0.0.0 to 127.0.0.0 (first octet range from 1 to 127)
+        \item Private IP range: 10.0.0.0 to 10.255.255.255
+        \item Subnet Mask: 255.0.0.0
+        \item Number of hosts per network: \[16777214\]
+    \end{itemize}
+    \item Class B ranges:\\
+    Class B addresses are for medium sized networks.
+    \begin{itemize}
+        \item Public IP range: 128.0.0.0 to 191.255.0.0 (first octet value range from 128 to 191)
+        \item Private IP range 172.16.0.0 to 172.31.255.255
+        \item Subnet Mask: 255.255.0.0 (16 bits)
+        \item Number of networks: \[16382\]
+        \item Number of hosts per network: \[65534\]
+    \end{itemize}
+    \item Class C ranges:\\
+    Class C addresses are used in small local area networks (LANs)
+    \begin{itemize}
+        \item Public IP range: 192.0.0.0 to 223.255.255.0 (first octet range from 192 to 223)
+        \item Private IP range: 192.168.0.0 to 192.168.255.255
+        \item Special IP range: 127.0.0.1 to 127.255.255.255
+        \item Subnet mask: 255.255.255.0 (24 bits)
+        \item Number of networks: \[2097150\]
+        \item Number of hosts per network: \[254\]
+    \end{itemize}
+    \item Class D ranges:\\
+    Class d addresses are not allocated to hosts and are usually used for multicasting. Multicasting allows a single host to send a single stream of data to thousands of hosts across the internet at the same time. Often used for audio or video streaming (IP based cable TV networks, Real-time stock market data to brokerages).
+    \begin{itemize}
+        \item Range: 224.0.0.0 to 239.255.255.255 (First octet ranges from 224 to 239)
+        \item Number of networks: N/A
+        \item Number of hosts per network: Multicasting
+    \end{itemize}
+    \item Class E ranges:\\
+    Class E IP addresses are not allocated to hosts and are not available for general use. Reserved for research purposes.
+    \begin{itemize}
+        \item Range: 240.0.0.0 to 255.255.255.255
+        \item Number of networks: N/A
+        \item Number of hosts per network: Research/Reserved/Experimental
+    \end{itemize}
+\end{itemize}

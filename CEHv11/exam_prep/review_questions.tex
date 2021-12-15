@@ -1,6 +1,6 @@
 \section{Review Questions}
 
-\subsection{TCP Scanning}
+\subsection{Scanning}
 \begin{itemize}
     \item In the SYN scan; Nmap will send a SYN message to the target. What is the response if the port is open or closed?
     \begin{enumerate}
@@ -8,6 +8,25 @@
         \item Closed A RST packet
         \item Filtered: No response given
     \end{enumerate}
+    \item Active banner grabbing techniques used by an attacker to determine the OS running on a remote target system.
+    \begin{itemize}
+        \item TCP Sequence ability test
+        \item Port Unreachable
+    \end{itemize}
+    \item Passive banner grabbing techniques:
+    \begin{itemize}
+        \item Banner grabbing from error messages
+        \item Sniffing the network traffic
+        \item Banner grabbing from page extensions
+    \end{itemize}
+    \item Countermeasures to prevent information disclosure through banner grabbing
+    \begin{itemize}
+        \item \textbf{Display false banners to mislead or deceive attackers.}
+        \item Turn off unnecessary services on the network host to limit information disclosure.
+        \item Disabling open relay feature protect from SMTP enumeration.
+        \item Disabling the DNS zone transfers to untrusted hosts protect from DNS enumeration
+        \item Restricting anonymous access through RestrictNullSessAccess parameter from the Windows Registry protects from SMB enumeration.
+    \end{itemize}
 \end{itemize}
 
 \subsection{General}
