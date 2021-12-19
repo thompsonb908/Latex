@@ -1,0 +1,17 @@
+\section{SNMP Information}
+The SNMP protocol enables an attacker to enumerate user accounts and devices on a target system.
+\subsection{Commands}
+\begin{itemize}
+    \item SetRequest: Used by SNMP manager to modify the value of a parameter within an SNMP agent's management information base (MIB).
+    \item Trap: Used by an SNMP agent to inform the pre-configured SNMP manager of a certain event.
+    \item GetNextRequest: Used by the SNMP manager continuously to retrieve all the data stored in an array or table.
+    \item GetResponse: Used by an SNMP agent to satisfy a request made by the SNMP manager.
+\end{itemize}
+
+\subsection{Management information base (MIB)}
+\begin{itemize}
+    \item \verb|LNMIB2.MIB| Object types for workstation and server services.
+    \item \verb|MIB_II.MIB| manages TCP/IP-based Internet using a simple architecture and system.
+    \item \verb|HOSTMIB.MIB| Monitors and manages host resources.
+    \item \verb|WINS.MIB| For the Windows Internet Name Service (WINS)
+\end{itemize}

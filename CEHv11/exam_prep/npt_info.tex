@@ -1,0 +1,12 @@
+\section{NTP Information}
+Network Time Protocol
+\subsection{NTP Commands}
+\begin{itemize}
+    \item \verb|ntpdate| sets the local date and time by polling the NTP server(s).
+    \begin{itemize}
+        \item \verb|-B|: Forces the time to always be slewed using the adjtime() system call.
+        \item \verb|-d|: Enables the debugging mode, \verb|ntpdate| will go through all the steps but not adjust the local clock.
+        \item \verb|-b|: Force time to be stepped using the settimeofday() system call, rather than slewed (\verb|-B|).
+        \item \verb|-q|: Query only - don't set the clock.
+    \end{itemize}
+\end{itemize}

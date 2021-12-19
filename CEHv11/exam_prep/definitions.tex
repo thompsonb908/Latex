@@ -1,10 +1,10 @@
 \section{Definitions}
 
-\subsection{Chapter 1:}
+\subsection{Chapter 1: Introduction To Ethical Hacking}
 \subsubsection{Information Security Overview}
 \begin{itemize}
     \item Intelligence based warfare: A sensor-based technology that directly corrupts technological systems. "Warfare that consists of the design, protection, and denial of systems that seek sufficient knowledge to dominate the battle space.
-    \item 
+    \item
 \end{itemize}
 
 \subsubsection{Cyber Kill Chain Concepts}
@@ -13,8 +13,10 @@
     \item Installation: Adversary downloads and intalls more malicious software on the target system to maintain access to the target network for an extended period.
     \item Command and control: The adversary creates a command and control channel, which establishes two-way communication between the victim's system and adverary-controlled servers to communicate and pass data back and forth.
     \item Weaponization: Adversary selects or creates a tailored deliverable malicious payload (remote access malware weapon) using an exploit and a backdoor to send it to the victim.
-    \item 
+    \item
 \end{itemize}
+\subsubsection{Hacking and Ethical Hacking Concepts}
+
 \subsubsection{Information security controls, laws and standards}
 \begin{itemize}
     \item SOX Titles:
@@ -25,8 +27,8 @@
         \item Title 7: Studies and Reports: five sections, requires the Comptroller General and the Securities and Exchange Commission (SEC) to perform various studies and to report their findings.
     \end{itemize}
 \end{itemize}
-\subsection{Chapter 2}
-\subsubsection{Footprinting and Reconnaissance}
+\subsection{Chapter 2: Footprinting and Reconnaissance}
+\subsubsection{Footprinting Concepts}
 \begin{itemize}
     \item Sherlock: To search a vast number of social networking sites for a target username. This tool helps the attacker to locate the target user on various social networking sites along with the complete URL.
     \item BeRoot: BeRoot is a post-exploitation tool to check for common misconfigurations which can allow an attacker to escalate their privileges.
@@ -54,9 +56,36 @@
         \item Performing social engineering.
     \end{itemize}
 \end{itemize}
+
+\subsubsection{Footprinting Methodology}
+
+\subsubsection{Footprinting Tools and Countermeasures}
+
+\subsection{Chapter 3: Scanning Networks}
+
+\subsubsection{Network Scanning Concepts and Tools}
+
+\subsubsection{Host, Port and Service Discovery}
+
+\subsubsection{OS Discovery and Scanning Beyond IDS/Firewall}
+
+\subsection{Chapter 4: Enumeration}
+
+\subsubsection{Enumeration Concepts}
+
+\subsubsection{NetBIOS and SNMP Enumeration}
+\begin{itemize}
+    \item Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems on the internet. Used by ISPs to maintain large routing tables. Utilizes port 179
+\end{itemize}
+
+\subsubsection{LDAP, NTP, NFS, and SMTP Enumeration}
+\begin{itemize}
+    \item LDAP - Lightweight Directory Access Protocol
+\end{itemize}
+
 \subsection{General / Unsorted}
 \begin{itemize}
-    \item CIA Triad: 
+    \item CIA Triad:
     \begin{itemize}
         \item Confidentiality: unauthorized access to information.
         \item Integrity: Trustworthiness of data
@@ -64,18 +93,18 @@
         \item (Other) Non-repudiation: Sender of a message cannot deny having sent the message, same for receiver.
         \item (Other) Authenticity: quality of being genuine
     \end{itemize}
-	\item OSI model - Open System Interconnection model
-	\item Local Area Network (LAN): Computer network that connects two or more computers within a limited area.
-	\item Virtual Local Area Network (VLAN): Broadcast domain that is divided in a computer network at the data link layer (OSI layer 2).
-	\item Wide Area Network (WAN): Covers larger area than a LAN, typically involves telecommunication circuits for a special purpose, ie: banking network. Nodes are more than 10 miles apart.
-	\item Time to live (TTL): time period a message can live on the network before it is discarded. (8-bits). Number of seconds or number of hops?
-	\item User Datagram Protocol (UDP): light weight communication protocol that gives no assurance of delivery.
-	If the application receives out of order packets they are destroyed rather than worrying about reordering them.
-	\item Transmission Control Protocol (TCP): 
-	\item Internet of Things (IoT): Devices with embedded software and network access.
-	
-	\item Malware: software created to harm or infiltrate a computer system without the owners consent.
-	\begin{itemize}
+    \item OSI model - Open System Interconnection model
+    \item Local Area Network (LAN): Computer network that connects two or more computers within a limited area.
+    \item Virtual Local Area Network (VLAN): Broadcast domain that is divided in a computer network at the data link layer (OSI layer 2).
+    \item Wide Area Network (WAN): Covers larger area than a LAN, typically involves telecommunication circuits for a special purpose, ie: banking network. Nodes are more than 10 miles apart.
+    \item Time to live (TTL): time period a message can live on the network before it is discarded. (8-bits). Number of seconds or number of hops?
+    \item User Datagram Protocol (UDP): light weight communication protocol that gives no assurance of delivery.
+    If the application receives out of order packets they are destroyed rather than worrying about reordering them.
+    \item Transmission Control Protocol (TCP):
+    \item Internet of Things (IoT): Devices with embedded software and network access.
+   
+    \item Malware: software created to harm or infiltrate a computer system without the owners consent.
+    \begin{itemize}
         \item Virus: Create copies of themselves in other programs and activate from a trigger event.
         \item Worm
         \item Spyware
@@ -106,7 +135,7 @@
 \subsection{Attacks}
 \begin{itemize}
     \item SQL Injection:
-	\begin{itemize}
+    \begin{itemize}
         \item In-band SQL Injection: Attacker uses the same communication channel to launch the attack and gather results. (error-based and union-based SQL injection).
     \end{itemize}
     \item Bluetooth
@@ -150,11 +179,11 @@
         \item Symmetric Ciphers: Single key is used for encryption and decryption
         \begin{itemize}
             \item Data Encryption Standard (DES): Symmetric-key block cipher with key size of 56-bits
-            \item Triple Data Encryption Algorithm (3DES, TDES, TDEA): Applies the DES algorithm 3 times to each data block. Key length of \(56 \times 3 = 168\) bits when 3 independent keys are used, or 112 when two keys are independent. 
+            \item Triple Data Encryption Algorithm (3DES, TDES, TDEA): Applies the DES algorithm 3 times to each data block. Key length of \(56 \times 3 = 168\) bits when 3 independent keys are used, or 112 when two keys are independent.
         \end{itemize}
         \item Asymmetric Ciphers (Public key cryptography): One key can encrypt and one key can decrypt.
         \begin{itemize}
-            \item 
+            \item
         \end{itemize}
     \end{itemize}
 \end{itemize}
