@@ -131,7 +131,73 @@
 
 \subsubsection{Vulnerability Classification and Assessment Types}
 \begin{itemize}
-    \item 
+    \item Internal Assessment: Involves scrutinizing the internal network to find exploits and vulnerabilities.
+    \item Network-based Assessment: Discover network resources and map the ports and services running to various areas on the network.
+    \item Non-credentialed Assessment: Hacker does not possess any credentials.
+    \item Credentialed Assessment: The ethical hacker possesses the credentials of all machines present in the assessed network.
+    \item Distributed Assessment: employed by organizations with assets like servers and clients at different locations, involves simultaneously assessing the distributed organization assets, such as client and server applications using appropriate synchronization techniques.
+\end{itemize}
+
+\subsubsection{Vulnerability Assessment Solutions, Tools and Reports}
+\begin{itemize}
+    \item Product-Based Solutions: Solutions are installed either on a private or non-routable space or on the internet-addressable portion of an organization's network.
+    \item Tree-Based Assessment: the auditor (parent) selects different strategies for each machine or component (child nodes) of the information system. This approach relies on the administrator to provide a starting piece of intelligence and then to start scanning continuously without incorporating any information found at the time of scanning.
+    \item Service-Based Solutions: Offered by third parties, such as auditing or security consulting firms. Some solutions are hosted inside the network, while others are hosted outside the network.
+    \item Inference-Based Assessment: Scanning starts by building an inventory of the protocols found on the machine.
+    \item Depth Assessment Tools: Used to discover and identify previously unknown vulnerabilities in a system. Generally tools such as fuzzers, which provide arbitrary input to a system's interface, are used to identify vulnerabilities to an unstable depth.
+    \item Host-Based Vulnerability Assessment Tools: appropriate for servers running various applications, such as the Web, critical files, databases, directories, and remote accesses. These host based scanners can detect high levels of vulnerabilities and provide required information about the fixes (patches)
+    \item Scope assessment tools: Scope assessment tools provide an assessment of the security by testing vulnerabilities in the applications and operating system. These tools provide standard controls and a reporting interface that allows the user to select a suitable scan.
+    \item Application-Layer Vulnerability Assessment Tools: Designed to sever the needs of all kinds of operating system types and applications. Various resources pose a variety of security threats and are identified by the tools designed for that purpose.
+    \item Vulnerability scanning solutions steps:
+    \begin{enumerate}
+        \item Locating nodes: locate live hosts in the target network using various scanning techniques.
+        \item Performing service and OS discovery: enumerate the open ports and services along with the operating system on the target systems.
+        \item Testing for vulnerabilities: test for vulnerabilities on target nodes.
+    \end{enumerate}
+    \item Tools
+    \begin{itemize}
+        \item \verb|theHarvester|: used for open-source intelligence gathering and helps to determine a company's external threat landscape on the Internet. Attackers use this tool to perform enumeration on the LinkdIn social networking site to find employees of the target company along with their job titles.
+        \item \verb|Qualys VM|: Cloud based service that gives immediate global visibility into where IT systems might be vulnerable to the latest Internet threats and how to protect them. Helps to continuously identify threats and monitor unexpected changes in a netowrk before they turn into breaches.
+        \item \verb|Sherlock|: Searches a vast number of social networking sites for a target username.
+        \item \verb|Octoparse|: Offers automatic data extraction, scrapes web data without coding and turns web pages into structured data. gathers text, links, image urls and html code. 
+    \end{itemize}
+    \item Report sections
+    \begin{itemize}
+        \item Scan information: Provides information such as the name of the scanning tool, its version, and the network ports to be scanned.
+        \item Target Information: information about the target system's name and address.
+        \item Results: A complete scanning report containing subtopics such as target, services, vulnerability, classification, and assessment.
+        \item Target: Includes each host's detailed information and contains the following information:
+        \begin{itemize}
+            \item \verb|<Node>| name and address of the host.
+            \item \verb|<OS>| Operating system
+            \item \verb|<Date>| Date of the test.
+        \end{itemize}
+        \item Services: Defines the network services by their names and ports.
+        \item Classification: Allows the system administrator to obtain additional information about the scan, such as its origin.
+        \item Assessment: provides information regarding the scanner's assessment of discovered vulnerabilities.
+    \end{itemize}
+\end{itemize}
+
+\subsection{System Hacking}
+\subsubsection{System Hacking Concepts}
+\subsection{Gaining Access (Cracking Passwords and Vulnerability Exploitation)}
+\begin{itemize}
+    \item Kerberos authentication: Employs a key distribution center (KDC) that consists of an authentication server (AS) and a ticket-granting server (TGS), and uses "tickets" to prove a user's identity.
+    \item Markov-Chain Attack: Attackers gather a password database and split each password entry into two and three character syllables (2-grams and 3-grams); using these character elements, a new alphabet is developed, which is then matched with the existing password database.
+    \item PRINCE Attack: A \textbf{PR}obability \textbf{IN}finite \textbf{C}hained \textbf{E}lements (PRINCE) attack is an advanced version of a combinator attack in which, instead of taking inputs from two different dictionaries, attackers use a single input dictionary to build chains of combined words.
+    \item Combinator Attack: Attacker combines the entries of the first dictionary with those of the second dictionary. The resultant list of entries can be used to produce full names and compound words.
+    \item Fingerprint Attack: The passphrase is broken down into fingerprints consisting of single- and multi- character combinations that a target user might choose as his/her password.
+    \item Spiking: Allows attackers to send crafted TCP or UDP packets to the vulnerable server in order to make it crash.
+    \item Generate shellcode: Attackers use the msfvenom command to generate the shellcode and inject it into the EIP register to gain shell access to the target vulnerable server.
+    \item EIP Register: Extended Instruction Pointer (EIP) register contains the address of the next instruction to be executed.
+    \item Fuzzing: Allows the attacker to send large amounts of data to the target server so that it experiences buffer overflow and overwrites the EIP register.
+    \item Overwrite the EIP register allows attackers to identify whether the EIP register can be controlled and can be overwritten with malicious shellcode.
+    \item Information Gathering Tools
+    \begin{itemize}
+        \item Factiva: Global news database and licensed content provider. It is a business information and research tool that gets information from licensed and free sources and provides capabilities such as searching, alerting, dissemination, and business information management.
+        \item Shodan: Computer search engine that searches the Internet for connected devices (routers, servers, and IoT).
+        \item SecurityFocus: database of the recently reported       MWAAjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk                                                                                                                                                                                                                              m,,, kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqm                                                                                                                                                                                                                                                                                                     abase of the recently reported       
+    \end{itemize}
 \end{itemize}
 
 \subsection{General / Unsorted}
