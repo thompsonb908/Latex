@@ -192,13 +192,235 @@
     \item EIP Register: Extended Instruction Pointer (EIP) register contains the address of the next instruction to be executed.
     \item Fuzzing: Allows the attacker to send large amounts of data to the target server so that it experiences buffer overflow and overwrites the EIP register.
     \item Overwrite the EIP register allows attackers to identify whether the EIP register can be controlled and can be overwritten with malicious shellcode.
-    \item Information Gathering Tools
+    \item Tools
     \begin{itemize}
         \item Factiva: Global news database and licensed content provider. It is a business information and research tool that gets information from licensed and free sources and provides capabilities such as searching, alerting, dissemination, and business information management.
         \item Shodan: Computer search engine that searches the Internet for connected devices (routers, servers, and IoT).
-        \item SecurityFocus: database of the recently reported       MWAAjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk                                                                                                                                                                                                                              m,,, kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqm                                                                                                                                                                                                                                                                                                     abase of the recently reported       
+        \item SecurityFocus: database of the recently reported security vulnerabilities.
+        \item Maltego: program that can be used to determine the relationship and real-world links between people, groups, organizations, websites, Internet infrastructure and documents.
+        \item Infoga: Used for gathering email account information (IP,hostname, country) from different public sources and it checks if the email was leaked using the \verb|haveibeenpwned.com| API.
+        \item Splint: Can be used to detect common security vulnerabilities including buffer overflows.
+    \end{itemize}
+    \item NTLMv2 us a default authentication sceme that performs authentication using a challenge/response strategy. Can be cracked with dictionary or brute force, not rainbow table because NTMLv2 adds a salt value that is exchanged in the messaging, thus it cannot be used in a pass-the-hast attack either.
+    \item 
+\end{itemize}
+\subsubsection{Escalating Privileges}
+\begin{itemize}
+    \item Meltdown vulnerability - This is found in all the Intel processors and ARM processors deployed by Apple. This vulnerability leads to tricking a process to access out-of-bounds memory by exploiting CPU optimization mechanisms such as speculative execution.
+    \item Dylib hijacking - Allows an attacker to inject a malicious sylib in one of the primary directories and simply load the malicious dylib at runtime.
+    \item Spectre Vulnerability - Found in many modern processors such as AMD, ARM, Intel, Samsung and Qualcomm. Leads to tricking a processor to exploit speculative execution to read restricted data. Modern processors implement speculative execution to predict the future and to complete the execution faster.
+    \item DLL hijacking - Attacker places a malicious DLL in the application directory; the application will execute the malicious DLL in place of the real DLL.
+    \item Application Shimming - Malicious technique on Microsoft Windows in which application shim's are abused to establish persistence, inject DLLs, elevate privileges, and much more. The Microsoft Windows Application Compatibility Framework can be used to create Shim Database (.sdb) files that are typically used to fix software compatibility issued, however they can instead be abused for nefarious purposes.
+\end{itemize}
+\subsubsection{Maintaining Access (Executing Applications and Hiding Files)}
+\begin{itemize}
+    \item Rootkits
+    \begin{itemize}
+        \item Boot Loader Level Rootkit: Replaces the original bootloader with the one controlled by a remote attacker.
+        \item Hardware/Firmware Rootkit: Hides in hardware devices or platform firmaware that are not inspected for code integrity.
+        \item Hypervisor level rootkit: Acts as a hypervisor and modifies the boot sequence of the computer system to load the host operating system as a virtual machine.
+        \item Library Level Rootkit: Replaced the original system calls with fake ones to hide information about the attacker.
+        \item Application level rootkit: Operate inside the victims computer by replaceing the standard application files (binaries) with rootkits or by modifying behavior of resent applications with patches, injected malicious code, and so on.
+        \item Kernel level rootkit: the kernel is the core of the operating system. Kernel level rootkits run in Ring-0 with the highest operating system privileges. These cover backdoors on the computer and are created by writing additional code or by substituting portions of kernel code with modified code via device drivers in Windows or loadable kernel modules in Linux. Of the kit's code contains mistakes or bugs, kernel-level rootkits affect the stability of the system. These have the same privileges of the operating system; hence they are difficult to detect and intercept or subvery the operatings of operating systems.
+    \end{itemize}
+    \item Hiding data
+    \begin{itemize}
+        \item Spread Spectrum Techniques: Communcation signals occupy more bandwidth than required to sent the infomration. The sender increases the band spread by means of code (independent of data), and the reciever uses a synchonized reception with the code to recover the information from the spread spectrum data.
+        \item Transform Domain Techniques: Hides information in significant parts of the cover image, such as cropping, compression, and some other image processing areas.
+        \item Substitution Techniques: Attacker tried to encode secret information by substituting the insignificant bits with the secret message.
+        \item Distortion Techniques: The user implements a sequence of modifications to the cover to obtain a stego-object. The sequence of modifications represents the transformation of a specific message.
+    \end{itemize}
+    \item Stego-Attacks
+    \begin{itemize}
+        \item Stego-only attack: the steganalyst or attack does not have access to any information except the stego-medium or stego-object. In this attack, the steganalyst must try every possible steganography algorithm and related attack to revoce the hidden information.
+        \item Chosen-message attack: The steganalyst uses a known message to generate a stego-object by using various steganography tools to find the the steganography algorithm used to hide information.
+        \item Chosen-stego attack: Takes place when the steganalyst knows both the stego-object and steganography tool or algorithm to hide the message.
+        \item Chi-square attack: The chi-square method is based on probability analysis to test whether a given stego-object and the original data are the same or not. If the differece between both is nearly zero, then not data are embedded; otherwise, the stego-object includes embedded data inside.
     \end{itemize}
 \end{itemize}
+
+\subsubsection{Clearing logs}
+\begin{itemize}
+    \item Commands
+    \begin{itemize}
+        \item \verb|history -c|: useful in clearing the stored history.
+        \item \verb|export HISTSIZE=0|: This command disables the BASH shell from saving the history by setting the size of the history file to 0.
+        \item \verb|history-w|: This command only deletes the history of the current shell, wheras the command history of other shells remain unaffected.
+        \item \verb|shred ~\.bash_history|: This command shreds the history file, making its contents unreadable.
+    \end{itemize}
+    \item TCP Parameters: Can be used by the attacker to distribute the payload and to create covert channels. Some of the TCP fields where data can be hidden are:
+    \begin{itemize}
+        \item IP Identification field: one character is encapsulated per packet.
+        \item TCP acknowledgement number: Uses a bounce server that revieves packets from the victim and sends it to an attacker. Here one hidden character is relayed by the bounce server per packet.
+        \item TCP initial sequence number: does not require an established connection between two systems. Here, one hidden character is encapsulated per SYN request and Reset packets.
+    \end{itemize}
+    \item Clear Online Tracks: Attacker clear online tracks maintained using web history, logs. cookies, cache, downloads, visited time, and other on the target computer, so that victims cannot notice what online activities attackers have performed.
+    \item Programs
+    \begin{itemize}
+        \item \verb|Auditpol.exe|: command line utility tool to change Audit Security settings at the category and sub-category levels. Attackers can use AuditPol to enable or disable security auditing on local or remote systems and to adjust the audit criteria for different categories of security events.
+        \item \verb|Clear_Event_Viewer_Logs.bat/clearlogs.exe| utility for wiping the logs of a target system.
+        \item \verb|SECEVENT.EVT|: Deletes security events
+        \item \verb|SYSEVENT.EVT|
+        \item \verb|APPEVENT.EVT|
+    \end{itemize}
+\end{itemize}
+
+\subsection{Malware Threats}
+\subsubsection{Malware Concepts}
+\begin{itemize}
+    \item Social Engineering Click-jacking: Inject malware into websites that appear legitimate to trick users into clicking them. When clicked, the malware embedded in the link executes without the knowledeg of the user.
+    \item Malvertizing: Embedding malware-laden advertisements in legitimate onlone advertising channels to spread malware on systems of unsuspecting users.
+    \item Black hat search Engine Optimization (SEO): also known as unethical SEO uses agressive SEO tactics such as keyword stuffing, inserting doorway pages, page swapping, and adding unrelated keywords to get higher search engine rankings for malware pages.
+    \item Compromised Legitimate Websites
+    \item Malware Components
+    \begin{itemize}
+        \item Downloader: Type of trojan that downloads other malware or malicious code files from the internet on to the PC or device. Attackers usually install downloaders when they first gain access to a system.
+        \item Crypters: software that encrypts the original binary code of the .exe file. Crypters hide viruses, spyware, keyloggers, Remote Access Trojans (RATs), and others to make them undetectable to anti-viruses.
+        \item Obfuscator: Obfuscation means to make code harder to understand or read, generally for privacy or security concerns. Converts a straightforward program into one that works the same way but is much harder to understand. It is a program to conceal the malicious code of malware via various techniques, thus making it hard for security mechanisms to detect or remove it.
+        \item Payload: Part of the malware that performs desired activity when activated. 
+    \end{itemize}
+\end{itemize}
+\subsubsection{APT Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Trojan Concepts}
+\begin{itemize}
+    \item Ports for trojans:
+    \begin{itemize}
+        \item Port 80: Necurs, NetWire, Ismdoor, Poison Ivy, Executer, Codered, APT 18, APT 19, APT 32, BBSRAT, Calisto, Carbanak, Carbon, Comnie, Empire, FIN7, InvisiMole, Lazarus Group, MirageFox, Mis-Type, Misdat, Mivast, MoonWind, Night Dragon, POWERSTATS, RedLeaves, S-Type, Threat Group-3390, UBoatRAT.
+        \item Port 20/22/80/442: Emotet
+        \item Port 8080: Zeus, APT 37, Comnie, EvilGrab, FELIXROOT, FIN7, HTTPBrowser, Lazarus Group, Magic Hound, OceanSalt, S-Type, Shamoon, TYPEFRAME, Volgmer.
+        \item Port 11000: Senna Spy
+    \end{itemize}
+    \item Banking trojan - steals credentials before they are encrypted by the system and sends them to the attacker.
+    \begin{itemize}
+        \item TAN Grapper: Transaction Authentication Number (TAN) is a single-use password for authenticating online banking transactions. Banking trojans intercept valid TANs entered by users and replace them with random numbers. Subsiquently, the attacker misuses the intercepted TAN with the target's login details.
+        \item HTML Injection: Trojan creates fake form fields on e-banking pages, therby enabling the attacker to collect the target's account details, credit card number, date of birth, etc. The attacker can use this information to impersonate the target and compromise his/her account.
+        \item Form Grabber: Type of malware that captures a target's sensitive data such as IDs and passwords, from a web browser form or page. It is an advanced method for collecting the target's Internet banking infomration. It analyses POST requests and responses to the victims browser. it compromises the scramble pad authentication and intercepts the scramble pad input as the user enters his/her Customer Number and Personal Access Code.
+        \item Covert Credential Grabber: This malware remains dormant until the user performs an online financial transaction. It works covertly to replicate itself on the computer and edits the registry entries each time the computer is started. The trojan also searches the cookie files that had been stored on the computer while browsing financial websites. Once the user attempts to make an online transaction, the Trojan covertly steals the login credentials and transmits them to the hacker.
+    \end{itemize}
+    \item Covert Channel: methods attackers use to hide data in an undetectable protocol. Rely on tunneling, which enables one protocol to transmit ofver the other. Any process or a bit of data can be a covert channel. Attackers can use covert channels to install backdoors on the target machine.
+    \item Asymmetric routing: Routing technique where packets flowing through TCP connections travel through different routes to different directions.
+    \item Tools:
+    \begin{itemize}
+        \item Trojan.Gen: generic detection for many individual but varied Trojans for which specific definitions have not been created.
+        \item Senna Spy Trojan Generator: Trojan that comer hidden in malicious programs. Once you install the source program, the trojan attempts to gain 'root' access without knowledge.
+        \item Win32.Trojan.BAT: System destructive trojan program. It will crash the system by deleting files.
+        \item DarkHorse Trojan Maker: Used to create user-specific trojans by selecting from various options.
+    \end{itemize}
+    \item Trojans
+    \begin{itemize}
+        \item Mirai: a self-propagating botnet that infects poorly protected internet devices (IoT). Uses Telnet port 23 or 2323 to find devices that are using their factory default username and password. Mirai is used to coordinate and mount a DDoS attack against a chosen victim.
+        \item Netwire: type of RAT
+        \item Theef: type of RAT
+        \item Kedi RAT: type of RAT
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Virus and Worm Concepts}
+\begin{itemize}
+    \item Virus lifecycle Stages
+    \begin{itemize}
+        \item Replication: Virus replicates for a period within the target system and then spreads itself.
+        \item Launch: Virus is activated when the user performs specific actions such as running an infected program.
+        \item Detection: Virus is identified as a threat infecting the target system.
+        \item Execution of the damage routine: User installs antivirus updates and eliminate the virus threats.
+    \end{itemize}
+    \item Types of viruses
+    \begin{itemize}
+        \item Sparse infector virus: infect less often and try to minimize their probability of discovery. Only infect on a certain condition or those files whose lengths fall within a narrow range.
+        \item Metamorphic Viruses: Programmed such that they rewrite themselves completely each time they infect a new exe.
+        \item Cavity Viruses: Some programs have empty spaces in them. Cavity viruses, or space fillers, overwrite a part of the host file with a constant (usually nulls), without increasing the length of the file while preserving its functionality. Maintaining a constant file size when infecting allows the vius to avoid detection.
+        \item Polymorphic Viruses: Infect a file with an encrypted copy of a polymorphic code already decoded by a decryption module. Polymorphic viruses modify their code for each replication to avoid detection.
+        \item Tunneling Viruses: Tries to hide from antivirus by actively altering and corrupting the service call interrupts while running. The virus code replaces the requests to perform operations with respect to these service call interrupts. They state false information to hide their presence from antivirus programs.
+        \item Macro Viruses: Infect Microsoft Word or similar applications by automatically performing a sequence of actions after triggering an application. Mose macro viruses are written using the macro language Visual Basic or Applications (VBA), and they infect templates or convert infected documents into template files while maintaining their appearance of common document files.
+        \item File Viruses: Infect files executed or interpreted in the system, such as COM, EXE, SYS, OVL, OBJ, PRG, MNU, and BAT files. File viruses can be direct-action (non-resident) or memory-resident-viruses.
+        \item System or Boot Sector Viruses: Most common targets for a virus are the system sectors, which include the mastor boot record (MBR) and the DOS boot record system sectors. An OS executes code in these areas while booting. Every disk has some sort of system sector. MBRs are the most virus prone zones because if the MBR is corrupted, all data will be lost. The DOS boot sector also executes during system booting. This is a crucial point of attack for viruses.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Fileless Malware Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Malware Analysis}
+\begin{itemize}
+    \item DLLs
+    \begin{itemize}
+        \item \verb|Kernel32.dll|: Core functionality, such as access and manipulation of memory, files, and hardware.
+        \item \verb|Advapi32.dll|: Provides access to advanced core Windows components such as the Service Manager and Registry.
+        \item \verb|WSock32.dll| and \verb|Ws2_32.dll|: Networking DLLs that help connect to a network or perform network-related tasks.
+        \item \verb|Ntdll.dll|: Interface to the Windows kernel.
+    \end{itemize}
+    \item Tools
+    \begin{itemize}
+        \item Resource Hacker: A resource editor for 32 and 64 bit Windows applications. Both a resource compiler (for .rc files), and a decompiler - enabling viewing and editing of resources in executables (.exe; .dll; .src; etc.) and compiled resource libraries (.res, .mui).
+        \item Ghirda: Software reverse engineering (SRE) framework created and maintained by the National Security Agency Reserach Directorate. Framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms including Windows macOS, and Linux. Capabilities include disassembly, assembly, decompilation, graphine, and scripting, along with hundreds of other features.
+        \item Hakiri: Monitors Ruby apps for dependency and code security vulnerabilities.
+        \item Synk: Platform developers choose to build cloud native applications securly.
+        \item BinText: small text extractor utility that can extract text from any kind of file and includes the ability to find plain ASCII text, Unicode (double byte ANSI) text and Resource strings, providing useful information for each item in the optional 'advanced' view mode.
+        \item UPX (Ultimate Pakcer for Executables): FOSS exe packer supporting a number of file formats from different operating systems.
+        \item ASPack: Advanced exe packer created to compress Win32 exe files and to protect them against non-professional reverse engineering.
+        \item PE Explorer: Allows you to open, view and edit a variety of different 32-bit Windows exe file types (PE files) ranging from common (EXE, DLL, ActiveX) to less familiar types (SCR \{Screensavers\}, CPL \{Control panel applets\}), SYS, MSSTYLES, BPL, DPL, and more.
+    \end{itemize}
+    \item Malware Encryption
+    \begin{itemize}
+        \item SamSam: uses RSA-2048 asymmetric encryption technique
+        \item WannaCry: Uses a combination of the RSA and AES algorithms to encrypt files
+        \item Dharma: Encrypts files using an AES 256 algorithm. the AES key is also encrypted with an RSA 1024.
+        \item Cerber: uses RC4 and RSA algorithms for encryption.
+    \end{itemize}
+    \item EXE file sections
+    \begin{itemize}
+        \item \verb|.rdata|: Contains the import and export information as well as other read-only data used by the program.
+        \item \verb|.data|: Contains the program's global data, which the system can access from anywhere.
+        \item \verb|.rsrc|: Consists of the resources employed by the executable, such as icons, images, menus, and strings, as this section offers multi-lingual support.
+        \item \verb|.text|: Contains instructions and program code that the cpu executes.
+    \end{itemize}
+    \item Monitoring
+    \begin{itemize}
+        \item Startup Programms monitoring is used to detect suspicious startup programs and processes.
+        \item Registry Monitoring is used to examing the changes made to the system's registry by malware.
+        \item Process monitoring is used to scan for malicious processes.
+        \item Windows services monitoring traces malicious services initiated by the malware. Since malware employs rootkit techniques to manipulate \verb|HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services| registry keys to hide its processes, windows service monitoring can be used to identify such manipulations.
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Malware Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item AlienVault USM Anywhere: A fileless malware detection tool that provides a unified platform for threat detection, incident response, and compliance management. It centralizes security monitoring of networks and devices in the cloud, on premis, and at remote locations, helping to detect threats anywhere.
+        \item GFI LanGuard: patch management software scans the network and installs and manages security and non-security patches.
+        \item Sonar Lite: Used to troubleshoot network connetivity, domain resolution issues or find out registration information for any domain.
+        \item Monit: M/Monit can monitor and manage distributed computer systems, conduct automatic maintenance and repair, and execute meaningful casual actions in error situations.
+        \item ClamWin: Free antivirus program for Windows.
+        \item DriverView: Displays the list of all device drivers loaded on the system. Gives additional information about the driver as well.
+    \end{itemize}
+    \item Malware:
+    \begin{itemize}
+        \item ZeuS: Also known as Zbot, a powerful banking trojan that explicitly attempts to steal confidential infomration like system information, online credentials, banking details, etc. Zeus is spread through drive-by-downloads and phishing schemes.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Sniffing}
+\subsubsection{Sniffing Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Sniffing Techniques}
+\begin{itemize}
+    \item Tools
+    \begin{itemize}
+        \item Nikto: A web server assessment tool that examines a web server to discover potential problems and security vulnerabilities.
+        \item dsniff: a collection of tools for netowrk auditing and penetration testing and can also be used to perform ARP poisoning.
+        \item OpenVAS: a framework of several services and tools offering a comprehensive and powerful vulnerability scaning and vulnerability management solution
+        \item Nexpose: Vulnerability scanner which aims to support the entire vulnerability management lifecycle, including discovery, detection, verification, risk classification, impact analysis, reporting and mitigation.
+    \end{itemize}
+\end{itemize}
+
 
 \subsection{General / Unsorted}
 \begin{itemize}
@@ -303,4 +525,13 @@
             \item
         \end{itemize}
     \end{itemize}
+\end{itemize}
+
+\subsection{Registers}
+\begin{itemize}
+    \item EIP - Extended Instruction Pointer stores the address of the next instruction to be executed.
+    \item ESP - Stack pointer, contains the address of the next element to be stored onto the stack.
+    \item EBP - Extended Base pointer (StackBase), contains the address of the bottom (first element) of the stack frame.
+    \item EDI - Destination Index, used with string instruction.
+    \item ESI - Source Index, used with string instruction.
 \end{itemize}

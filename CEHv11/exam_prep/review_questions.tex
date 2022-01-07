@@ -40,7 +40,75 @@
         \item Extract information using default passwords
     \end{itemize}
 \end{enumerate}
-\subsection{}
+
+\subsection{Chapter 5: System Hacking}
+\subsubsection{Escalating Privaleges}
+\begin{itemize}
+    \item A pen tester is using Metasploit to exploit an FTP server and pivot to a LAN. How will the pen tester pivot using Metasploit?
+    \begin{itemize}
+        \item Create a route statement in the meterpreter.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Maintaining Access}
+
+
+\subsection{Sniffing}
+\subsubsection{Sniffing Concepts}
+\begin{itemize}
+    \item Which of the following OSI layers do sniffers operate and perform an initial compromize?
+    \begin{itemize}
+        \item Data link layer: the second layer of the OSI model. Data packets are encoded and decoded into bits. OSI layers are designed to work independently of each other; thus if a sniffer sniffs data in the data link layer, the upper OSI layers will not be aware of the sniffing.
+    \end{itemize}
+    \item Which of the following techniques is also a type of netowkr protocol used for PNAC that is used to defend against MAC address spoofing and to enforce access control at the point where a user joins a network.
+    \begin{itemize}
+        \item \textbf{Implementation of IEEE 802.1X Suites}: This is a type of network protocol for port-based Network Access control (PNAC), and its main purpose is to enforce access control at the point where a user joins the network.
+        \item DCHP Snooping Binding Table: DHCP snooping process filters untrusted DHCP messages and helps to build and bind a DHCP binding table. This table contains the MAC address, IP address, lease time, binding type, CLAN number, and interface information to correspond with untrusted interfaces of a switch. It acts as a firewall between untrusted hosts and DHCP servers. It also helps in differentiating between trusted and untrusted interfaces.
+        \item Dynamic ARP Inspection: The system checks the IP-MAC address binding for each ARP packet in a network. While performing a DAI, the system will automatically drop invalid IP-MAC address binding.
+        \item IP Source Guard: IP source gurad is a security feature in switches that restricts the IP traffic on untrusted layer 2 ports by filtering traffic based on the DHCP snooping binding database. It prevents spoofing attacks when the attacker tries to spoof or use the IP address of another host. 
+    \end{itemize}
+    \item Which of the following Cisco switch port configuration commands is used to enter a secure MAC address for the interface and the maximum number of secure MAC addresses?
+    \begin{itemize}
+        \item \textbf{\verb|switchport port-security mac-address mac_address|} Enters a secure MAC address for the interface. You can use this command to enter the maximum number of secure MAC addreses.
+        \item \verb|switchport port-security limit rate invalid-source-max|: sets the rate limit for bad packets.
+        \item \verb|switchport port-security maximum value|: Sets the maximum number of secure MAC addresses for the interface. The range is 1 to 3072; the default is 1.
+        \item \verb|switchport port-security mac-address sticky| Enables sticky learning on the interface.
+    \end{itemize}
+    \item Which of the following techniques enables devices to detect the existence of unidirectional links and disable the affected interfaces in the network, in addition to causing STP topology loops.
+    \begin{itemize}
+        \item \textbf{UDLD (Unidirectional Link Detection)}: def in question
+        \item BPDU Guard: BPDU guard must be enabled on the ports that should never recieve a BPDU from their connected devices. This is used to avoid the transimission of BPDUs on PortFast-enabled ports. This feature helps in preventing potential bridging loops in the network.
+        \item Root Guard: Protects the root bridge and ensures that it remains as the root in the STP topology. It forces the interfaces to become the designaged ports (forwarding ports) to prevent the nearby switches from becoming root switches.
+        \item Loop Guard: Loop guard improves the stability of the network by preventing it against the bridging loops. it is generally used to protect against a malformed switch.
+    \end{itemize}
+    \item Which of the following IPv4 DHCP packet fields inculdes random number chosen by a client to associate request messages and their responses between the client and server?
+    \begin{itemize}
+        \item Opcode: 1 octet, contains the message opcode that represents the message type: opcode "1" represents messages sent by the client, while "2" represents responses sent by the server.
+        \item \textbf{Transaction ID (XID)}: 4 Octets, a random number is chosen by the client to associate the request messages and their responses between a client and a server.
+        \item Flags: 2 octets, Flags set by the client; For example, if the client cannot recieve unicast IP datagrams, then the broadcast flag is set.
+        \item Server Name (SNAME): 64 octets, Optional server hostname.
+    \end{itemize}
+    \item Which of the following IOS global commands verifies the DHCP snooping configuration?
+    \begin{itemize}
+        \item \textbf{\verb|show ip dhcp spoofing|}: Verifies the configuration.
+        \item \verb|ip dhcp snooping|: Enables DHCP snooping globally.
+        \item \verb|ip dhcp snooping trust|: Configures the interface as trusted or untrusted.
+        \item \verb|no ip dhcp snooping information option|: To disable the insertion and the removal of the option-82 field, use the no ip dhcp snooping information option in global configuration command.
+    \end{itemize}
+    \item In which of the following attacks does an attacker send spoofed router advertisement messages so that all the data packets travel through thri system to collect valuble information and launch MITM and DoS attacks?
+    \begin{itemize}
+        \item \textbf{IRDP Spoofing}: An attacker can use this to send spoofed router advertisement messages so that all the data packets travel through the attacker;s system. Thus, the attacker can sniff the traffic and collect valuble information from the data packets. Attackers can use IRDP spoofing to launch MITM, DoS and passive sniffing attacks.
+        \item MAC Spoofing: in this attack, the attacker first retrieves the MAC addresses of clients who are actively associated with the switch port. Then, the attacker spoofs a MAC address with the MAC address of the legitimate client. If the spoofing is successful, then the attacker can recieve all the traffic destined for the client. Thus, an attacker can gain access to the network and take over the identity of someone on the network.
+        \item ARP Spoofing Attack: ARP spoofing is a method of attacking an Ethernet LAN. When a legitimate user initiates a session with another user in the same layer 2 broadcast domain, the switch broadcasts an ARP request using the recipient's IP address, while the sender waits for the recipient to respond with a MAC address. An attacker eavesdropping on this unprotected layer 2 broadcast domain can respond to the broadcast ARP request and replies to the sender by spoofing the intended recipient's IP address.
+        \item STP Attack: If an attacker has access to two switches, he/she introduces a rogue switch in the network with a priority lower than any other switch in the network. This makes the rogue switch the root bridge, thus allowing the attacker to sniff all the traffic flowing in the network.
+    \end{itemize}
+    \item In one of the following techniques, an attacker must be connected to a LAN to sniff packets, and on successful sniffing, they can send a malicious reply to the sender before the actual DNS server.
+    \begin{itemize}
+        \item \textbf{Intranet DNS Spoofing}: An attacker can perform an intranet DNS spoofing attack on a switched LAN with the help of the ARP poisoning technique. To perform this attack, the attacker must be connected to the LAN and be able to sniff the traffic or packets. An attacker who succeeds in sniffing the ID of the DNS request from the intranet can send a malicious reply to the sender before the actual DNS server.
+        \item  DNS Cache poisoning: DNS cache poisoning refers to altering or adding forged DNS records in the DNS resolver cache so that a DNS query is redirected to a malicious site. The DNS system uses cache memory to hold the recently resolved domain names.
+        \item Proxy Server DNS Poisoning: In the proxy server DNS poisoning technique, the attacker sets up a proxy server on the attacker's system. The attacker also configures a fraudulent DNS and makes its IP address a primary DNS entry in the proxy server. The attacker changes the proxy server settings of the victim with the help of a Trojan. The proxy serves as a primary DNS and redirects the victim's traffic to the fake website, where the attacker can sniff the confidential information of the victim and then redirect the request to the real website.
+        \item Internet DNS Spoofing: Internet DNS poisoning is also known as remote DNS poisoning. Attackers can perform DNS spoofing attacks on a single victim or on multiple victims anywhere in the world. To perform this attack, the attacker sets up a rogue DNS server with a static IP address.
+    \end{itemize}
+\end{itemize}
 
 \subsection{General}
 \begin{itemize}
