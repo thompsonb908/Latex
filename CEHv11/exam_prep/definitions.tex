@@ -418,7 +418,216 @@
         \item dsniff: a collection of tools for netowrk auditing and penetration testing and can also be used to perform ARP poisoning.
         \item OpenVAS: a framework of several services and tools offering a comprehensive and powerful vulnerability scaning and vulnerability management solution
         \item Nexpose: Vulnerability scanner which aims to support the entire vulnerability management lifecycle, including discovery, detection, verification, risk classification, impact analysis, reporting and mitigation.
+        \item AnDOSid: Allows the attacker to simulate a DoS attack (an HTTP POST flood attack) and DDoS attack on a web server from mobile phones.
+        \item Xplico: extracts application data from captured internet traffic. Is an open source Network Forensic Analysis Tool (NFAT).
+        \item Akamai: provides DDoS protection for enterprises regularly targeted by DDoS attacks. Akamai Kona Site Defender delivers multi-layerd defense that effectivly protects websites and web applications against the increasing threat, sophistication, and scale of DDoS attacks.
+        \item Vindicate: A LLMNR/NBNS/mDNS spoofing detection toolkit for network administrators. Security professionals use this tool to detect name service spoofing.
     \end{itemize}
+    \item DNS Poisoning Techniques: sniff DNS traffic of a target network. An attacker can obtain the ID of the DNS request by sniffing and can send a malicious reply to the sender before the actual DNS server.
+    \begin{itemize}
+        \item Intranet DNS spoofing: An attacker can perform an intranet DNS spoofing attack on a switched LAN with the help of the ARP poisoning technique. To perform this attack, the attacker must be connected to the LAN and be able to sniff the traffic or packets. An attacker who succeeds in sniffing the ID of the DNS request from the intranet can send a malicious reply to the sender before the actual DNS server.
+        \item Internet DNS spoofing: Attackers perform Internet DNS spoofing with the help of Trojans when the victim's system connects to the Internet. It is an MITM attack in which the attacker changes the primary DNS entries of the victim's computer.
+        \item Proxy server DNS poisoning: In the proxy server DNS poisoning technique, the attacker sets up a proxy server on the attacker's system. The attacker also configures a fraudulent DNS and makes its IP address a primary DNS entry in the proxy server.
+        \item DNS cache poisoning: Attackers target this DNS cache and make changes or add entries to the DNS cache. If the DNS resolver cannot validate that the DNS responses have come from an authoritative source, it will cache the incorrect entries locally and serve them to users who make the same request.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Sniffing Tools and Countermeasures}
+\begin{itemize}
+    \item Tools
+    \begin{itemize}
+        \item Spoof-Me-Now: program to change (spoof) your MAC address.
+        \item OmniPeek: Network analyzer provides real time visibility and expert analysis of each part of the target network. will analyze, drill down, and fix performance bottlenecks across multiple network segments.
+        \item DerpNSpoof: DNS poisoning tool that assists in spoofing the DNS query packet of a certian IP address or group of hosts on the network.
+        \item ike-scan: discovers IKE hosts and can fingerprint them using the retransmission backoff pattern.
+        \item Nmap: Used to scan networks, has a NSE script that allows you to check if a target on a local Ethernet has its network card in promiscuous mode by doing the ARP test.
+        \item FaceNiff: Android app that can sniff and intercept web session profiles over the WiFi connected to the mobile. This app works on rooted Android devices. Whe WiFi connection should be over Open, WEP, WPA-PSK, or WPA2-PSK networks while sniffing the session.
+        \item shARP: an anti ARP-spoofing application software that uses active and passive scanning methods to detect and remove any ARP-spoofer from the network.
+    \end{itemize}
+    \item Sniffing Attacks
+    \begin{itemize}
+        \item ARP Spoofing: A method of attacking an Ethernet LAN. When a legitimate user initiates a session with another user in the same layer 2 broadcast domain, the switch broadcasts and ARP request using the recipient's IP address, while the sender waits for the recipient to respond with a MAC address.
+        \item ARP Poisoning: With the help of ARP poisoning, an attacker can use fake ARP messages to divert all communications between two machines so that all traffic redirects via the attacker's PC.
+        \item ARP Method: Sends a non-broadcast ARP to all nodes in the network. The node that runs in promiscuous mode on the netwrok will cache the local ARP address. Then it will broadcast a ping message on the network with the local IP address but a different MAC address. In this case, onlt the node that has the MAC address (cached eariler) will be able to respond to your braodcast ping request.
+        \item Ping method: To detect a sniffer on a network, identify the system on the network running in promiscuous mode. The ping method is useful in detecting a system that runs in promiscuous mode, which in turn helps detect sniffers installed on the network.s
+    \end{itemize}
+\end{itemize}
+
+\subsection{Social Engineering}
+\subsubsection{Social Engineering Concepts}
+\begin{itemize}
+    \item Intimidation: refers to an attempt to intimidate a victim into taking several actions by using bullying tactics.
+    \item Scarcity: Implies the state of being scarce. In the context of social engineering, scarcity often implies creating a feeling of urgency in a decision making process.
+    \item Consensus or Social Proof: Refers to the fact that people are usually willing to like things or do things that other people like or do.
+    \item Authority: Implies the right to exercise power in an organization. Attackers take advantage of this by presenting themselves as a person of authority, such as a technician or an executive.
+    \item Steps of a social engineering attack: Research on target company -> selecting target -> develop relationship -> exploit the relationship.
+\end{itemize}
+\subsubsection{Social Engineering Techniques}
+\begin{itemize}
+    \item Pop-Up Windows: windows that suddenly pop up while surfing the Internet and ask for user information to login or sign-in.
+    \item Hoax (Letters): Emails or popups that issue warnings to the user about new viruses, Trojans, or worms that may harm the user's system.
+    \item Instant Chat Messenger: Gathering personal information by chatting with a selected user online to get information such as birth dates and maiden names.
+    \item Chain Letters: A chain letter is a message or email offering free gifts, such as money and software, on the condition that the user forward the email to a predetermined number of recipients.
+    \item Pharming: Also known as "phishing without a lure" and performed by using DNS Cache Poisoning or Host File Modification.
+    \item Whaling: Attacker tries to trick the victim into revealing critical corporate and personal information through email or website spoofing.
+    \item Spimming: SPIM (Spamming over instant messaging) exploits Instant Messaging platforms and uses IM as a tool to spread spam. A person who generates spam over IM is called a Spimmer. Spimmers generally make use of bots to harvest Instan Messaging IDs and forward spam messgaes to them.
+    \item Spear Phising: Sending a specialized message with social engineering content directed at a specific person, or small group.
+    \item Skimming: refers to stealing credit/debit card number by using special storage devices called scimmers or wedges when processing the card.
+    \item Wardriving: Attackers search for unsecured WiFi networks in moving vehicles containing laptops, smartphones, or PDAs. Once they find unsecured netowrks, they access any sensitive information stored on the devices of the users on the networks.
+    \item Pretexting: fraudsters may pose as executives from financial institutions, telephone companiesm and so on who rely on "smooth talking" and win the trust of an individual to reveal sensitive information.
+    \item Pharming: an advanced form of phishing in which attackers modify DNS protocol and redirects the connection between the IP address and its target server.
+\end{itemize}
+\subsubsection{Insider threats and Identity Theft}
+\begin{itemize}
+    \item Malicious Insider: Malicious insider threats come from disgruntled or terminated employees who steal data or destroy company networks intentionally by injectin malware into the corporate network.
+    \item Negligent Insider: Insiders, who are uneducated on potential security threats or simply bypass general security procedures to meet workplace efficiency are more vulnerable to social engineering attcks. A large number of insider attacks result from employee's laxity towards security measures, policies and practices.
+    \item Professional Insider: The most harmful insiders where they use their technical knowledge to identify weaknesses and vulnerabilities of the company's network and sell the confidential information to the competitors or black market bidders.
+    \item Compromised Insider: An outsider compromises insiders having access to critical assets or computing devices of an organization. This type of threat is more difficult to detect since the outsider masquerades as a genuine insider.
+    \item Tax Identity Theft: This type of identity theft occurs when perpetrator steals the victim's Social Security Number or SSN in order to file fraudulent tax returns and obtain fraudulent tax refunds. It creates difficulties for the victim in accessing the legitimate tax refunds and results in a loss of funds.
+    \item Identity cloning and concealment: This is a type of identity theft which encompasses all forms of identity theft where the perpetrators attempt to impersonate someone else in order to simply hide their identity. These perpetrators could be illegal immigrants or those hiding from creditors or simply want to become “anonymous” due to some other reasons.
+    \item Synthetic identity theft: This is one of the most sophisticated types of identity theft where the perpetrator obtains information from different victims to create a new identity. Firstly, he steals a Social Security Number or SSN and uses it with a combination of fake names, date of birth, address and other details required for creating new identity. The perpetrator uses this new identity to open new accounts, loans, credit cards, phones, other goods and services.
+    \item Social identity theft: This is another most common type of identity theft where the perpetrator steals victim's Social Security Number or SSN in order to derive various benefits 
+\end{itemize}
+\subsubsection{Social Engineering Countermeasures}
+\begin{itemize}
+    \item Social Engineers Toolkit
+\end{itemize}
+
+
+\subsection{Denial-of-Service}
+\subsubsection{DoS/DDoS Concepts}
+\begin{itemize}
+    \item DoS attakcs have various forms and target various services. The attacks may cause the following:
+    \begin{itemize}
+        \item Consumption of resources
+        \item consumption of bandwidth, disk space, CPU time, or data structures.
+        \item Actual physical destruction or alteration of network components
+        \item Destruction of programming and files in a computer system.
+    \end{itemize}
+\end{itemize}
+\subsubsection{DoS/DDoS Attack Techniques and Tools}
+\begin{itemize}
+    \item Back chaining Propogation: In this technique, the attacker places an attack toolkit on their own system, and a copy of the attack toolkit is transferred to a newly discovered vulnerable system. The attack tools installed on the attacking machine use some special methods to accept a connection from the compromised system and then transfer a file containing the attack tools to it.
+    \item Autonomous Propagation: In autonomous propagation, the attacking host itself transfers the attack toolkit to a newly discovered vulnerable system, exactly at the time it breaks into that system.
+    \item Central Source Propagation: In this technique, the attacker places an attack toolkit on a central source and a copy of the attack toolkit is transferred to a newly discovered vulnerable system. Once the attacker finds a vulnerable machine, they instruct the central source to transfer a copy of the attack toolkit to the newly compromised machine, on which attack tools are automatically installed under management by a scripting mechanism.
+    \item Spyware Propagation: As its name implies, spyware is installed without user knowledge or consent, and this can be accomplished by “piggybacking” the spyware onto other applications.
+    \item Tools:
+    \begin{itemize}
+        \item CORE Impact: Finds vulnerabilities in an organization's web server. This tool allows a user to evaluate the security posture of a web server by using the same techniques currently employed by cyber criminals.
+        \item HULK: Denial of Service tool used to attack web servers by generating unique and obfuscated traffic volumes and its generated traffic also bypasses caching engines and hits the server's direct resource pool.
+        \item Pupy: cross platform, muli function RAT and post-exploitation tool used for executing applications remotely.
+        \item NetVisor: Desktop and child monitoring spyware that comes with an unparalleled task recording feature set that in secret records everything employees do on your network.
+        \item Fritzing: assists attackers in designing electronic diagrams and circuits.
+        \item Stormwall PRO: Filtering mitigation of all existing types of DDoS attacks on network, transport and session layers as well as application layer for HTTP(S)/Websocket traffic.
+        \item Suphacap: a Z-Wave sniffer, is a hardware tool used to sniff traffic generated by smart devices connected in the network. It allows attackers to perform real-time monitoring and capturing of packets from all Z-Wave networks.
+        \item KillerBee: Python based framework and tool set for exploring and exploiting the security of ZigBee and IEEE 802.15.4 netowrk.
+    \end{itemize}
+    \item Application-level flood attacks result in the loss of services of a particular network resource. Examples include email, network resources, temporary ceasing of applications and services, and so on. By using this attack, attackers exploit weaknesses in programming source code to prevent the application from processing legitimate requests. In this type of attack, an attacker tries to exploit the vulnerabilities in application layer protocol or in the application itself to prevent the access of the application to the legitimate user.
+    \begin{itemize}
+        \item Flood web applications to legitimate user traffic (GET/POST)
+        \item Disrupt service to a specific system or person, for example, blocking a user's access by repeating invalid login attempts.
+        \item Jam the application database connectino by crafting malicious SQL queries.
+        \item Slowloris
+        \item OS Vulnerabilities.
+    \end{itemize}
+    \item Protocol Attack: includes SYN floods, fragmented packets, ping of death, smurf DDos, teardrop, land, and other attacks.
+    \item Volume-based attack: UDP floods, ICMP floods, and other spoofed packet floods.
+\end{itemize}
+\subsubsection{DoS/DDoS Protection Tools and Countermeasures}
+\begin{itemize}
+    \item Activity profiling: Performed based on the average packet flow rate for network flow, which consists of consecutive packets with similar packt header information.
+    \item Wavelet-Based Signal Analysis: The wavelet analysis technique analyzes network traffic in terms of spectral components. it divides incoming signals into various frequencies and analyzes different frequency components separately.
+    \item Sequential Change-Point Detection: Change-Point detection algorithms isolate changes in network traffic statistics and in the traffic flow rate caused by attacks. Uses cumulative sum algorithms.
+    \item Absorbing the attack: Is a DoS/DDoS countermeasure strategy, in which additional capacity is used to absorb an attack, which requires preplanning and additional resources.
+    \item Cisco IPS Source and reputation filtering: reputation services help in determining if an IP or service is a source of threat.
+    \item Black Hole Filtering: refers to discarded packets at the routing level.
+    \item RFC 3704 Filtering: a basic access control list (ACL) filter, which limits the impact of DDoS attacks by blocking traffic with spoofed addresses.
+    \item DDoS Prevention Offering from ISP or DDoS service: Enable IP Source Gurad (in CISCO) or similar features in other routers to filter traffic based on the DHCP snooping binding database or IP source bindings, preventing a bot from succeeding with spoofed packets.
+    \item Ingress Filtering protects against flooding attacks that originate from valid prefixes (IP addresses).
+    \item Egress filtering scans the headers of IP packets going out of the network.
+    \item TCP intercept: In this mode the router intercepts the SYN packets sent by the clients to the server and matches with an extended access list. If there is a match, then on behalf of the destination server, the intercept software establishes a connection with the client. Similarly, the intercept software also setablishes a connection with the destination server on behalf of the client. Once the two half connections are established, the intercept software combines them transparently. Prevents the attempts of fake connection from reaching the server. Acts as a mediator between the server and the client throughout the connection.
+    \item MAC address filtering allows you to define a list of devices and only allows those devices on your network.
+    \item Tools
+    \begin{itemize}
+        \item DDoS-Guard: online service to protect against DDoS
+        \item A10 Thunder TPS: an Appliance that ensures reliable access to key network services by detecting and blocking external threats such as DDoS and other cyber-attacks before they escalate into costly service outages.
+        \item Imperva Incapsula DDoS protection: Quickly miticgates attacks of any size without affecting legitimate traffic or increasing latency.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Session Hijacking}
+\subsubsection{Session Hijacking Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Application Level Session Hijacking}"
+\begin{itemize}
+    \item Man in the Middle Attack: A MITM attack is used to intrude into an exiting connection between systems and to intercept messages being transmitted. In this attack, attacks use different techniques and split a TCP connectin into two: client-to-attacker and attacker-to-server connections.
+    \item Fragmentation Attack: These attacks destroy a victim's ability to reassemble fragmented packets by flooding it with TCP or UDP fragments, resulting in reduced performance. The attacker sends a large number of fragmented (1500+ byte) packets to a target web server with a relatively small packet rate.
+    \item Man in the Browser Attack: Similar to a MITM attack. The difference between the two is that a MITB attack uses a Trojan horse to intercept and mainpulate calls between a browser and its security mechanisms or libraries. An attack positions a previously installed Trojan between the browser and its security mechanism, and the Trojan can modify web pages and transaction content or insert additional transactions. All of the Trojan's activities are invisible to both the user and the web application.
+    \item Client-side Attack: Target vulnerabilities in client applications that interact with a malicious server or process malicious data. Depending on the nature of vulnerabilities, an attacker can exploit an application by sending an email with a malicious ling or otherwise tricking a user into visiting a malicious website. 
+    \item XXS: enables attackers to inject malicious client-side scripts into web pages viewed by other users.
+    \item Trojans: can change the proxy settings in the user's browser to send all sessions through an attacker's machine.
+    \item Malicious JavaScript Codes: An attacker can embed in a web page a malicious script that does not generate any warning but captures session tokens in the background and sends them to the attacker.
+    \item Session donation Attack: An attacker donates his/her own session identifier (SID) to the target user. The attacker first obtains a valid SID by logging into a service and later feeds the same SID to the target user. This SID links a target user back to the attacker's account page without any information to the victim.
+    \item Proxy servers: An attacker lures the victim to click on a bogus link, which looks legitimate but redirects the user to the attackers server. The attacker forwards the request to the legitimate server on behalf of the victim and servers as a proxy for the entire transaction. The attacker then captures the session's information during the interaction of the legitimate server and user.
+    \item CRIME Atatck: Compression Ratio Info-Leak Made Easy (CRIME) is a client side attack that exploits the vulnerabilities present in the data compression feature of protocols, such as SSL/TLS, SPDY, and HTTPS. Attackers hijack the session by decrypting secret session cookies. The authentication information obtained from the session cookies is used to establish a new session with the web application.
+    \item Forbidden attack: Type of MITM used to hijack HTTPS sessions. It exploits the reuse of cryptographic nonce during the TLS handshake. After hijacking the GTTPS session, the attacker inject malicious code and forged content that prompts the victim to disclose sensitive information, such as bank account numbers, passwords, and social security numbers.
+    \item Session replay attack: An attacker captures the authentication token of a user by listening to a conversation between the user and the server and reiterates the authentication request to the server with the captured authentication token to gain unauthorized access to the server.
+    \item Application Level Hijacking: gaining control over HTTP's user session by obtaining the session IDs.
+    \item Network Level hijacking: interception of packets during transmission in a TCP and UDP session between a server and client communication. attacks transport an internet level protocols
+\end{itemize}
+\subsubsection{Network Level Session Hijacking}
+\begin{itemize}
+    \item IP Spoofing: Source routed packets: useful in gaining unauthorized access to a computer with the help of a truseted host's IP address. This type of hijacking allows attackers to create their own acceptable packets to insert into the TCP session. First, the attacker spoofs the trusted host's IP address so that the server managing a session with the host accepts the packets from the attacker. The packets are source routed, so the sender specifies the path for packets from the source to the destination IP. Using this source-routing technique, attackers can fool the server into thinking that it is communicating with the user.
+    \item Blind Hijacking: A hacker can inject malicious data or commands into the intercepted communications in a TCP session, even if the victim disables source routing. Here, an attacker correctly guesses the next ISN of a computer attempting to establish a connection; the attacker sends malicious data or a command, such as password setting to allow access from another location on the network, but the attacker can never see the response. To be able to see the response, a MITM attack works much better.
+    \item TCP/IP hijacking: an attacker intercepts an established connection between two communicating parties using spoofed packets, and then pretends to be one of them. In this approach, the attacker uses spoofed packets to redirect the TCP traffic to his/her own machine. Once this is successful, the victim's connection hangs and the attacker is able to communicate with the host's machine on behalf of the victim.
+    \item UDP hijacking
+    \item RST Hijacking
+\end{itemize}
+\subsubsection{Session Hijacking Tools}
+\begin{itemize}
+    \item Burp Suite: inspect and modify traffic between
+    \item Vega: a free and open-source web security scanner and web security testing platform for testing the security of web applications. Vega helps you to find and validate SQL injection, XXS, inadvertently disclosed sensitive information and other vulnerabilities.
+    \item PortQry: Reports the port status of TCP and UDP ports on a selected target. Attackers can use PortQry tool to perform TFTP enumeration. This utility reports the port status of target TCP and UDP ports on a local or remote computer.
+    \item DroidSheep: Used for session hijacking on Android devices connected to a common wireless network. It obtains the session ID of active users on the WiFi network and uses it to access a website as an authorized user. A DroidSheep user can easily observe the activities of authorized users on websites. It can also hijack social accounts by obtaining the session ID.
+    \item ShellPhish: A phishing tool used to phish user credentials from various social networking platforms such as Instagram, Facebook, Twitter, and LinkdIn. Also displays to victim system's public IP address, browser information, hostname, geolocation, and other information.
+    \item Netcraft: The Netcraft anti-phishing community is a giant neighborhood watch scheme, empowering the most alert and most expert members to defend everyone within the community against phishing attacks. The Netcraft Toolbar provides updated information about sites that users visit regularly and blocks dangerous sites
+    \item OhPhish: OhPhish is a web-based portal for testing employees' susceptibility to social engineering attacks. It is a phishing simulation tool that provides the organization with a platform to launch phishing simulation campaigns on its employees
+    Apility.io: Apility.io is an anti-abuse API that helps security professionals to know if the IP address, domain, or email of a user is blacklisted. It is a collection of various tools delivered “as a service” to help security professionals, product managers, IT shops, enterprises, and start-ups to acquire more details about their potential visitors, users, customers, and threat actors.
+    \item FaceNiff: FaceNiff is an Android app that allows a user to sniff and intercept web-session profiles over the WiFi network that the user's mobile device is connected to. Although FaceNiff can hijack sessions only when the WiFi network does not use the Extensible Authentication Protocol (EAP), it works on any private network, including open, Wired Equivalent Privacy (WEP), Wi-Fi Protected Access-pre-shared key (WPA-PSK), and WPA2-PSK networks.
+    \item sslstrip: Sslstrip tool is exploiting user behavior and if a user does not type https:// in front of the link, and the website has redirection from HTTP to HTTPS, it will intercept HTTP 302 redirection and send the user exactly what the user asked for, i.e. HTTPsite
+\end{itemize}
+\subsubsection{Session Hijacking Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item AlienVault USM
+        \item Fiddler: Used for security testing of web applications such as  decrypting HTTPS traffic, and manipulating requests using man-in-th-middle decrpytion technique.
+        \item BetterCAP: ARP poisoning
+        \item MITMf: ARP poisoning
+        \item Cain an Abel: ARP poisoning.
+    \end{itemize}
+    \item IPsec: used to secure VPN sessions
+    \item IPsec Components:
+    \begin{itemize}
+        \item IPsec Driver: Software that performs protocol-level functions required to encrypt and decrypt packets.
+        \item Internet Key Exchange (IKE): A protocol that produces security keys for IPsec and other protocols.
+        \item Internet Security Association and Key Management Protocol (ISAKMP): Software that allows two computers to communicate by encrypting the data exchanged between them.
+        \item Oakley: A protocol that uses Diffie-Hellman algorithm to create a master key and a key that is specific to each session in IPsec data transfer.
+        \item IPsec Policy Agent:
+    \end{itemize}
+    \item IPsec architecture:
+    \begin{itemize}
+        \item Authentication Header (AH): Offers integrity and data origin authentication, with optional anti-replay featues.
+        \item Encapsulating Security payload (ESP): Offers all the services offered by AH as well as confidentiality.
+        \item IPsec Domain of Interpretation (DOI): Defines the payload formats, types of exchange, and naming conventions for security information such as cryptographic algorithms or security policies. IPsec DOI instantiates ISAKMP for use with IP when IP uses ISAKMP to negotiate security associations.
+        \item IPsec Policies: useful in providing network security. Defines when and how to secure data, as well as security methods to use at different levels in the network. One can configure IPsec policies to meet the security requirements of a system, domain, site, organizational unit and so on.
+    \end{itemize}
+    \item HTTP Strict Transport Security (HSTS): a web security policy that protects HTTPS websites against MITM attacks. The HSTS policy helps web servers force web browsers to interact with them using HTTPS. With the HSTS policy, all insecure HTTP connections are automatically converted into HTTPS connections. This policy ensures that all the communication between a web server and a web browser is encrypted and that all responses that are delivered and recieved originate from an authenticated server.
+    \item HTTP Public Key Pinning (HPKP): A trust on first use (TOFU) technique used in an HTTP header that allows a web client to associate a specific public key certificate with a prticular server to minimize the risk of MITM attacks based on fraudulent certificates. In TLS sessions, to verify the authenticity of a servers public key, the public key is enclosed in an X.509 digital certificate, which is signed by a certificate authority (CA).
+    \item WEP/WPA Encryption: Wired Equivalent Privacy (WEP) and Wireless Protected Access (WPA) are wireless protocols that are intended to protect the traffic that is sent and received by users over a wireless network. The implementation of these protocols can thwart the attempts of unwanted users to connect to the network. A weak encryption mechanism enables attackers to brute force credentials and enter the target network to perform an MITM attack.
+    \item Token Binding: When a user logs into a web application, a cookie with a session ID, called a token, is generated. The user utilizes this random token to send requests to the server and access resources. An attacker can impersonate the user and hijack the connection by capturing and reusing a valid session ID. Token binding protects client-server communication against session hijacking attacks. The client creates a public-private key pair for every connection to a remote server.
+    
 \end{itemize}
 
 

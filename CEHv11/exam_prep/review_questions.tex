@@ -108,7 +108,125 @@
         \item Proxy Server DNS Poisoning: In the proxy server DNS poisoning technique, the attacker sets up a proxy server on the attacker's system. The attacker also configures a fraudulent DNS and makes its IP address a primary DNS entry in the proxy server. The attacker changes the proxy server settings of the victim with the help of a Trojan. The proxy serves as a primary DNS and redirects the victim's traffic to the fake website, where the attacker can sniff the confidential information of the victim and then redirect the request to the real website.
         \item Internet DNS Spoofing: Internet DNS poisoning is also known as remote DNS poisoning. Attackers can perform DNS spoofing attacks on a single victim or on multiple victims anywhere in the world. To perform this attack, the attacker sets up a rogue DNS server with a static IP address.
     \end{itemize}
+    \item Which of the following is not a mitigation technique against MAC address spoofing?
+    \begin{itemize}
+        \item \textbf{DNS security (DNSSEC)}: Implement Domain Name System Security Extension to prevent DNS spoofing attacks.
+        \item 
+    \end{itemize}
 \end{itemize}
+
+\subsubsection{Sniffing Tools and countermeasures}
+\begin{itemize}
+    \item What is the correct pcap filter to capture all transmission control protocol (TCP) traffic going to or from host 192.168.0.125 on port 25?
+    \begin{itemize}
+        \item tcp.port == 25 and ip.addr == 192.168.0.125
+    \end{itemize}
+\end{itemize}
+
+\subsection{Social Engineering}
+\subsubsection{Social Engineering Concepts}
+\begin{itemize}
+    \item Mat, a software engineer, received an email from his colleague John, stating that project files were missing from his system and asking Mat to send them to his personal email. Mat was suspicious and called John on his personal number. To his surprise, John replied that he has never written an email recently to Mat.\\ Which of the following types of attacks was Mat subjected to?
+    \begin{itemize}
+        \item \textbf{Intimidation}
+    \end{itemize}
+\end{itemize}
+\subsubsection{Social Engineering Techniques}
+\begin{itemize}
+    \item A consultant is hired to do a physical penetration test at a large financial company. On the first day of his assessment, the consultant goes to the company's building dressed as an electrician and waits in the lobby for an employee to pass through the main access gate, and then the consultant follows the employee behind to get into the restricted area. Which type of attack did the consultant perform?
+    \begin{itemize}
+        \item \textbf{Tailgating} implies access to enter into the building or secured area without the consent of the authorized person. It is the act of following an authorized person through a secure entrance, as when a polite user opens and then holds the door for those following. An attacker wears a fake badge and attempts to enter a secured area by closely following an authorized person through a door requiring key access. He/she can then try to get into restricted areas by pretending to be an authorized person.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Denial-of-Service}
+\subsubsection{DoS/DDoS Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{DoS/DDoS Attack Techniques and Tools}
+\begin{itemize}
+    \item When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called ___________.
+    \begin{itemize}
+        \item Answer is C&C, which will instruct the Bot what to do. When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called C&C. Bot and Botnet respectively represent infected computer and network of the infected computers managed by C&C and server is not used in this terminology.
+    \end{itemize}
+    \item The DDoS tool used by anonymous in the so-called Operation Payback is called _______.
+    \begin{itemize}
+        \item LOIC is the first version of the tool and it was used in Operation Payback. HOIC is the second version of the tool with some additional features, and it was used in the Operation Megaupload. BanglaDos and Dereil do not have direct connection with anonymous group.
+    \end{itemize}
+\end{itemize}
+\subsubsection{DoS/DDoS Protection Tools and Countermeasures}
+\begin{itemize}
+    \item What is the DoS/DDoS countermeasure strategy to at least keep the critical services functional?
+    \begin{itemize}
+        \item Degrading services: During an attack, if it is not possible to keep all the services functioning, then it is a good idea to keep at least the critical services functional. To do this, first, identify the critical services and then customize the network, systems, and application designs to cut down on the noncritical services. This may help you to keep the critical services functional.
+    \end{itemize}
+    \item Ivan works as security consultant at “Ask Us Intl.” One of his clients is under a large-scale volume-based DDoS attack, and they have to decide how to deal with the issue. They have some DDoS appliances that are currently not configured. They also have a good communication channel with providers, and some of the providers have fast network connections. In an ideal scenario, what would be the best option to deal with this attack. Bear in mind that this is a volume-based DDoS attack with at least 1 000 000 bots sending the traffic from the entire globe!
+    \begin{itemize}
+        \item The answer is “Absorb the attack,” since this is a really large volume of traffic, and using additional capacity (DDoS appliances that are currently not configured) to absorb the attack. Most of the other options are not practically feasible. Blocking the traffic at the provider level is a viable option, but in this case, since the attack cannot be easily filtered (Since the traffic coming from the entire globe), this is not an apt solution. Filtering the traffic at the provider level is the same thing as blocking the traffic at the provider level, so this is not a correct answer and filtering the traffic at the company's Internet facing routers option will not work because the traffic is already there, and in this case, it is impossible to do anything at the client's site.
+    \end{itemize}
+    \item John's company is facing a DDoS attack. While analyzing the attack, John has learned that the attack is originating from the entire globe, and filtering the traffic at the Internet Service Provider's (ISP) level is an impossible task to do. After a while, John has observed that his personal computer at home was also compromised similar to that of the company's computers. He observed that his computer is sending large amounts of UDP data directed toward his company's public IPs.
+
+    John takes his personal computer to work and starts a forensic investigation. Two hours later, he earns crucial information: the infected computer is connecting to the C&C server, and unfortunately, the communication between C&C and the infected computer is encrypted. Therefore, John intentionally lets the infection spread to another machine in his company's secure network, where he can observe and record all the traffic between the Bot software and the Botnet. After thorough analysis he discovered an interesting thing that the initial process of infection downloaded the malware from an FTP server which consists of username and password in cleartext format. John connects to the FTP Server and finds the Botnet software including the C&C on it, with username and password for C&C in configuration file. What can John do with this information?
+    \begin{itemize}
+        \item The correct answer is “neutralize handlers,” because with admin's access to C&C John can stop the attack, disable the C&C software, and/or change the password to stop the DDoS attack on his company's network. Deflect the attack and mitigate the attack are not the correct answers because in both these cases, he is literally stopping the attack. Protect secondary victims is not the correct answer because secondary victims are still infected.
+    \end{itemize}
+    \item After successfully stopping the attack against his network, and informing the CERT about the Botnet and new password which he used to stop the attack and kick off the attackers from C&C, John starts to analyze all the data collected during the incident and creating the so-called “Lessons learned” document. What is John doing?
+    \begin{itemize}
+        \item John is trying the postattack forensics in order to learn how to fight this type of attacks in the future. John is not trying to neutralize the handlers because this requires some type of access to C&C, which was already done, and he is not trying to prevent potential attacks and protect secondary victims—this was already done in previous steps.
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Session Hijacking}
+\subsubsection{Session Hijacking Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Application Level Session Hijacking}"
+\begin{itemize}
+    \item
+\end{itemize}
+\subsubsection{Network Level Session Hijacking}
+\begin{itemize}
+    \item In order to hijack TCP traffic, an attacker has to understand the next sequence and the acknowledge number that the remote computer expects. Explain how the sequence and acknowledgment numbers are incremented during the 3-way handshake process.
+    \begin{itemize}
+        \item During the 3-way handshake, sequence and acknowledgment numbers are (relatively) incremented by one. After that acknowledge number will be incremented for the size of the packet received.
+    \end{itemize}
+    \item Maira wants to establish a connection with a server using the three-way handshake. As a first step she sends a packet to the server with the SYN flag set. In the second step, as a response for SYN, she receives packet with a flag set.
+
+    Which flag does she receive from the server?
+    \begin{itemize}
+        \item In the second step, the server sends a response to her with the SYN + ACK flag and an ISN (Initial Sequence Number) for the server.
+        In the third step, Maira sets the ACK flag acknowledging the receipt of the packet and increments the sequence number by 1.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Session Hijacking Tools}
+\begin{itemize}
+    \item Marin was using sslstrip tool for many yearsagainst most of the websites, like Gmail, Facebook, Twitter, etc. He was supposed to give a demo on internet (in)security and wanted to show a demo where he can intercept 302 redirects between his machine and Gmail server. But unfortunately it does not work anymore. He tried the same on Facebook and Twitter and the result was the same. He then tried to do it on the company OWA (Outlook Web Access) deployment and it worked! He now wants to use it against Gmail in his demo because CISO thinks that security through obscurity is a best way to a secure system (obviously BAD CISO) and demonstrating something like that on company live system is not allowed. How can Marin use sslstrip or similar tool to strip S from HTTP?
+    \begin{itemize}
+        \item HSTS protection is basically the cookie that the website issues to the web browser, when user visits the website for the first time. It's long term cookie, which means that it will not expire. If the cookie is set - web browser prevents visiting the website over HTTP connection. So, by using sslstrip+ with dnsspoof module, one can effectively combat the protection if the user NEVER visited this website before. That's why he has to use IE in InPrivate browsing mode because it will not read the HSTS cookie. This is NOT the case with Firefox or Chrome though!
+        SslstripHSTS tool does not exist.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Session Hijacking Countermeasures}
+\begin{itemize}
+    \item Which of the following countermeasures should be followed to defend against session hijacking?
+    \begin{itemize}
+        \item Use HTTP Public Key Pinning (HPKP) to allow users to authenticate web servers
+    \end{itemize}
+    \item Which of the following techniques mitigates the risk of ARP spoofing and other session hijacking attacks caused when using a hub network?
+    \begin{itemize}
+        \item \textbf{Switch Netowrk}: Mitigates the risk of ARP spoofing and other session hijacking attacks.
+    \end{itemize}
+    \item Which of the following techniques protects the client–server communication against session hijacking attacks by creating a public–private key pair for every connection to a remote server?
+    \begin{itemize}
+        \item Token Binding
+    \end{itemize}
+\end{itemize}
+
+
 
 \subsection{General}
 \begin{itemize}
@@ -124,4 +242,16 @@
     \begin{enumerate}
         \item Library Level rootkit (user-level), replaces or modifies the functionality of system calls to the operating system.
     \end{enumerate}
+    \item \begin{tabular}[H]{|l|l|l|}
+        \hline
+        \textbf{Issue} & \textbf{Solution} & \textbf{Notest}\\
+        \hline
+        Telnet, rlogin & Secure Shell (SSH) or openSSH & Sends encrypted data and makes it difficult for an attacker to send correctly encrypted data if a session is hijacked.\\
+        \hline
+        Any remote connection & Virtual Private Network (VPN) & Implementing encrypting VPNs such as PPTP, layer 2 protocol tunneling (L2PT), and IPsec, for remote connections prevents session hijacking.\\
+        \hline
+        Server message Block (SMB) & SMB Signing & Improves the security of the SMB protocol and reduces the chances of session hijacking.\\
+        \hline
+        Hub Network & Switch network & Mitigates the risk of ARP spoofing and othe session hijacking attacks. 
+    \end{tabular}
 \end{itemize}
