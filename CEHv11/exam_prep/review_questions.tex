@@ -227,6 +227,71 @@
 \end{itemize}
 
 
+\subsection{Evading IDS, Firewalls, and Honeypots}
+\subsubsection{IDS, IPS, Firewall and Honeypot Concepts}
+\begin{itemize}
+    \item Which of the following attributes in a packet can be used to check whether the packet originated from an unreliable zone?
+    \begin{itemize}
+        \item Source IP address
+    \end{itemize}
+    \item What is the main advantage that a network-based IDS/IPS system has over a host-based solution?
+    \begin{itemize}
+        \item They do not use host system resources. Host-based intrusion detection systems (IDSes) protect just that: the host or endpoint. This includes workstations, servers, mobile devices and the like. Host-based IDSes are not just one of the last layers of defense, but they're also one of the best security controls because they can be fine-tuned to the specific workstation, application, user role or workflows required. A network-based IDS often sits on the ingress or egress point(s) of the network to monitor what's coming and going. Given that a network-based IDS sits further out on the network, so it doesn't use any host system resources and it may not provide enough granular protection to keep everything in check -- especially for network traffic that's protected by SSL, TLS or SSH.
+    \end{itemize}
+    \item Which of the following is a hardware requirement that either an IDS/IPS system or a proxy server must have in order to properly function?
+    \begin{itemize}
+        \item They must be Dual-homed. Dual-homed devices have two interfaces; a public interface that directly connected to the Internet and a private interface connected to the Intranet. It is a hardware requirement that either an IDS/IPS system or a proxy server must have in order to properly function. The bastion host is an example of dual-homed system designed for defending the network against attacks. It acts as a mediator between inside and outside networks. A bastion host is a computer system designed and configured to protect network resources from attack. Traffic entering or leaving the network passes through the firewall.
+    \end{itemize}
+    \item Which of the following descriptions is true about a static NAT?
+    \begin{itemize}
+        \item A static NAT uses a one-to-one mapping.
+    \end{itemize}
+    \item Jamie needs to keep data safe in a large datacenter, which is in desperate need of a firewall replacement for the end of life firewall. The director has asked Jamie to select and deploy an appropriate firewall for the existing datacenter. The director indicates that the amount of throughput will increase over the next few years and this firewall will need to keep up with the demand while other security systems do their part with the passing data. What firewall will Jamie use to meet the requirements?
+    \begin{itemize}
+        \item Performance is the key focus of the question; therefore, the test taker will have to focus on the real need of the most enterprise businesses and not get distracted by other slower firewall types. Packet filtering firewall may seem old school to less experienced test takers and they may immediately choose other options.
+        Packet filtering firewalls are best performing of the choices.
+    \end{itemize}
+    \item When analyzing the IDS logs, the system administrator notices connections from outside of the LAN have been sending packets where the source IP address and destination IP address are the same. However, no alerts have been sent via email or logged in the IDS. Which type of an alert is this?
+    \begin{itemize}
+        \item False Negative
+    \end{itemize}
+    \item When analyzing the IDS logs, the system administrator noticed an alert was logged when the external router was accessed from the administrator’s computer to update the router configuration. What type of an alert is this?
+    \begin{itemize}
+        \item False Positive
+    \end{itemize}
+    \item At which two traffic layers do most commercial IDSes generate signatures? (Select Two)
+    \begin{itemize}
+        \item According to New 'semantics-aware' IDS reduces false positives (https://searchsecurity.techtarget.com/news/1113940/New-semantics-aware-IDS-reduces-false-positives), https://www.sanfoundry.com/computer-networks-questions-answers-entrance-exams/, and https://searchsecurity.techtarget.com/quiz/Quiz-IDS-IPS, the most commercial IDSes generate signatures at the network and transport layers.
+    \end{itemize}
+\end{itemize}
+\subsubsection{IDS, IPS, Firewall, and Honeypot Solutions}
+\begin{itemize}
+    \item When an alert rule is matched in a network-based IDS like snort, the IDS does which of the following:
+    \begin{itemize}
+        \item   Continues to evaluate the packet until all rules are checked
+    \end{itemize}
+\end{itemize}
+\subsubsection{Evading IDS}
+\begin{itemize}
+    \item How many bit checksum is used by the TCP protocol for error checking of the header and data and to ensure that communication is reliable?
+    \begin{itemize}
+        \item  16-bitwa
+    \end{itemize}
+    \item An attacker hides the shellcode by encrypting it with an unknown encryption algorithm and by including the decryption code as part of the attack packet. He encodes the payload and then places a decoder before the payload. Identify the type of attack executed by attacker.
+    \begin{itemize}
+        \item Polymorphic Shellcode
+    \end{itemize}
+\end{itemize}
+\subsubsection{Evading Firewalls}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Honeypot, IDS, and Firewall Evasion Countermeasures}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
 
 \subsection{General}
 \begin{itemize}

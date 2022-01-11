@@ -631,6 +631,97 @@
 \end{itemize}
 
 
+\subsection{Evading IDS, Firewalls, and Honeypots}
+\subsubsection{IDS, IPS, Firewall and Honeypot Concepts}
+\begin{itemize}
+    \item Signature Recognition: also known as misuse detection, tries to identify events that indicate an abuse of a system or network resource. This technique involves first creating models of possible intrusions and then comparing these models with incoming events to make a detection decision.
+    \item Protocol Anomaly Detection: Protocol anomaly detection depends on the anomalies specific to a protocol. It identifies particular flaws between how vendors deploy the TCP/IP protocol. Protocols designs according to RFC specifications, which dictate standard handshakes to permit universal communication. The protocol anomaly detector can identify new attacks.
+    \item Anomaly Detection: Anomaly detection, or “not-use detection,” differs from the signature-recognition model. Anomaly detection consists of a database of anomalies. An anomaly can be detected when an event occurs outside the tolerance threshold of normal traffic. Therefore, any deviation from regular use is an attack. Anomaly detection detects the intrusion based on the fixed behavioral characteristics of the users and components in a computer system. Creating a model of normal use is the most challenging task in creating an anomaly detector.
+    \item Obfuscating: Obfuscating is an IDS evasion technique used by attackers to encode the attack packet payload in such a way that the destination host can only decode the packet but not the IDS. An attacker manipulates the path referenced in the signature to fool the HIDS. Using the Unicode character, an attacker could encode attack packets that the IDS would not recognize, but an IIS web server would decode.
+    \item Bastion Host: The bastion host is designed for defending the network against attacks. It acts as a mediator between inside and outside networks. A bastion host is a computer system designed and configured to protect network resources from attacks. Traffic entering or leaving the network passes through the firewall
+    \item File System Intrusion: By observing system files, the presence of an intrusion can be identified. System files record the activities of the system.
+    \begin{itemize}
+        \item If you find new, unknown files / programs on youe system. Unexplained modification in file size are also an indication of an attack.
+        \item You can identify unfamiliar file names in directories, including executable files with strange extensions and double extensions.
+        \item Missing files are also a sign of a probable intrusion/attack.
+    \end{itemize}
+    \item Network Intrusions: general indications of network intrusions include the following
+    \begin{itemize}
+        \item A sudden increas in bandwidth consumption
+        \item repeated probes of the available services on your machine.
+        \item connection requests from IPs other than those in the network range, which imply that an unauthorized user (intruder) is attempting to connect to the network.
+        \item Repeated login attempts from remote hosts.
+        \item A sudden influx of log data, which could indicate attempts at DoS attakcs, bandwidth consumption, and DDoS attacks.
+    \end{itemize}
+    \item System Intrusions:
+    \begin{itemize}
+        \item sudden changes in logs such as short or incomplete logs.
+        \item Unusually slow system performance.
+        \item Missing logs or logs with incorrect permissions or ownership.
+        \item Unusual graphic displays or text messages.
+        \item Gaps in system accounting.
+    \end{itemize}
+    \item Signature recognition: is an IDS intrusion detection method, also known as misuse detection, tries to identify events that indicate an abuse of a system or network resource.
+    \item Honeynet: Very effective in determining the entire capabilities of adversaries and is mostly deployed in an isolated virutal environment along with a combination of vulnerable servers?
+    \item Packet information:
+    \begin{itemize}
+        \item Direction: Used to check whether the packet is entering or leaving the private network.
+        \item Interface: Used to check whether the packet is coming from an unreliable zone.
+        \item TCP flag bits: Used to check whether the packet has SYN, ACK, or other bits set for the connection to be made.
+        \item Source IP address: Userd to check whether the packet is coming from a valid source. The information about the source IP address can be found from the IP header of the packet.
+    \end{itemize}
+    \item Circuit-level gateway firewall: The firewall is only monitoring TCP handshaking of packets at the session layer of the OSI model
+    \item Stateful Multilayer Instection firewall: They filter packets at the network layer, to determine whether session packets are legitimate, and evaluate the contents of packets at the application layer. With the use of stateful packet filtering, you can overcome the limitation of packet firewalls that can only filter on IP address, port, protocol, and so on. This multilayer firewall can perform deep packet inspection.
+    \item Application-level Firewall: Application-based proxy firewalls concentrate on the application layer rather than just the packets. The need for application-level firewall arises when huge amount of voice, video, and collaborative traffic are accessed at data-link layer and network layer utilized for unauthorized access to internal and external networks. Useful to filter specific commands such as \verb|http:post|
+    \item Packet filtering firewall:  A packet filtering firewall investigates each individual packet passing through it and makes a decision whether to pass the packet or drop it. It works at the Internet protocol (IP) layer of the TCP/IP model. Packet filter–based firewalls concentrate on individual packets, analyze their header information, and determine which way they need to be directed.
+    \item 
+\end{itemize}
+\subsubsection{IDS, IPS, Firewall, and Honeypot Solutions}
+\begin{itemize}
+    \item Wifiphisher: A rouge AP framework for conducting Red Team Engagements or WiFi security testing. Using Wifiphisher, penetration testers can easily achieve an MITM position against wireless clients by performing targeted WiFi association attacks.
+    \item Reaver: designed to be a robust and practical tool against WiFi Protected Setup (WPS) registrar PINs in roder to recover WPA/WPA2 passphrases, and it has been tested against a wide variety of APs and WPS implementations.
+    \item Wifi Inspector: Allows you to find all the devices connected to the network (via both wired and WiFi connections, including consoles, TVs, PCs, tablets, and phones); it gives relevant data such as the IP addresses, manufacturer names, and MAC addresses of connected devices. It also allows you to save a list of known devices with a custom name and finds intruders in a short period.
+    \item WIBR+: application for testing the security of WPA/WPA2 PSK WiFi networks. It discovers weak passwords. WIBR+ supports queuing, custom dictionaries, a brute-force generator, and advanced monitoring.
+    \item NetPatch firewall is a full-featured advanced android noroot firewall. It can be used to fully control over mobile device network. With NetPatch firewall, you can create network rules based on APP, IP address, domain name, and so on. This firewall is designed to save mobile device's network traffic and battery consumption, and improve network security and protect privacy.
+    \item Comodo Firewall
+    \item Glasswire
+    \item TinyWall
+    \item PeerBlock
+    \item SPECTER: SPECTER is a honeypot. It automatically investigates attackers while they are still trying to break in. It provides massive amounts of decoy content, and it generates decoy programs that cannot leave hidden marks on the attacker's computer. Automated weekly online updates of the honeypot's content and vulnerability databases allow the honeypot to change regularly without user interaction.
+    \item Vanguard Enforcer:
+    \item zIPS:
+    \item ZoneAlarm PRO FIREWALL 2019: ZoneAlarm PRO Firewall blocks attackers and intruders from accessing your system. It monitors programs for suspicious behavior spotting and stopping new attacks that bypass traditional anti-virus protection. It prevents identity theft by guarding your data. It even erases your tracks allowing you to surf the web in complete privacy. Furthermore, it locks out attackers, blocks intrusions, and makes your PC invisible online. Also, it filters out an annoying and potentially dangerous email.
+\end{itemize}
+\subsubsection{Evading IDS}
+\begin{itemize}
+    \item Invalid RST Packets: The TCP uses 16-bit checksums for error checking of the header and data and to ensure that communication is reliable. It adds a checksum to every transmitted segment that is checked at the receiving end. When a checksum differs from the checksum expected by the receiving host, the TCP drops the packet at the receiver's end. The TCP also uses an RST packet to end two-way communications. Attackers can use this feature to elude detection by sending RST packets with an invalid checksum.
+    \item Fragmentation attack: Fragmentation can be used as an attack vector when fragmentation timeouts vary between the IDS and the host. Through the process of fragmenting and reassembling, attackers can send malicious packets over the network to exploit and attack systems.
+    \item Obfuscating: It is an IDS evasion technique used by attackers to encode the attack packet payload in such a way that the destination host can only decode the packet but not the IDS. An attacker manipulates the path referenced in the signature to fool the HIDS. Using Unicode characters, an attacker can encode attack packets that the IDS would not recognize but which an IIS web server can decode
+    \item Insertion Attack: Insertion is the process by which the attacker confuses the IDS by forcing it to read invalid packets (i.e., the system may not accept the packet addressed to it). An IDS blindly trusts and accepts a packet that an end system rejects. If a packet is malformed or if it does not reach its actual destination, the packet is invalid. If the IDS reads an invalid packet, it gets confused. An attacker exploits this condition and inserts data into the IDS.
+    \item Flooding: an IDS evasion technique used by an attacker to send a huge amount of unnecessary traffic to produce noise or fake traffic. If the IDS does not analyze the noise traffic, the true attack traffic goes undetected.
+    \item Overlapping fragments:
+    \item Encryption:
+    \item Polymorphic shellcode:  an attacker use an existing buffer-overflow exploit and set the “return” memory address on the overflowed stack to the entrance point of the decryption code.
+    \item Session Splicing: Attacker splits the attack traffic into an excessive number of packets sudh that no single packet triggers the IDS.
+\end{itemize}
+\subsubsection{Evading Firewalls}
+\begin{itemize}
+    \item Firewalking is a method of collecting information about remote netowrks behind firewalls. It is a technique that uses TTL values to determine gateway ACL filters and map networks by analyzing the IP packet response.
+    \item Banner Grabbing: A simple method of fingerprinting that helps in detecting the vendor of a firewall and the firmware version. It identifies the service running on the system. Attackers use banner grabbing to fingerprint services and thus discover the services running on firewall.
+    \item IP address spoofing: a hijacking technique in which an attacker masquerades as a trusted host to conceal his identity, spoof a website, hijack browsers, or gain unauthorized access to a network. In IP spoofing, the attacker creates IP packets by using a forged IP address and gains access to the system or network without authorization.
+    \item Tiny fragments: Attackers create tiny fragments of outgoing packets, forcing some of the TCP packet's header information to go into the next fragment. The IDS filter rules that specify patterns will not match with the fragmented packets owing to the broken header information. The attack will succeed if the filtering router examines 
+    \item ACK Tunneling method: Allows tunneling a backdoor application with TCP packets with the ACK bit set. The ACK bit is used to acknowledge the reciept of a packet. Some firewalls do not check packets with the ACK bit set because ACK bits are supposed to be used in response to legitimate traffic.
+    \item source routing: using this technique, the sender of the packet designates the route (partially or entirely) that a packet should take through the network such that the designated route should bypass the firewall node. Thus the attack can evade firewall restrictions.
+    \item Anonymizer: Anonymizer's VPN routes all traffic through an encrypted tunnel directly from your laptop to secure and harden servers and networks. It then masks the real IP address to ensure complete and continuous anonymity for all online activities.
+\end{itemize}
+\subsubsection{Honeypot, IDS, and Firewall Evasion Countermeasures}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+
+
 \subsection{General / Unsorted}
 \begin{itemize}
     \item CIA Triad:
