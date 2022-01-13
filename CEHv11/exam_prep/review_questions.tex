@@ -284,14 +284,140 @@
 \end{itemize}
 \subsubsection{Evading Firewalls}
 \begin{itemize}
-    \item 
+    \item Which of the following attack techniques is used by an attacker to exploit the vulnerabilities that occur while processing the input parameters of end users and the server responses in a web application?
+    \begin{itemize}
+        \item XSS attack
+    \end{itemize}
+    \item Which of the following techniques is used by attackers for collecting information about remote networks behind firewalls, where the TTL value is used to determine ACL gateway filters and map networks by analyzing the IP packet response?
+    \begin{itemize}
+        \item Firewalking
+    \end{itemize}
+    \item Firewalk has just completed the second phase (the scanning phase) and a technician receives the output shown below.
+    What conclusions can be drawn based on these scan results?
+    \begin{itemize}
+        \item TCP port 21—no response
+        \item TCP port 22—no response
+        \item TCP port 23—Time-to-live exceeded
+    \end{itemize}
+    \begin{itemize}
+        \item The scan on port 23 passed through the filtering device. This indicates that port 23 was not blocked at the firewall.
+    \end{itemize}
+    \item Which feature of Secure Pipes tool open application communication ports to remote servers without opening those ports to public networks?
+    \begin{itemize}
+        \item Local forwards open application communication ports to remote servers without opening those ports to public networks. It brings the security of VPN communication to clients and servers on an ad hoc basis without the configuration and management hassle.
+    \end{itemize}
 \end{itemize}
 \subsubsection{Honeypot, IDS, and Firewall Evasion Countermeasures}
 \begin{itemize}
-    \item 
+    \item In what way do the attackers identify the presence of layer 7 tar pits?
+    \begin{itemize}
+        \item By looking at the latency of the response from the service.
+    \end{itemize}
+    \item Which of the following methods is NOT a countermeasure to defend against IDS evasions?
+    \begin{itemize}
+        \item Never define the DNS server for client resolver in routers
+    \end{itemize}
+    \item Which of the following countermeasures can be employed to defend against firewall evasion?
+    \begin{itemize}
+        \item Following are some of the countermeasures to defend against firewall Evasion:
+        \begin{itemize}
+            \item By default, disable all FTP connections to or from the network
+            \item Set the firewall rule set to deny all traffic and enable only the services required.
+            \item Specify the source and destination IP addresses as well as the ports.
+            \item Notify the security policy administrator about firewall changes and document them
+            \item Monitor user access to firewalls and control who can modify the firewall configuration
+            \item Take regular backups of the firewall rule set and configuration files
+            \item Configure a remote syslog server and adopt strict measures to protect it from malicious users.
+            \item Schedule regular firewall security audits.
+            \item The firewall should be configured such that the IP address of an intruder should be filtered out.
+        \end{itemize}
+    \end{itemize}
 \end{itemize}
 
-
+\subsection{Hacking Web Servers}
+\subsubsection{Web Server Concepts}
+\begin{itemize}
+    \item Which of the following types of damage is caused when attackers access sensitive data such as financial records, future plans, and the source code of a program?
+    \begin{itemize}
+        \item Data Theft
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web Server Attacks}
+\begin{itemize}
+    \item In which of the following attack types does an attacker exploit the trust of an authenticated user to pass malicious code or commands to a web server?
+    \begin{itemize}
+        \item Cross-site request forgery
+    \end{itemize}
+    \item In which of the following attacks does an attacker attempt to access sensitive information by intercepting and altering communications between an end user and a web server?
+    \begin{itemize}
+        \item Man-in-the-Middle attack.
+    \end{itemize}
+    \item If an attacker compromises a DNS server and changes the DNS settings so that all the requests coming to the target webserver are redirected to his/her own malicious server, then which attack did he perform?
+    \begin{itemize}
+        \item DNS server hijacking
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web Server Attack Methodology}
+\begin{itemize}
+    \item Which of the following tools is not used to perform webserver information gathering?
+    \begin{itemize}
+        \item Among the options, Nmap, Netcraft and Whois are the tools used to perform footprinting of webservers, whereas \textbf{Wireshark} is a network sniffing tool.
+    \end{itemize}
+    \item Which of the following command does an attacker use to enumerate common web applications?
+    \begin{itemize}
+        \item \verb|nmap --script http-enum -p80 <host>|
+    \end{itemize}
+    \item Atatcker use GET and CONNECT requests to use vulnerable web servers as which of the following?
+    \begin{itemize}
+        \item Sometimes, web servers are configured to perform functions such as forwarding or reverse HTTP proxy. Web servers with these functions enabled are employed by the attackers to perform following attacks:
+        \begin{itemize}
+            \item Attacking third-party systems on internet
+            \item Connecting to arbitrary hosts on the organization's internal network
+            \item Connecting back to other services running on the proxy host itself
+        \end{itemize}
+        Attackers use GET and CONNECT requests to use vulnerable web servers as proxies to connect and obtain information from target systems through these proxy web servers.
+    \end{itemize}
+    \item Which of the following types of payload modules in the Metasploit framework is self-contained and completely stand-alone?
+    \begin{itemize}
+        \item Singles
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web Server Attack Countermeasures}
+\begin{itemize}
+    \item Which of the following guidelines should be followed by application developers to defend against HTTP response-splitting attacks?
+    \begin{itemize}
+        \item Parse all user inputs or other forms of encoding before using them in HTTP headers
+    \end{itemize}
+    \item Which of the following is NOT a best approach to protect your firm against web server attacks?
+    \begin{itemize}
+        \item Allow remote registry Administration.
+        \item To defend web servers and provide security, you must remove unnecessary ISAPI filters from the web server, apply restricted ACLs, secure the SAM (stand-alone servers only), and block the remote registry administration.
+    \end{itemize}
+    \item Choose an ICANN accredited registrar and encourage them to set registrar-lock on the domain name in order to avoid which attack?
+    \begin{itemize}
+        \item DNS hijacking attack
+    \end{itemize}
+    \item Which on of the following techniques defends servers against blind response forgery?
+    \begin{itemize}
+        \item UDP source port randomization technique defends servers against blind response forgery. Limit the number of simultaneous recursive queries and increase the times-to-live (TTL) of legitimate records.
+        Following are some of the methods to defend against HTTP response-splitting and web cache poisoning:
+        Server Admin:
+        Use latest web server software
+        Regularly update/patch OS and web server
+        Run web vulnerability scanner
+        Application Developers:
+        Restrict web application access to unique IPs
+        Disallow carriage return (\%0d or \r) and line feed (\%0a or \n) characters
+        Comply to RFC 2616 specifications for HTTP/1.1
+    \end{itemize}
+\end{itemize}
+\subsubsection{Patch Management}
+\begin{itemize}
+    \item Which of the following is true for automated patch management process?
+    \begin{itemize}
+        \item In an automated patch management process, detect \rightarrow assess \rightarrow acquire \rightarrow test \rightarrow deploy \rightarrow maintain is the process that is followed
+    \end{itemize}
+\end{itemize}
 
 \subsection{General}
 \begin{itemize}

@@ -414,7 +414,7 @@
 \begin{itemize}
     \item Tools
     \begin{itemize}
-        \item Nikto: A web server assessment tool that examines a web server to discover potential problems and security vulnerabilities.
+        \item Nikto: A web server and web application assessment tool that examines a web server to discover potential problems and security vulnerabilities.
         \item dsniff: a collection of tools for netowrk auditing and penetration testing and can also be used to perform ARP poisoning.
         \item OpenVAS: a framework of several services and tools offering a comprehensive and powerful vulnerability scaning and vulnerability management solution
         \item Nexpose: Vulnerability scanner which aims to support the entire vulnerability management lifecycle, including discovery, detection, verification, risk classification, impact analysis, reporting and mitigation.
@@ -586,12 +586,12 @@
 \end{itemize}
 \subsubsection{Session Hijacking Tools}
 \begin{itemize}
-    \item Burp Suite: inspect and modify traffic between
+    \item  Burp Suite: Burp Suite is a web security testing tool that can hijack session IDs in established sessions. The Sequencer tool in Burp Suite tests the randomness of session tokens. With this tool, an attacker can predict the next possible session ID token and use that to take over a valid session
     \item Vega: a free and open-source web security scanner and web security testing platform for testing the security of web applications. Vega helps you to find and validate SQL injection, XXS, inadvertently disclosed sensitive information and other vulnerabilities.
     \item PortQry: Reports the port status of TCP and UDP ports on a selected target. Attackers can use PortQry tool to perform TFTP enumeration. This utility reports the port status of target TCP and UDP ports on a local or remote computer.
     \item DroidSheep: Used for session hijacking on Android devices connected to a common wireless network. It obtains the session ID of active users on the WiFi network and uses it to access a website as an authorized user. A DroidSheep user can easily observe the activities of authorized users on websites. It can also hijack social accounts by obtaining the session ID.
     \item ShellPhish: A phishing tool used to phish user credentials from various social networking platforms such as Instagram, Facebook, Twitter, and LinkdIn. Also displays to victim system's public IP address, browser information, hostname, geolocation, and other information.
-    \item Netcraft: The Netcraft anti-phishing community is a giant neighborhood watch scheme, empowering the most alert and most expert members to defend everyone within the community against phishing attacks. The Netcraft Toolbar provides updated information about sites that users visit regularly and blocks dangerous sites
+    \item Netcraft: Netcraft provides Internet security services, including anti-fraud and anti-phishing services, application testing, and PCI scanning. They also analyze the market share of web servers, operating systems, hosting providers and SSL certificate authorities, and other parameters of the Internet. The Netcraft anti-phishing community is a giant neighborhood watch scheme, empowering the most alert and most expert members to defend everyone within the community against phishing attacks. The Netcraft Toolbar provides updated information about sites that users visit regularly and blocks dangerous sites
     \item OhPhish: OhPhish is a web-based portal for testing employees' susceptibility to social engineering attacks. It is a phishing simulation tool that provides the organization with a platform to launch phishing simulation campaigns on its employees
     Apility.io: Apility.io is an anti-abuse API that helps security professionals to know if the IP address, domain, or email of a user is blacklisted. It is a collection of various tools delivered “as a service” to help security professionals, product managers, IT shops, enterprises, and start-ups to acquire more details about their potential visitors, users, customers, and threat actors.
     \item FaceNiff: FaceNiff is an Android app that allows a user to sniff and intercept web-session profiles over the WiFi network that the user's mobile device is connected to. Although FaceNiff can hijack sessions only when the WiFi network does not use the Extensible Authentication Protocol (EAP), it works on any private network, including open, Wired Equivalent Privacy (WEP), Wi-Fi Protected Access-pre-shared key (WPA-PSK), and WPA2-PSK networks.
@@ -689,7 +689,7 @@
     \item PeerBlock
     \item SPECTER: SPECTER is a honeypot. It automatically investigates attackers while they are still trying to break in. It provides massive amounts of decoy content, and it generates decoy programs that cannot leave hidden marks on the attacker's computer. Automated weekly online updates of the honeypot's content and vulnerability databases allow the honeypot to change regularly without user interaction.
     \item Vanguard Enforcer:
-    \item zIPS:
+    \item zIPS: Zimperium's zIPS™ is a mobile intrusion prevention system app that provides comprehensive protection for iOS and Android devices against mobile network, device, and application cyber-attacks.
     \item ZoneAlarm PRO FIREWALL 2019: ZoneAlarm PRO Firewall blocks attackers and intruders from accessing your system. It monitors programs for suspicious behavior spotting and stopping new attacks that bypass traditional anti-virus protection. It prevents identity theft by guarding your data. It even erases your tracks allowing you to surf the web in complete privacy. Furthermore, it locks out attackers, blocks intrusions, and makes your PC invisible online. Also, it filters out an annoying and potentially dangerous email.
 \end{itemize}
 \subsubsection{Evading IDS}
@@ -706,6 +706,19 @@
 \end{itemize}
 \subsubsection{Evading Firewalls}
 \begin{itemize}
+    \item Tools
+    \begin{itemize}
+        \item Snort: Snort is an open-source network intrusion detection system capable of performing real-time traffic analysis and packet logging on IP networks. It can perform protocol analysis and content searching/matching, and it is used to detect a variety of attacks and probes, such as buffer overflows, stealth port scans, CGI attacks, SMB probes, and OS fingerprinting attempts.
+        \item Suricata: Suricata is a robust network threat detection engine capable of real-time intrusion detection (IDS), inline intrusion prevention (IPS), network security monitoring (NSM), and offline pcap processing.
+        \item Bitvise: Bitvise SSH Server provides secure remote login capabilities to Windows workstations and servers by encrypting data during transmission. It is ideal for remote administration of Windows servers, for advanced users who wish to access their home machine from work or their work machine from home, and for a wide spectrum of advanced tasks, such as establishing a VPN using the SSH TCP/IP tunneling feature or providing a secure file depository using SFTP.
+        \item HTTPTunnel: Uses technique of tunneling traffic across TCP port 80 to bypass firewall.
+        \item Loki: ICMP tunneling is used to execute commands of choice by tunneling them inside the payload of ICMP echo packets.
+        \item AckCmd: (http://ntsecurity.nu) use ACK tunneling
+        \item Super Network Tunnel: a two-way HTTP tunneling software that connects two computers utilizeing HTTP-tunnel client and HTTP-tunnel server. It can bypass any firewall to surf the web, use IM applications, games, and so on. Super network tunnel integrates SocksCap function along with  bidirectional HTTP tunneling and remote control to simplify the configuration.
+        \item SecurePipes: SSH tunneling tool
+        \item Traffic IQ Professional: Traffic IQ Professional is a tool that audits and validates the behavior of security devices by generating the standard application traffic or attack traffic between two virtual machines. This tool is generally used by security personnel for assessing, auditing, and testing the behavioral characteristics of any non-proxy packet-filtering device, which can include application firewalls, IDS, IPS, routers, switches, etc. However, as this tool can generate custom attack traffic, it is extensively employed by attackers to bypass the installed perimeter devices in the target network.
+        \item Colasoft Packet Builder: Colasoft Packet Builder: Colasoft Packet Builder is used to create custom network packets and fragmenting packets. Attackers use this tool to create custom malicious packets and fragment them such that firewalls cannot detect them. They can create custom network packets such as Ethernet Packet, ARP Packet, IP Packet, TCP Packet, and UDP Packet. Security professionals use this tool to check your network's protection against attacks and intruders.
+    \end{itemize}
     \item Firewalking is a method of collecting information about remote netowrks behind firewalls. It is a technique that uses TTL values to determine gateway ACL filters and map networks by analyzing the IP packet response.
     \item Banner Grabbing: A simple method of fingerprinting that helps in detecting the vendor of a firewall and the firmware version. It identifies the service running on the system. Attackers use banner grabbing to fingerprint services and thus discover the services running on firewall.
     \item IP address spoofing: a hijacking technique in which an attacker masquerades as a trusted host to conceal his identity, spoof a website, hijack browsers, or gain unauthorized access to a network. In IP spoofing, the attacker creates IP packets by using a forged IP address and gains access to the system or network without authorization.
@@ -716,8 +729,67 @@
 \end{itemize}
 \subsubsection{Honeypot, IDS, and Firewall Evasion Countermeasures}
 \begin{itemize}
-    \item 
+    \item Tools:
+    \begin{itemize}
+        \item Sebek: catches read() system calls.
+    \end{itemize}
 \end{itemize}
+
+\subsection{Hacking Web Servers}
+\subsubsection{Web Server Concepts}
+\begin{itemize}
+    \item Document Root: The document root is one of the root file directories of the web server that stores critical HTML files related to the web pages of a domain name, which will be sent in response to requests.
+    \item Server Root: It is the top-level root directory under the directory tree in which the server's configuration and error, executable, and log files are stored.
+    \item Virtual Hosting: It is a technique of hosting multiple domains or websites on the same server. This technique allows the sharing of resources among various servers.
+    \item \item Virtual Document Tree: A virtual document tree provides storage on a different machine or disk after the original disk becomes full.
+    \item Data Tampering: alters or deletes the data of a web server and replaces the data with malware.
+    \item Web Proxy: A proxy server is located between the web client and web server. Owing to the placement of web proxies, all requests from clients are passed on to the web server through the web proxies. They are used to prevent IP blocking and maintain anonymity
+    \item PHP: application layer and is used to generate dynamic web content.
+\end{itemize}
+\subsubsection{Web Server Attacks}
+\begin{itemize}
+    \item Session hijacking attacks:
+    \begin{itemize}
+        \item Session fixation
+        \item Session sidejacking
+        \item Cross-site scripting
+    \end{itemize}
+    \item DNS Hijacking: malicious attack that modifies or overrides a systems TCP/IP settings to redirect it at a rouge DNS server, thereby invalidating the default DNS settings.
+\end{itemize}
+\subsubsection{Web Server Attack Methodology}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item NCollector Studio: a website mirroring tool used to download content from the web to a local computer. This tool enables users to crawl for specific file types, make any website available for offline browsing, or simply download a website to a local computer.
+        \item ID Server: A simple internet server identification utility also performs HTTP Server Identification, Non-HTTP Server Identification and Reverse DNS lookup.
+        \item Open Sez Me: A lookup database for default passwords, credentials and ports.
+        \item HTTrack: HTTrack is an offline browser utility that is capable of performing website mirroring by downloading a website from the Internet to a local directory, building all the directories recursively, and getting HTML, images, and other files from the server.
+        \item Nessus: Vulnerability scanner
+        \item Hydra: Password Cracker
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web Server Attack Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item \item Mimikatz: Allows attackers to pass Kerberos TGT to other computer and sign in using the victim's ticket. The tool also helps in extracting paintext passwords, hashes, PIN codes, and Kerberos tickets from memory.
+        \item N-Stalker: N-Stalker is a web application security scanner that searches for vulnerabilities to attacks such as clickjacking, SQL injection, and XSS. It allows spider crawling throughout the application and the creation of web macros for form authentication. It also provides proxy capabilities for “drive-thru” attacks and identifies components through reverse proxies that distribute different platforms in the same application URL.
+        \item Immunity Debugger: tool used to write exploits, analyze malware, and reverse engineer binary files.
+        \item Fortify WebInspect: Webserver security tools
+        \item Retina CS: Webserver security Tool
+        \item NetIQ secure configuration manager: Webserver security tool.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Patch Management}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+
+
+
 
 
 
