@@ -68,7 +68,7 @@
     \end{itemize}
     \item Which of the following Cisco switch port configuration commands is used to enter a secure MAC address for the interface and the maximum number of secure MAC addresses?
     \begin{itemize}
-        \item \textbf{\verb|switchport port-security mac-address mac_address|} Enters a secure MAC address for the interface. You can use this command to enter the maximum number of secure MAC addreses.
+        \item \verb|switchport port-security mac-address mac_address|: Enters a secure MAC address for the interface. You can use this command to enter the maximum number of secure MAC addreses.
         \item \verb|switchport port-security limit rate invalid-source-max|: sets the rate limit for bad packets.
         \item \verb|switchport port-security maximum value|: Sets the maximum number of secure MAC addresses for the interface. The range is 1 to 3072; the default is 1.
         \item \verb|switchport port-security mac-address sticky| Enables sticky learning on the interface.
@@ -89,7 +89,7 @@
     \end{itemize}
     \item Which of the following IOS global commands verifies the DHCP snooping configuration?
     \begin{itemize}
-        \item \textbf{\verb|show ip dhcp spoofing|}: Verifies the configuration.
+        \item \verb|show ip dhcp spoofing|: Verifies the configuration.
         \item \verb|ip dhcp snooping|: Enables DHCP snooping globally.
         \item \verb|ip dhcp snooping trust|: Configures the interface as trusted or untrusted.
         \item \verb|no ip dhcp snooping information option|: To disable the insertion and the removal of the option-82 field, use the no ip dhcp snooping information option in global configuration command.
@@ -142,16 +142,16 @@
 
 \subsection{Denial-of-Service}
 \subsubsection{DoS/DDoS Concepts}
-\begin{itemize}
-    \item 
-\end{itemize}
+% \begin{itemize}
+%     \item 
+% \end{itemize}
 \subsubsection{DoS/DDoS Attack Techniques and Tools}
 \begin{itemize}
-    \item When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called ___________.
+    \item When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called \_\_\_\_\_\_\_\_\_\_\_.
     \begin{itemize}
-        \item Answer is C&C, which will instruct the Bot what to do. When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called C&C. Bot and Botnet respectively represent infected computer and network of the infected computers managed by C&C and server is not used in this terminology.
+        \item Answer is C\&C, which will instruct the Bot what to do. When a client's computer is infected with malicious software which connects to the remote computer to receive commands, the remote computer is called C\&C. Bot and Botnet respectively represent infected computer and network of the infected computers managed by C\&C and server is not used in this terminology.
     \end{itemize}
-    \item The DDoS tool used by anonymous in the so-called Operation Payback is called _______.
+    \item The DDoS tool used by anonymous in the so-called Operation Payback is called \_\_\_\_\_\_\_.
     \begin{itemize}
         \item LOIC is the first version of the tool and it was used in Operation Payback. HOIC is the second version of the tool with some additional features, and it was used in the Operation Megaupload. BanglaDos and Dereil do not have direct connection with anonymous group.
     \end{itemize}
@@ -168,13 +168,13 @@
     \end{itemize}
     \item John's company is facing a DDoS attack. While analyzing the attack, John has learned that the attack is originating from the entire globe, and filtering the traffic at the Internet Service Provider's (ISP) level is an impossible task to do. After a while, John has observed that his personal computer at home was also compromised similar to that of the company's computers. He observed that his computer is sending large amounts of UDP data directed toward his company's public IPs.
 
-    John takes his personal computer to work and starts a forensic investigation. Two hours later, he earns crucial information: the infected computer is connecting to the C&C server, and unfortunately, the communication between C&C and the infected computer is encrypted. Therefore, John intentionally lets the infection spread to another machine in his company's secure network, where he can observe and record all the traffic between the Bot software and the Botnet. After thorough analysis he discovered an interesting thing that the initial process of infection downloaded the malware from an FTP server which consists of username and password in cleartext format. John connects to the FTP Server and finds the Botnet software including the C&C on it, with username and password for C&C in configuration file. What can John do with this information?
+    John takes his personal computer to work and starts a forensic investigation. Two hours later, he earns crucial information: the infected computer is connecting to the C\&C server, and unfortunately, the communication between C\&C and the infected computer is encrypted. Therefore, John intentionally lets the infection spread to another machine in his company's secure network, where he can observe and record all the traffic between the Bot software and the Botnet. After thorough analysis he discovered an interesting thing that the initial process of infection downloaded the malware from an FTP server which consists of username and password in cleartext format. John connects to the FTP Server and finds the Botnet software including the C\&C on it, with username and password for C\&C in configuration file. What can John do with this information?
     \begin{itemize}
-        \item The correct answer is “neutralize handlers,” because with admin's access to C&C John can stop the attack, disable the C&C software, and/or change the password to stop the DDoS attack on his company's network. Deflect the attack and mitigate the attack are not the correct answers because in both these cases, he is literally stopping the attack. Protect secondary victims is not the correct answer because secondary victims are still infected.
+        \item The correct answer is “neutralize handlers,” because with admin's access to C\&C John can stop the attack, disable the C\&C software, and/or change the password to stop the DDoS attack on his company's network. Deflect the attack and mitigate the attack are not the correct answers because in both these cases, he is literally stopping the attack. Protect secondary victims is not the correct answer because secondary victims are still infected.
     \end{itemize}
-    \item After successfully stopping the attack against his network, and informing the CERT about the Botnet and new password which he used to stop the attack and kick off the attackers from C&C, John starts to analyze all the data collected during the incident and creating the so-called “Lessons learned” document. What is John doing?
+    \item After successfully stopping the attack against his network, and informing the CERT about the Botnet and new password which he used to stop the attack and kick off the attackers from C\&C, John starts to analyze all the data collected during the incident and creating the so-called “Lessons learned” document. What is John doing?
     \begin{itemize}
-        \item John is trying the postattack forensics in order to learn how to fight this type of attacks in the future. John is not trying to neutralize the handlers because this requires some type of access to C&C, which was already done, and he is not trying to prevent potential attacks and protect secondary victims—this was already done in previous steps.
+        \item John is trying the postattack forensics in order to learn how to fight this type of attacks in the future. John is not trying to neutralize the handlers because this requires some type of access to C\&C, which was already done, and he is not trying to prevent potential attacks and protect secondary victims—this was already done in previous steps.
     \end{itemize}
 \end{itemize}
 
@@ -220,7 +220,7 @@
     \begin{itemize}
         \item \textbf{Switch Netowrk}: Mitigates the risk of ARP spoofing and other session hijacking attacks.
     \end{itemize}
-    \item Which of the following techniques protects the client–server communication against session hijacking attacks by creating a public–private key pair for every connection to a remote server?
+    \item Which of the following techniques protects the client-server communication against session hijacking attacks by creating a public-private key pair for every connection to a remote server?
     \begin{itemize}
         \item Token Binding
     \end{itemize}
@@ -255,7 +255,7 @@
     \begin{itemize}
         \item False Negative
     \end{itemize}
-    \item When analyzing the IDS logs, the system administrator noticed an alert was logged when the external router was accessed from the administrator’s computer to update the router configuration. What type of an alert is this?
+    \item When analyzing the IDS logs, the system administrator noticed an alert was logged when the external router was accessed from the administrato's computer to update the router configuration. What type of an alert is this?
     \begin{itemize}
         \item False Positive
     \end{itemize}
@@ -407,7 +407,7 @@
         Run web vulnerability scanner
         Application Developers:
         Restrict web application access to unique IPs
-        Disallow carriage return (\%0d or \r) and line feed (\%0a or \n) characters
+        Disallow carriage return (\verb|%0d or \r|) and line feed (\verb|%0a or \n|) characters
         Comply to RFC 2616 specifications for HTTP/1.1
     \end{itemize}
 \end{itemize}
@@ -415,9 +415,108 @@
 \begin{itemize}
     \item Which of the following is true for automated patch management process?
     \begin{itemize}
-        \item In an automated patch management process, detect \rightarrow assess \rightarrow acquire \rightarrow test \rightarrow deploy \rightarrow maintain is the process that is followed
+        \item In an automated patch management process, detect -> assess -> acquire -> test -> deploy -> maintain is the process that is followed
     \end{itemize}
 \end{itemize}
+
+\subsection{Web Applications}
+\subsubsection{Web App Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Web App Threats}
+\begin{itemize}
+    \item Which of the following is a security risk due to the incorrect implementation of applications, allowing attackers to compromise passwords, keys, session tokens, and exploit user identity?
+    \begin{itemize}
+        \item Broken authentication
+    \end{itemize}
+    \item In which of the following types of injection attacks does an attacker exploit vulnerable form inputs, inject HTML code into a webpage, and change the website appearance?
+    \begin{itemize}
+        \item HTML injection
+    \end{itemize}
+    \item Which of the following security misconfigurations supports weak algorithms and uses expired or invalid certificates, resulting in data exposure and account theft?
+    \begin{itemize}
+        \item Insufficient transport layer protection
+    \end{itemize}
+    \item Which of the following attacks allows an attacker to encode portions of the attack with Unicode, UTF-8, Base64, or URL encoding to hide their attacks and avoid detection?
+    \begin{itemize}
+        \item Obduscation Application
+    \end{itemize}
+    \item Which of the following is a timing attack performed by measuring the approximate time taken by a server to process a POST request so that the existence of a username can be deduced?
+    \begin{itemize}
+        \item Direct Timing Attack
+    \end{itemize}
+    \item Which of the following is an application security threat that occurs when an application includes untrusted data in a new web page without proper validation or escaping or when an application updates an existing web page with user-supplied data?
+    \begin{itemize}
+        \item Cross-site scripting (XSS)
+    \end{itemize}
+    \item Which of the following attacks exploits vulnerabilities in dynamically generated webpages, which enables malicious attackers to inject client-side scripts into webpages viewed by other users?
+    \begin{itemize}
+        \item Cross-site scripting
+    \end{itemize}
+    \item During a penetration test, a tester finds that the web application being analyzed is vulnerable to XSS. Which of the following conditions must be met to exploit this vulnerability?
+    \begin{itemize}
+        \item The session cookies do not have the HttpOnly flag set.
+    \end{itemize}
+    \item An attacker has been successfully modifying the purchase price of items purchased on the company's website. The security administrators verify the webserver and Oracle database have not been compromised directly. They have also verified the intrusion detection system (IDS) logs and found no attacks that could have caused this. What is the most likely way the attacker has been able to modify the purchase price?
+    \begin{itemize}
+        \item By changing hidden form values
+    \end{itemize}
+    \item Which of the following conditions must be given to allow a tester to exploit a cross-site request forgery (CSRF) vulnerable web application?
+    \begin{itemize}
+        \item The web application should not use random tokens.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web App Hacking Methodology}
+\begin{itemize}
+    \item Which of the following HTTP service port numbers is used for connecting to a remote network server system?
+    \begin{itemize}
+        \item \textbf{384: Remote network Server System}
+        \item 80: World Wide Web standard port
+        \item 81: Alternate WWW
+        \item 88: Kerberos
+    \end{itemize}
+    \item Which of the followings techniques is used by an attacker to enumerate usernames from a target web application?
+    \begin{itemize}
+        \item Verbose failure message
+    \end{itemize}
+    \item Which of the following attacks is possible when an attacker executes .bat or .cmd files and changes the values by superimposing one or more operating-system commands through the request?
+    \begin{itemize}
+        \item Parsing Attack
+    \end{itemize}
+    \item Which of the following automatically discover hidden content and functionality by parsing HTML form and client-side JavaScript requests and responses?
+    \begin{itemize}
+        \item Web Spiders
+    \end{itemize}
+    \item An attacker wants to exploit a webpage. From which of the following points does he start his attack process?
+    \begin{itemize}
+        \item Identify entry points for user input\\
+        The first step in analyzing a web app is to check for the application entry point, which can later serve as a gateway for attacks. One of the entry points includes the front-end web app that intercepts HTTP requests. Other web app entry points are user interfaces provided by webpages, service interfaces provided by web services, serviced components, and .NET remoting components. Attackers should review the generated HTTP request to identify the user input entry points.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web API, Webhooks and Web Shell}
+\begin{itemize}
+    \item Some of the best practices for securing webhooks are as follows:
+    \begin{itemize}
+        \item Use rate limiting on webhook calls in the web server to control the incoming and outgoing traffic
+        \item Compare the request timestamp X-Cld-Timestamp of the webhook with the current timestamp to prevent timing attacks
+        \item Validate the X-OP-Timestamp within the threshold of the current time
+        \item Ensure that the event processing is idempotent to prevent event receipts replication
+        \item Ensure that the webhook code responds with 200 OK (success) instead of 4xx or 5xx statuses in case of errors to ensure that the webhooks are not deactivated
+        \item Ensure that the webhook URL supports the HTTP HEAD method to retrieve meta-information without transferring the entire content
+        \item Use threaded requests to send multiple requests at the same time and to update data in the API rapidly
+        \item Make sure that the tokens are stored against the store\_hash and not against the user data
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web App Security}
+\begin{itemize}
+    \item While performing data validation of web content, a security technician is required to restrict malicious input. Which of the following processes is an efficient way of restricting malicious input?
+    \begin{itemize}
+        \item Data validation is performed to ensure that the data is strongly typed, correct syntax, within length boundaries, contains only permitted characters, or that numbers are correctly signed and within range boundaries. So, while performing data validation of web content, a security technician is required to validate web content input for type, length, and range.
+    \end{itemize}
+\end{itemize}
+
+
 
 \subsection{General}
 \begin{itemize}

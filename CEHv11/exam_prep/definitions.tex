@@ -180,7 +180,7 @@
 
 \subsection{System Hacking}
 \subsubsection{System Hacking Concepts}
-\subsection{Gaining Access (Cracking Passwords and Vulnerability Exploitation)}
+\subsubsection{Gaining Access (Cracking Passwords and Vulnerability Exploitation)}
 \begin{itemize}
     \item Kerberos authentication: Employs a key distribution center (KDC) that consists of an authentication server (AS) and a ticket-granting server (TGS), and uses "tickets" to prove a user's identity.
     \item Markov-Chain Attack: Attackers gather a password database and split each password entry into two and three character syllables (2-grams and 3-grams); using these character elements, a new alphabet is developed, which is then matched with the existing password database.
@@ -789,8 +789,201 @@
 \end{itemize}
 
 
-
-
+\subsection{Web Applications}
+\subsubsection{Web App Concepts}
+\begin{itemize}
+    \item Web Application Layers:
+    \begin{itemize}
+        \item Client/Presentation Layer: includes all physical devices present on the client side, such as laptops, smartphones, and computers. These devices feature operating systems and compatible browsers, which enable users to send requests for required web applications. The user requests a website by entering a URL in the browser, and the request travels to the web server. The web server then responds to the request and fetches the requested data; the application finally displays this response in the browser in the form of a web page.
+        \item Business Logic Layer: consists of two layers: the web-server logic layer and the business logic layer. The business logic layer includes the functional logic of the web application, which is implemented using technologies such as .NET, Java, and “middleware”. It defines the flow of data, according to which the developer builds the application using programming languages. It stores the application data and integrates legacy applications with the latest functionality of the application.
+        \item Web-Server Logic Layer: contains various components such as a firewall, an HTTP request parser, a proxy caching server, an authentication and login handler, a resource handler, and a hardware component, e.g., a server. The firewall offers security to the content, the HTTP request parser handles requests coming from clients and forwards responses to them, and the resource handler is capable of handling multiple requests simultaneously.
+        \item Database Layer: consists of cloud services, a B2B layer that holds all the commercial transactions, and a database server that supplies an organization's production data in a structured form (e.g., MS SQL Server, MySQL server).
+    \end{itemize}
+    \item SOAP Messages: Simple Object Access Protocol. Application communication protocol. Format for sending and recieving messages. Platform independent, based on XML.
+    \item UDDI: Universal Description, Discovery, and Integration (UDDI) is a directory service that lists all the services available.
+    \item WSDL: Web Services Description Language is an XML-based language that describes and traces web services.
+    \item WS-Security: Web Services Security (WS-Security) plays an important role in securing web services. It is an extension of SOAP and aims to maintain the integrity and confidentiality of SOAP messages as well as to authenticate users.
+    \item WS-Policy: WS-Policy is a specification that allows web services to use XML to advertise their policies (on security, quality of service, etc.) and for web service consumers to specify their policy requirements.
+    \item Publish: During this operation, service descriptions are published to allow the requester to discover the services.
+    \item Bind: During this operation, the requester calls and establishes communication with the services during run time, using binding data inside the service descriptions to locate and invoke the services.
+    \item Find: During this operation, the requester tries to obtain the service descriptions. This operation can be processed in two different phases: obtaining the service interface description at development time and obtain the binding and location description calls at run time.
+    \item Service: It is a software module offered by the service provider over the Internet. It communicates with the requesters. At times, it can also serve as a requester, invoking other services in its implementation
+    
+       
+\end{itemize}
+\subsubsection{Web App Threats}
+\begin{itemize}
+    \item SQL injection: injection of malicious SQL queries into user input forms.
+    \item LDAP injection involves the injection of malicious LDAP statements.
+    \item Shell injection: the attacker tries to craft an input string to gain shell access to a web server.
+    \item Command Injection: injection of malicious HTML code or command through a web application. In command injection attacks, a hacker alters the content of the web page by using HTML code and by identifying the form fields that lack valid constraints.
+    \item Cross-Site Scripting: In cross-site scripting, attackers bypass client-ID security mechanisms and gain access privileges, and then inject malicious scripts into specific webpages. These malicious scripts can even rewrite HTML website content.
+    \item Sensitive data exposure: caused by flaws in insecure cryptographic storage and information leakage
+    \item Clickjacking:
+    \begin{itemize}
+        \item Complete Transparent overlay: In this technique, the trasnparent, legitimate page or tool page is overlaid on the previously designed malicious page. Then, it is loaded into an invisible iframe and the higher z-index is assigned for positioning it on top.
+        \item Hidden Overlay: Attacker creates an iframe of 1x1 pixels contianing malicious content placed secretly under the mouse cursor. When the user clicks on this cursor, it will be registered on the malicious page although the malicious content is concealed by the cursor.
+        \item Click Event Dropping: Can completely hide a malicious page behind a legitimate page. It can also be used to set the CSS pointer-events proptery of the top to none. This can cause click events to "drop" through the legitimate masked page and registers only the malicious page.
+        \item Rapid Content Replacement: In this technique, the targeted controls are covered by opaque overlays that are removed only for a moment for registering a click. An attacker using this technique needs to accurately predict the time taken by the victim to click on the web page.
+        \item Cropping: Only the selected controls from the transparent page are overlaid. This technique depends on the goal of the attack and may involve masking buttons with hyperlinks and text labels with false information, changing the button labels with wrong commands, and completely covering the legitimate page with misleading information while exposing only one original button.
+    \end{itemize}
+    \item Timing Attacks:
+    \begin{itemize}
+        \item Direct Timing Attack: Carried out by measureing the appoximate time taken by the server to process a POST request to deduce the existence of a username.
+        \item Cross-site Timing Attack: Attackers send crafted request packets to the website using JavaScript.
+        \item Browser-Based Timing Attack: Attackers take advantage of side-channel leaks of browser to estimate the time taken by the browser to process the requested resources. Attackers can abuse different browser functionalities to launch further attacks such as video parsing attacks and chace storage timing attacks.
+        \item Cache Storage Timing Attack: The cache API interface (used to load, fetch, and delete any responses) offers complete cache (memory) to the developers. Loading resources in the disk takes some amount of time based on the resource size. If attackers can estimate the time taken by the browser to perform this task, then can measure the corresponding response size.
+    \end{itemize} 
+\end{itemize}
+\subsubsection{Web App Hacking Methodology}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Halberd: Halberd can identify the real IP address of load balancers. When organizations implement load balancers, their real IP address is hidden behind a virtual IP address.
+        \item WAFW00F: Allows one to identify and fingerprint WAFs protecting a website.
+        \item Professional Toolset: A DNS interrogation tool that provides information about the locations and types of servers. 
+    \end{itemize}
+    \item Evade XSS filters: Allows an attacker to inject unusual characters into HTML code to bypass client-side controls.
+    \item Verbose Failure Message: In a typical login system, the user enters two fields, namely username and password. In some cases, an application will ask for additional information. If the user is trying to log in and fails, it implies that at least one field was incorrect. This provides grounds for an attacker to exploit the application.
+    \item Cookie Poisoning: It is a type of parameter tampering attack in which the attacker modifies the cookie contents to draw unauthorized information about a user and thus perform identity theft.
+    \item Bypass SAML-based SSO: Attackers take advantage of signature misconfigurations, session expiry timeouts, session replays, misdirected SAML messages, etc., to bypass SAML-based SSO authentication.
+    \item Local File Inclusion: LFI vulnerabilities enable attackers to add their own files on a server via a web browser. An LFI vulnerability occurs when an application adds files without proper validation of inputs, thereby enabling the attacker to modify the input and embed path traversal characters
+    \item File Fingerprinting: File fingerprinting is a process of computing the hash value for a given binary code to identify and track data across a network.
+    \item Security Misconfiguration: By exploiting misconfiguration vulnerabilities like unvalidated inputs, parameter/form tampering, improper error handling, insufficient transport layer protection, etc., attackers gain unauthorized access to default accounts, can read unused pages, can read/write unprotected files and directories, etc.
+    \item Hash Stealing: Replaces the value of the Data Source parameter with that of a Rogue Microsoft SQL Server and sets the values of username, data source, and integrated security.
+    \item Port Scanning: Try to connect to different ports by changing the value and seeing the error messages obtained.
+    \item Hijacking Web Credentials: Try to connect to the database using the web application system account instead of a user-provided set of credentials.
+    \item Connection Pool DoS: Attackers examine the connection pooling settings of the target application, construct a large malicious SQL query, and run multiple queries simultaneously to consume all the connections in the connection pool, causing database queries to fail for legitimate users.
+    \item Request Forgery Attack: In a request forgery attack, attackers exploit the trust of a website or web application on a user's browser. The attack works by including a link on a page, which takes the user to an authenticated website.
+    \item Frame Injection: When scripts do not validate their input, attackers inject code through frames. This affects all the browsers and scripts that do not validate untrusted input. These vulnerabilities occur in HTML pages with frames. Another reason for this vulnerability is that web browsers support frame editing.
+    \item Session Fixation: Session fixation helps attackers hijack valid user sessions. They authenticate themselves using a known session ID and then use the known session ID to hijack a user-validated session. Thus, attackers trick users and access a genuine web server using an existing session ID value.
+    \item ActiveX Attacks: Attackers lure victims via email or via a link that is constructed such that the loopholes of remote execution code become accessible, allowing the attackers to obtain access privileges equal to those of authorized users.
+    \item Session prediction: It focuses on predicting session ID values that allow the attacker to bypass the authentication mechanism of an application. By analyzing and understanding the session ID generation process, the attacker can predict a valid session ID value and gain access to the application.
+    \item Session brute-forcing: An attacker brute-forces the session ID of a target user and uses it to log in as a legitimate user and gain access to the application.
+    \item Session poisoning: It allows an attacker to inject malicious content, modify the user's online experience, and obtain unauthorized information.
+    \item Cross-Site Request Forgery: Cross-site request forgery (CSRF), also known as a one-click attack, occurs when a hacker instructs a user's web browser to send a request to the vulnerable website through a malicious web page.
+    \item Burp Suite built-in tools:
+    \begin{itemize}
+        \item Intercepting proxy for inspecting and modifying traffic between your browser and the target application.
+        \item Application-aware spider for crawling content and functionality.
+        \item Sequencer tool for testing the randomness of session tokens.
+        \item Intruder tool for performing customized attacks to find and exploit unusual vulnerabilities.
+    \end{itemize}
+    \item Connection String Parameter Pollution (CSPP) specifically exploits the semicolon delimited database connection strings that are constructed dynamically based on the user inputs from web applications. So, injecting parameters into a connection string using semicolons as a separator is performed for a CSPP attack.
+\end{itemize}
+\subsubsection{Web API, Webhooks and Web Shell}
+\begin{itemize}
+    \item Web Service APIs
+    \begin{itemize}
+        \item SOAP API: SOAP is a web-based communication protocol that enables interactions between applications running on different platforms such as Windows, macOS, Linux, etc., via XML and HTTP. SOAP-based APIs are programmed to generate, recover, modify, and erase different logs such as profiles, credentials, and business leads.
+        \item RESTful API: RESTful API is a RESTful service that is designed using REST principles and HTTP communication protocols. RESTful is a collection of resources that use HTTP methods such as PUT, POST, GET, and DELETE. RESTful API is also designed to make applications independent to improve the overall performance, visibility, scalability, reliability, and portability of an application.\\
+        Features:
+        \begin{itemize}
+            \item Cacheable: The client should save responses (representations) in the cache. This feature can enhance API performance
+            \item Uniform Interface: Resources must be specifically and independently recognized via a single URL by employing basic protocol methods such as PUT, POST, GET, and DELETE, and it should be possible to modify a resource
+            \item Stateless: The client end stores the state of the session; the server is restricted to save data during the request processing
+            \item Code on Demand: An optional feature where the server can also provide temporary executable code to the client, through which the client's functionality can be customized
+        \end{itemize}
+        \item XML-RPC: Extensible Markup Language - Remote Procedure Call (XML-RPC) is a communication protocol that uses a specific XML format to transfer data, whereas SOAP uses proprietary XML to transfer data. It is simpler than SOAP and uses less bandwidth to transfer data.
+        \item JSON-RPC: JavaScript Object Notation - Remote Procedure Call (JSON-RPC) is a communication protocol that serves in the same way as XML-RPC but uses the JSON format instead of XML to transfer data.
+        \item Webhooks: Webhooks are user-defined HTTP callback or push APIs that are raised based on events triggered, such as receiving a comment on a post or pushing code to the registry. Webhooks allow applications to update other applications with the latest information
+    \end{itemize}
+    \item Parameters
+    \begin{itemize}
+        \item response\_type: Code used for informing the server which permissions to execute.
+        \item redirect\_uri: URI where the authorization server redirects the user agent when the authorization code is provided.
+        \item scope: Defines the level of access to the application
+        \item State: Opaque value used for security implementations. The value is also used for maintinaing the state between requests and callback.
+        \item 
+    \end{itemize}
+    \item CSRF on Authorization Response: The attacker performs a CSRF attack to connect a face account on the provider with the victim's account on the client side. This attack exploits a third request related to authorization code grant.
+    \item Attack on 'redirect\_uri': While registering, the domain is usually specified by the client and only those "redirect\_uri" on the specific domain are permitted. If an attacker can identify vulnerabilities such as XSS on a web page on the client domain, he/she can exploit them to capture authorization code.
+    \item Attack on 'Connect' request: Most sites enable users to access other websites such as LinkdIn, Instagram, and Twitter, via OAuth. An attacker can exploit requests to connect one site to another, i.e., when the user hits the "login with or Connect" button. Then, he or she can gain illegal access to the client-side user/victims account by connecting his/her account to the provider's website.
+    \item Access Token Reusage: OAuth requires access tokens for individual clients. It ensures that these tokens saved on the authorization server are mapped to relevant scopes and time expiry. Access token provided for "clientA" can work for "ClientB". Attackers exploit this feature to perform attacks on clients that allow grants implicitly.
+    \item API security risks:\\
+    \includegraphics{exam_prep/API Security Risks.png}
+    \item Fuzzing: Fuzzing: Attackers use the fuzzing technique to repeatedly send some random input to the target API to generate error messages that reveal critical information. To perform fuzzing, attackers use automated scripts that send numerous requests with varying combinations of input parameters. Attackers use tools such as Fuzzapi to perform fuzzing on the target API
+    \item Invalid Input Attacks: In some scenarios, fuzzing is difficult to perform due to its structure. In such cases, attackers will give invalid inputs to the API, such as sending text in place of numbers, sending numbers in place of text, sending a greater number of characters than expected, and sending null characters, etc., to extract sensitive information from unexpected system behavior and error messages. At the same time, attackers also manipulate the HTTP headers and values targeting both API logic and the HTTP protocol.
+    \item Malicious Input Attacks: In the attack discussed above, attackers try to retrieve sensitive information from unexpected system behavior or error messages. A more dangerous attack is where the attackers inject malicious input directly to target both the API and its hosting infrastructure. To perform this attack, attackers employ malicious message parsers using XML.
+    \item Login/Credential Stuffing Attacks: Attackers often target login and validating systems because attacks on these systems are difficult to detect and stop using typical API security solutions. Attackers perform login attacks or credential stuffing attacks to exploit password reuse across multiple platforms. Most users use the same passwords to access different web services
+    \item API Vulnerabilities:
+    \begin{itemize}
+        \item Enumerated Resources:
+        \begin{itemize}
+            \item Design flaws can cause serious vulnerability, disclosing information through unauthenticated public API
+            \item Allows attackers to guess user IDs easily, compromising the security of the user data.
+        \end{itemize}
+        \item RBAC Pivilege Escalation: 
+        \begin{itemize}
+            \item Privilege escalation is a common vulnerability present in APIs having role-based access control (RBAC) where changes to endpoints are made without proper attention.
+            \item Allow attackers to gain access to users' sensitive information.
+        \end{itemize}
+        \item No ABAC Validation:
+        \begin{itemize}
+            \item No proper attribute-based access control (ABAC) validation allows attackers to gain unauthorized access to API objects or perform actions such as viewing, updating, or deleting.
+        \end{itemize}
+        \item Buisness Logic Flaws:
+        \begin{itemize}
+            \item Many APIs come with vulnerabilities in buisness logic.
+            \item Allows attackers to exploit legitimate workflows for malicious purposes.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+\subsubsection{Web App Security}
+\begin{itemize}
+    \item Countermeasures for Watering Hole Attack:
+    \begin{itemize}
+        \item Apply software patches regularly to remove any vulnerabilities
+        \item Monitor network traffic
+        \item Secure DNS server to prevent attackers from redirecting the site to a new location.
+        \item Analyze user behavior
+        \item Inspect popular websites
+        \item Use browser blug-ins that block HTTP redirects
+        \item Disable third-party content such as advertizing services, which track user activities.
+        \item Make sure to hide online activities with a VPN and enable the browser's private browsing feature.
+        \item Make sure to run the web browser in a virtual environment to limit access to local system.
+    \end{itemize}
+    \item Countermeasures against command injection flaws are:
+    \begin{itemize}
+        \item Perform input validation
+        \item Escape dangerous characters
+        \item Use language-specific libraries that avoid problems due to shell commands
+        \item Perform input and output encoding
+        \item Use a safe API that avoids use of the interpreter entirely
+        \item Structure requests so that all supplied parameters are treated as data rather than potentially executable content
+        \item Use parameterized SQL queries
+        \item Use modular shell disassociation from the kernel
+        \item Use built-in library functions and avoid calling OS commands directly
+    \end{itemize}
+    \item countermeasures to defend broken authentication and session management attacks include:
+    \begin{itemize}
+        \item Use SSL for all authenticated parts of the application
+        \item Verify whether all the users' identities and credentials are stored in a hashed form
+        \item Never submit session data as part of a GET, POST
+        \item Apply pass phrasing with at least five random words
+        \item Limit the login attempts and lock the account for a specific period after a certain number of failed attempts
+        \item Use a secure platform session manager to generate long random session identifiers for secure session development
+        \item Make sure to check weak passwords against a list of the top bad passwords
+    \end{itemize}
+    \item Countermeasures to defend against broken access control:
+    \begin{itemize}
+        \item Perform access control checks before redirecting the authorized user to the requested resource
+        \item Avoid using insecure IDs to prevent the attacker from guessing them
+        \item Implement a session timeout mechanism
+        \item Limit file permissions to authorized users to avoid misuse
+        \item Avoid client-side caching mechanisms
+        \item Remove session tokens on the server side on user logout
+        \item Ensure that minimum privileges are assigned to users to perform only essential actions
+        \item Enforce access control mechanisms once and re-use them throughout the application
+    \end{itemize}
+    \item Cookies flagged as secure are only transmitted over HTTPS
+    \item Fuzz testing: Web application Fuzz testing (fuzzing) is a black box testing method. It is quality checking and assurance technique used to identify coding errors and security loopholes in web applications. Huge amounts of random data called "fuzz" is generated by the fuzz testing tools (fuzzers) and used against the target web application to discover vulnerabilities that can be exploited by various attacks.
+    \begin{itemize}
+        \item Mutation-based: current data samples create new test data and the new test data again mutates to generate further random data. This type of testin starts with a valid sample and keeps mutating until the target is reached.
+        \item Protocol-Based: protocol fuzzer send forged packets to the target application that is to be tested
+        \item Generation-Based
+    \end{itemize}
+\end{itemize}
 
 
 
