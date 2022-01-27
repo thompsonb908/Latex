@@ -297,7 +297,7 @@
     \begin{itemize}
         \item TAN Grapper: Transaction Authentication Number (TAN) is a single-use password for authenticating online banking transactions. Banking trojans intercept valid TANs entered by users and replace them with random numbers. Subsiquently, the attacker misuses the intercepted TAN with the target's login details.
         \item HTML Injection: Trojan creates fake form fields on e-banking pages, therby enabling the attacker to collect the target's account details, credit card number, date of birth, etc. The attacker can use this information to impersonate the target and compromise his/her account.
-        \item Form Grabber: Type of malware that captures a target's sensitive data such as IDs and passwords, from a web browser form or page. It is an advanced method for collecting the target's Internet banking infomration. It analyses POST requests and responses to the victims browser. it compromises the scramble pad authentication and intercepts the scramble pad input as the user enters his/her Customer Number and Personal Access Code.
+        \item Form Grabber: Type of malware that captures a target's sensitive data such as IDs and passwords, from a web browser form or page. It is an advanced method for collecting the target's Internet banking infomration. It analysis POST requests and responses to the victims browser. it compromises the scramble pad authentication and intercepts the scramble pad input as the user enters his/her Customer Number and Personal Access Code.
         \item Covert Credential Grabber: This malware remains dormant until the user performs an online financial transaction. It works covertly to replicate itself on the computer and edits the registry entries each time the computer is started. The trojan also searches the cookie files that had been stored on the computer while browsing financial websites. Once the user attempts to make an online transaction, the Trojan covertly steals the login credentials and transmits them to the hacker.
     \end{itemize}
     \item Covert Channel: methods attackers use to hide data in an undetectable protocol. Rely on tunneling, which enables one protocol to transmit ofver the other. Any process or a bit of data can be a covert channel. Attackers can use covert channels to install backdoors on the target machine.
@@ -985,7 +985,635 @@
     \end{itemize}
 \end{itemize}
 
+\subsection{SQL Injection}
+\subsubsection{SQL Injection Concpets}
+\begin{itemize}
+    \item Types of attacks:
+    \begin{itemize}
+        \item Authorization Bypass: Using this attack, an attacker alters authorization information stored in the database by exploiting an SQL injection vulnerability.
+        \item Compromised Data Integrity: Using this attack, an attacker defaces a web page, inserts malicious content into web pages, or alters the contents of a database.
+        \item Remote Code Execution: Using this attack, an attacker compromises the host OS.
+        \item Compromised Availability of Data: Using this attack, an attacker deletes the database information, delete logs, or audit information stored in a database.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Types of SQL Injection}
+\begin{itemize}
+    \item Union SQL Injection: In a UNION SQL injection, an attacker combines a forged query with a query requested by the user using a UNION clause.
+    \item Blind/Inferential SQL Injection: In blind SQL injection, an attacker poses a true or false question to the database to determine whether the application is vulnerable to SQL injection.
+    \item Error-based SQL injection: In this type of SQL injection, the attacker forces the database to return error messages in response to his/her inputs. Later, the attacker may analyze the error messages obtained from the underlying database to gather information that can be used for constructing the malicious query.
+    \item In-band SQL injection: In in-band SQL injection, attackers use the same communication channel to perform the attack and retrieve the results.
+    \item Out-of-band SQL Injection: Attacker uses different communication channels to perform the attack and obtain results. Difficult to perform as the attacker needs to communicate with a database server and determine the server features used by a web application.
+    \item tautology-based SQL injection attack, an attacker uses a conditional OR clause in such a way that the condition of the WHERE clause will always be true.
+    \item end-of-line SQL injection, an attacker uses Line comments in specific SQL injection inputs.
+    \item Piggybacked Query: Attacker injects an additional malicious query into the original query.
+\end{itemize}
+\subsubsection{SQL Injection Methodology}
+\begin{itemize}
+    \item Database Objects:
+    \begin{itemize}
+        \item Oracle:
+        \begin{itemize}
+            \item SYS.USER\_OBJECTS
+            \item SYS.TABLES, SYS.USER\_TABLES
+            \item SYS.USER\_VIEWS
+            \item SYS.ALL\_TABLES
+            \item SYS.COLUMNS
+            \item SYS.USER\_OBJECTS
+        \end{itemize}
+        \item MS Access
+        \begin{itemize}
+            \item MsysACEs
+            \item MsysObjects
+            \item MsysQueries
+            \item MsysRelationships
+        \end{itemize}
+        \item MySQL:
+        \begin{itemize}
+            \item mysql.user
+            \item mysql.db
+            \item mysql.tables\_priv
+        \end{itemize}
+        \item MSSQL Server:
+        \begin{itemize}
+            \item sysobjects
+            \item syscolumns
+            \item systypes
+            \item sysdatabases
+        \end{itemize}
+        \item DB2:
+        \begin{itemize}
+            \item syscat.columns
+        \end{itemize}
+    \end{itemize}
+    \item Functions:
+    \begin{itemize}
+        \item LOAD\_FILE(): function within MySQL and is used to read and return the contents of a file located within MySQL server.
+        \item OPENROWSET(): An SQL Server can be linked back to an attacker's DB via OPENROWSET.
+        \item CONVERT(): Used to convert one data type to another.
+        \item INTO OUTFILE(): The OUTFILE function within MySQL is often used to run a query and dump the results into a file.
+        \item CHAR(): attacker can encode a common injection variable present in the input string in an attempt to avoid detection in the signatures of network security measures. Converts hexadecimal values into characters that can easily pass through SQL engine parsing. For MySQL.
+        \item ASCIISTR(): Oracle function that takes a string (or an expression that resolves to a string), and returns an ASCII version of the string in the cur.
+        \item CHR(): Oracle function that returns the ASCII character that corresponds to the value passed to it.
+    \end{itemize}
+    \item Column Enumeration:
+    \begin{itemize}
+        \item MSSQL:\\
+        \verb|SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = 'tablename')sp_columns tablename|
+        \item MySQL:\\
+        \verb|show columns from tablename|
+        \item Oracle:
+        \verb|SELECT * FROM all_tab_columns WHERE table_name='tablename'|
+        \item DB2:\\
+        SELECT * FROM syscat.columns WHERE tabname='tablename'|
+    \end{itemize}
+    \item single and double quotes: In black box testing, single and double quotes are used as the input data to catch instances where the user input is not sanatized.
+    \item Semicolon: In black box penetration testing, a semicolon is used to group two or more SQL statements in the same line.
+    \item Static Code analysis: Main objective is to improve the quality of software products by finding errors in the early stages of the development lifecycle. Code is not executed. Covers structural and statement coverage testing.
+    \item Dynamic code analysis: Checks for functional behavior of the software system, memory/CPU usage, and overall performance of the system. In dynamic testing code is executed to uncover bugs in the software system. Testing is done in the later stages of the software development lifecycle.
+    \item Variations: Uses the WHERE statement that always evaluates to true, so that any mathematical or string comparison can be used. It is performed by placing characters such as \verb|' or '1'='1'| on any basic injection statement.
+    \item Declare Variables: uses variables that can be used to pass a series of specially crafted SQL statements and bypass the detection mechanism.
+    \item Case Variation: Obfuscate an SQL statement by mixing it with uppercase and lowercase letters.
+    \item Null Byte: Uses the null byte (\verb|%00|) character prior to a string in order to bypass the detection mechanism.
+\end{itemize}
+\subsubsection{SQL Injection Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Acunetix Web Vulnerability Scanner provides automated web application security testing with innovative technologies including DeepScan and AcuSensor Technology. Rigorously tests for thousands of web application vulnerabilities including SQL injeciton and XSS.
+    \end{itemize}
+\end{itemize}
 
+
+\subsection{Hacking Wireless Networks}
+\subsubsection{Wireless Concepts}
+\begin{itemize}
+    \item Orthogonal Frequency-division Multiplexing (OFDM): Method of encoding digital data on multiple carrier frequencies.
+    \item Frequency-hopping Spread Spectrum (FHSS): A method of transmitting radio signals by rapidly switching a carrier among many frequency channels.
+    \item Multiple input, multiple output orthogonal frequency-division multiplexing (MIMO-OFDM): An air interface for 4G and 5G broadband wireless communications.
+    \item Direct-sequence Spread Spectrum (DSSS): An original data signal multiplied with a pseudo-random noise spreading the code.
+    \item Shared Key authentication: each wireless station recieves a shared secret key over a secure channel that is distinct from the 802.11 wireless network communication channels. The following steps illustrate the establishment of connectino in the shared key authentication process
+    \begin{itemize}
+        \item Station sends an authentication frame to the AP.
+        \item The AP sends a challenge text to the station.
+        \item The station encrypts the challenge text by making use of its configured 64- or 128-bit key, and it sends the encrypted text to the AP.
+        \item The AP uses its configured WEP key to decrypt the encrypted text. The AP compares the decrypted text with the original challenge text. If the decrypted text matches the original challenge text, the AP authenticates the station.
+        \item The station connects to the network.
+    \end{itemize}
+    \item Wireless Standards:
+    \begin{itemize}
+        \item 802.11d: Enchanced version of 802.11a and 802.11b. Supports regulatory domains. The particulars of this standard can be set at the media access control (MAC) layer.
+        \item 802.11e: Used for real-time applications such as voice, VoIP, and video. To ensure that these time-sensitive applications have the network resources they need, 802.11e defines mechanisms to ensure Quality of Service (QoS) to Layer 2 of the reference model, the medium-access layer, or MAC.
+        \item 802.11i: Improves WLAN security by implementing new encryption protocols such as TKIP and AES. It is a standard for wireless local area networks (WLANs) that provides improved encryption for networks that use the popular 802.11a, 802.11b (which includes Wi-Fi) and 802.11g standards.
+        \item 802.11n: A revision that enhances the earlier 802.11g standards with multiple-input multiple-output (MIMO) antennas. It works in both the 2.4GHz and 5GHz bands. IEEE industry standard for Wi-Fi wireless local network transportations. Digital Audio Broadcasting (DAB) and Wireless LAN use OFDM.
+        \item IEEE 802.16: wireless communication standard designed to provide multiple physical layer (PHY) and media access control (MAC) options. It is also known as WiMax. This standard is a specification for fixed broadband wireless metropolitan access networks (MANs) that use point-to-multipoint architecture. It has a range of 1609.34-9656.06 Kilometers (1-6 miles).
+    \end{itemize}
+\end{itemize}
+\subsubsection{Wireless Encryption}
+\begin{itemize}
+    \item PEEAP: a protocol that encapsulates the EAP within an encrypted and authenticated transport layer security (TLS) tunnel.
+    \item WEP: An encryption algorithm for IEEE 802.11 wireless networks. Uses RC4 encryption with a 40/104-bit key. CRC-32 for integrity checking. Does not provide cryptographic integrity protection.
+    \item CCMP: An encryption protocol used in WPA2 for strong encryption and authentication.
+    \item WPA: RC4 and TKIP encryption algorithms with 128-bit keys. Michael algorithm and CRC-32 for integrity checking. Succeptable to KRACK.
+    \item WPA2: An upgrade to WAP using AES and CCMP for wireless data encryption. Introduces the National Institute of Standards and Technology (NIST) FIPS 140-2-compliant AES encryption algorithm, a strong wireless encryption, and counter mode cipher block chaining message authentication code protocol (CCMP). Provides stronger data protection and network access control. Gives a high level of security to Wi-Fi connections, so that only authorized user can access it. 128-bit key, CBC-MAC for integrity checking.
+    \item WPA3: Is a third generation Wi-Fi security protocol that provides new features for personal and enterprise usage. It uses Galois/Counter Mode-256 (GCMP-256) for encryption and the 384-bit hash message authentication code with the Secure Hash Algorithm (HMAC-SHA-384) for authentication. Susceptable to Dragonblood vulnerabilities.
+    \item WPA: 
+    \item Counter Mode Cipher Block Chaining Message Authentication Protocol (CCMP): an encryption protocol used in WPA2 for stronger encryption and authentication. Uses AES
+\end{itemize}
+\subsubsection{Wireless Threats}
+\begin{itemize}
+    \item Confidentiality Attack: Attempt to intercept confidential information sent over wireless associationsm regardless of whether they were sent in clear text or encrypted by Wi-Fi protocols.
+    \item Availability Attacks: Aim at obstructing the delivery of wireless services to legitmiate users, wither by crippling those resources or by denying them access to WLAN resources.
+    \item Authentication Attacks: Steal the identity of Wi-Fi clients, their personal infomration, login credentials, etc. to gain unauthorized access to network resources.
+    \item Integrity Attacks: Attackers send forged control, management, or data frames over a wireless network to misdirect the wireless devices to perform anothe type of attacks (e.g., DoS).
+    \item Ad hoc associations: An attacker may perform this kind of attack using any Universal Serial Bus (USB) adapter or wireless card. The attacker connects the host to an unsecured client to attack a specific client or to avoid AP security.
+    \item Promiscuous Client: Allows an attacker to transmit target network traffic through a fake AP. It is very similar to the evil-twin threat on wireless networks, in which an attacker launches an AP that poses as an authorized AP by beaconing the WLAN's SSID.
+    \item Client mis-associtaion: The client may intentionally or accidentally connect or associtae with an AP outside of the legitimate network because the WLAN signals travel through the air, walls, and othe obstructions.
+    \item Unauthorized association: A major threat to wireless networks. The prevention of this kind of attack depends on the method or technique that the attacker uses to get associated with a network.
+\end{itemize}
+\subsubsection{Wireless Hacking Methodology}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Netcat: A networking utility that reads and writes data across network connections, using the TCP/IP protocol. It is a reliable "back-end" tool used directly or driven by othe programs and scripts. It is also a network debugging and exploration tool.
+        \item NetStumbler: Used for collecting wireless packets and detecting wireless LANs using 802.11b, 802.11a and 802.11g WLAN standards. Runs on Windows.
+        \item L0phtCrack: Tool designed to audit passwords and recover applications. Recovers lost Microsoft Windows passwords with the help of a dictionary, hybrid, rainbow table, and brute-force attacks, also checks the strenght of the password.
+        \item Kismet: An 802.11 Layer 2 wireless network detector, sniffer, and intrusion detection system. Identifies networks by passively collecting packets and detecting standard named networks. It detects hidden networks and the presence of non-beaconing networks via traffic.
+        \item Robber: Open-source tool that helps attackers to find executalbes prone to DLL hijacking. 
+        \item CommView for WiFi: CommView for Wi-Fi is a wireless network monitor and analyzer for 802.11 a/b/g/n networks. It captures packets to display important information such as the list of APs and stations, per-node and per-channel statistics, signal strength, a list of packets and network connections, protocol distribution charts, etc. By providing this information, CommView for Wi-Fi can view and examine packets, pinpoint network problems, and troubleshoot software and hardware.
+        \item WiFiFoFum: WiFiFoFum is a wardriving app to locate, display and map found WiFi networks. WiFiFoFum scans for 802.11 Wi-Fi networks and displays information about each including: SSID, MAC, RSSI, channel, and security. WiFiFoFum also allows you to connect to networks you find and log the location using the GPS. KML logs can be emailed.
+        \item BlueScan: BlueScan is a bash script that implements a scanner to detect Bluetooth devices that are within the range of our system. BlueScan works in a non-intrusive way, that is, without establishing a connection with the devices found and without being detected. Superuser privileges are not necessary to execute it.
+        \item  WiFish Finder: WiFish Finder is a tool for assessing whether WiFi devices active in the air are vulnerable to 'Wi-Fishing' attacks. Assessment is performed through a combination of passive traffic sniffing and active probing techniques. Most WiFi clients keep a memory of networks (SSIDs) they have connected to in the past. Wi-Fish Finder first builds a list of probed networks and then using a set of clever techniques also determines security setting of each probed network. A client is a fishing target if it is actively seeking to connect to an OPEN or a WEP network.
+    \end{itemize}
+    \item WarFlying: Attackers use drones to detect open wireless networks.
+    \item WarWalking: Attackers walk around with Wi-Fi-enabled laptops installed with a wireless discovery tool to map out open wireless networks.
+    \item WarDriving: Attacker drive around with WiFi enabled laptops installed with a wireless discovery tool to map out open wireless networks.
+    \item WarChalking: Symbols are drawn in public places to advertise open Wi-Fi networks.
+\end{itemize}
+\subsubsection{Bluetooth Hacking}
+\begin{itemize}
+    \item Protocols:
+    \begin{itemize}
+        \item Link management protocol (LMP): Used for control of the radio link between two devices, handling matters such as link establishment, querying device abilities and power control. It is implemented on the controller.
+        \item OBEX: Object Exchange protocol is used for communicating binary objects between devies. Bluejacking is sending anonymouse message to othe Bluetooth-equipped devices via the OBEX protocol
+        \item Logical link control and adaptation protocol (L2CAP): L2CAP passes packets to either the Host Controller Interface (HCI) or on a hostless system, directly to the Link Manager/ACL link.
+        \item Service Discovery Protocol (SDP): Is used to allow devices to discover what services each other support, and what parameters to use to connect to them.
+    \end{itemize}
+    \item Non-pairable mode: In the non-pairable mode, a Bluetooth device rejects pairing requests sent by any device.
+    \item Limited discoverable mode: In the limited discoverable mode, the Bluetooth devices are discoverable only for a limited period, for a specific event, or during temporary conditions.
+    \item Non-discoverable mode: Setting a Bluetooth device to the non-discoverable mode prevents that device from appearing on the list during a Bluetooth-enabled device search process. However, it remains visible to users and devices that were previously paired with it or know its MAC address.
+    \item Discoverable mode: When Bluetooth devices are in the discoverable mode, they are visible to other Bluetooth-enabled devices. If a device attempts to connect to another, the device attempting to establish the connection must search for a device that is in the discoverable mode; otherwise, the device attempting to initiate the connection will not be able to detect the other device.
+    \item BluePrinting: BluePrinting is a footprinting technique performed by an attacker in order to determine the make, device model, firmware version, etc. of the target Bluetooth-enabled device. Attackers collect such information from remote bluetooth devices and analyze them in an attempt to find out whether the devices are in the range of vulnerability to exploit.
+    \item Bluejacking: Bluejacking is the use of Bluetooth to send messages to users without the recipient's consent, similar to email spamming. Prior to any Bluetooth communication, the device initiating connection must provide a name that is displayed on the recipient's screen. As this name is user-defined, it can be set to be an annoying message or advertisement. Strictly speaking, Bluejacking does not cause any damage to the receiving device. However, it may be irritating and disruptive to the victims. OBEX protocol.
+    \item Bluebugging: Bluebugging is an attack in which an attacker gains remote access to a target Bluetooth-enabled device without the victim being aware of it. In this attack, an attacker sniffs sensitive information and might perform malicious activities such as intercepting phone calls and messages, forwarding calls and text messages, etc.
+    \item BlueSniff: BlueSniff is a proof of concept code for a Bluetooth wardriving utility. It is useful for finding hidden and discoverable Bluetooth devices. It operates on Linux.
+\end{itemize}
+\subsubsection{Wireless Security Tools and Hacking Countermeasures}
+\begin{itemize}
+    \item Countermeasures to prevent KRACK attacks:
+    \begin{itemize}
+        \item Update all the routers and Wi-Fi devices with the latest security patches.
+        \item Turn on auto updates for all the wireless devices and patch the device firmware.
+        \item Avoid using public Wi-Fi networks.
+        \item Browse only secured websites and do not access sensitive resources when the device is connected to an unprotected network.
+        \item If there are IoT devices, audit the devices and do not connect to insecure Wi-Fi routers.
+        \item Always enable the HTTPS Everywhere extension.
+        \item Enable two-factor authentication.
+        \item Use a VPN to secure information in transit.
+    \end{itemize}
+    \item SSID Cloaking: Used to keep default wireless messages from broadcasting the ID to everyone.
+    \item RF Scanning: Re-purposed access points that do only packet capturing and analysis (RF sensors) are plugged in all over the wired network to detect and warn the WLAN administrator about any wireless devices operating in the area.
+    \item Wired Side Inputs: Network management software uses this technique to detect rogue APs. This software detects devices connected in the LAN, including Telnet, SNMP, CDP (Cisco discovery protocol) using multiple protocols.
+    \item AP Scanning: Access points that have the functionality of detecting neighboring APs operating in the nearby area will expose the data through its MIBS and web interface.
+    \item Wireless control system: Provides the means to configure the wireless IPS service on the MSE, push wireless IPS configurations to the controller, and set APs in the wireless IPS monitor mode.
+    \item Wireless LAN controller(s): These controllers forward attack information from wireless IPS monitor-mode APs to the MSE and distributes configuration parameters to Aps.
+    \item Mobility services engine: It is the central point of alarm aggregation from all controllers and their respective wireless IPS monitor-mode APs. Alarm information and forensic files are stored on the system for archival.
+    \item  Local mode AP: This mode provides wireless service to clients in addition to time-sliced rogue and location scanning.
+\end{itemize}
+
+\subsection{Hacking Mobile Platforms}
+\subsubsection{Mobile Platform Attack Vectors}
+\begin{itemize}
+    \item M1 - Improper Platform Usage: This category covers the misuse of a platform feature or the failure to use platform security controls. It includes Android intents, platform permissions, and the misuse of Touch ID, Keychain, or some other security control that is part of the mobile device's OS
+    \item M3 - Insecure Communication: This category covers poor handshaking, incorrect SSL versions, weak negotiation, cleartext communication of sensitive assets, and so on. Such flaws expose an individual user's data and can lead to account theft.
+    \item M7 - Client Code Quality: This category covers "Security Decisions via Untrusted Inputs" and is one of the less frequently used categories. it is the catch-all for code-level implementation problems in the mobile client, which are distinct from server-side coding mistakes.
+    \item M8 - Code Tampering: This category covers binary patching, local resource modification, method hooking, method swizzling, and dynamic memory modification.
+\end{itemize}
+\subsubsection{Hacking Android OS}
+\begin{itemize}
+    \item Countermeasures that can help you to protect your Android device and the data stored on it from malicious users.
+    \begin{itemize}
+        \item Enable screen lock for your phone.
+        \item Never root your android device.
+        \item Download apps only from official Android markets
+        \item Keep your device updated with Google Android anti-virus software.
+        \item Do not directly download APKs
+        \item Update the OS regularly
+        \item Use a free protector Android apps such as Android Protector, where you can assigne passwords to text messages, mail accounts, and so on.
+        \item Customize your locked home screen with the user information.
+        \item Enable encryption in your Android device to enhance its security.
+        \item Lock your apps that hold private information to prevent other from viewing it, using apps such as AppLock.
+        \item Enable GPS on your Android device for it to be tracked when lost or stolen.
+        \item Enable two-step verification on your Android mobile device.
+        \item Never root your Android device
+        \item Download apps only from official Android markets
+        \item Uninstall apps that invade your privacy
+        \item Encrypt all the Internet traffic through VPN services such as ExpressVPN and VyprVPN for Android.
+        \item Block all the ads displayed by apps
+        \item Enable two-step verification on your Android mobile device
+        \item Disable features such as SmartLock instead of passwords, and auto sign-in functionality.
+        \item Install password manager apps such as LastPass to manage passwords securely
+        \item Enable the screen pinning option to securely access Android apps
+    \end{itemize}
+    \item Native libraries
+    \begin{itemize}
+        \item Open Max AL: Companion API to OpenGL ES but used for multimedia (video and audio) rather than audio only.
+        \item Libc: Comprises System C libraries
+        \item FreeType: Meant for rendering fonts.
+        \item Surface Manager: Meant for display management.
+        \item SSL: meant for Internet security.
+        \item Open GL | ES: 2D and 3D graphics library
+        \item WebKit and Blink: Web browser engine to display HTML content.
+        \item SQLite: database engine used for data storage purposes.
+    \end{itemize}
+    \item Storage:
+    \begin{itemize}
+        \item Shared Preferences: Stores private parameters in key values pairs
+        \item Internal Storage: Private data on the deivce
+        \item External Storage: Public data on the shared external storage
+        \item SQLite Databases: Store structed data in a private database.
+    \end{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item zANTI: android application which allows you to perform various attacks.
+        \item LOIC Low orbit ion cannon: mobile application that allows the attacker to perform DoS/DDoS attacks on the target IP address.
+        \item DroidSheep: simple Android tool for web session hacking (sidejacking).
+        \item TunesGo is an Android tool that has an advanced android root module that recognizes and analyzes your Android device and chooses the appropriate Android root plan for it automatically.
+        \item Orbot: proxy app that empowers other apps to use the internet more privately. Uses Tor to encrypt internet traffic and then hides it by bouncing through a series of computers around the world.
+        \item NetCut: Allows attackers to identify the target devices and block the access of Wi-Fi to the victim devices in a network.
+        \item X-Ray: Android vulnerability scanning tool.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Hacking iOS}
+\begin{itemize}
+    \item Apricot: Web-based mirror operating system for all the latest iPhones
+    \item Spyzie: attackers use various online tools such as Spyzie to hack the target iOS mobile devices. Allows attacker to hack SMS, call logs, app chats, GPS, etc.
+    \item Cydia: Software application for iOS that enables a user to find and install software packages on a jailbroken iPhone.
+    \item Hexxa Plus: a jailbreak repo extractor for iOS 13.2 which allows you to install themes, tweaks, and apps. Compatible with iOS 13, up to 13.2.3.
+    \item xHelper: Android/Trojan.Dropper.xHelper is a variant of Android/Trojan.Dopper. The first noticeable characteristic of xHelper is the use of stolen package names. For Instance, xHelper uses package names starting with "com.muf". This package name is associated with a number of puzzle names found on Google Play, including a puzzle called New2048HD with the package name com.mufc.fireuvw.
+    \item Trident: A sophisticated spyware that exploits vulnerabilities in an iPhone to spy on users. These vulnerabilities allow attackers to jailbreak the target iPhone remotely and install malicious spyware such as Pegasus. Trident is capable of taking complete control of the target mobile device, and it allows attackers to monitor and track all the user activities.
+    \item Gustuff: A type of banking trojan that uses malicious SMS to compromise the security of the target Android mobile device.
+    \item iOS layers:
+    \begin{itemize}
+        \item Cocoa Application: This layer contains key frameworks that help in building iOS apps. These frameworks define the appearance of the apps, offer basic app infrastructure, and support key technologies such as multitasking, touch-based input, push notifications, and many high-level system services. Cocoa apps use the AppKit framework.
+        \item Media: This layer contains the graphics, audio, and video technologies that enable multimedia experiences in apps.
+        \item Core OS: This layer contains low-level features on which most other technologies are based. Frameworks in this layer are useful when dealing explicitly with security or communicating with an external hardware and networks. The services provided by this layer are dependent on the Kernel and Device Drivers layer
+        \item Core Services: This layer contains fundamental system services for apps. The key services are Core Foundation and Foundation frameworks (define the basic types that all apps use). Individual technologies that support features such as social media, iCloud, location, and networking belong to this layer
+    \end{itemize}
+    \item untethered jailbreak: If the user turns the device off and back on, the device will start up completely, and the kernel will be patched without the help of a computer - it will be jailbroken after each reboot.
+    \item semi-tethered jailbreak: has the property that if the user turns the device off and back on, the device will start up completely; it will no longer have a patched kernel, but it will still be usable for normal functions. To use jailbroken addons, the user needs to start the device with the help of the jailbreaking tool.
+    \item iOS jailbreaking tools:
+    \begin{itemize}
+        \item Yalu
+        \item Velonzy
+        \item TaiG
+    \end{itemize}
+    \item Unrevoked: Android Jailbreaking tool.
+    \item Userland Exploit: uses a loophole in the system application. It allows user-level access but does not allow iboot-level access. you cannot secure iOS devices against this exploit, as nothing can cause a recovery mode loop. Only firmware updates can patch these types of vulnerabilities. iBoot Exploit and Bootrom Exploit allow user-level access and also iboot-level access.
+\end{itemize}
+\subsubsection{Mobile Devices Management}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item XenMobile: Complete Mobile device management software
+        \item SpyBubble: Geolocation tracking
+        \item Phonty: Geolocation tracking
+        \item GadgetTrak: Geolocation tracking
+    \end{itemize}
+\end{itemize}
+\subsubsection{Mobile Security Guidelines and Tools}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Promon Shield: Promon SHIELD is used to protect mobile apps against repackaging attacks. It detects when an app has been modified (repackaged). Consequently, the original app that has Promon SHIELD™ implemented cannot be executed when repackaged
+        \item Lookout Personal: Lookout Personal helps to protect your device from security threats, loss, and theft. It is available for Android and iOS devices. It provides mobile security, identity protection, and theft prevention in a single app
+        \item Apktool: Apktool is used for reverse engineering third-party, closed, binary Android apps. It can decode resources nearly to their original form and rebuild them after making some modifications. It also makes working with an app easier because of the project-like file structure and automation of some repetitive tasks such as building APK, etc
+        \item FaceNiff: FaceNiff is an Android app that can sniff and intercept web session profiles over a Wi-Fi connection to a mobile.
+    \end{itemize}
+\end{itemize}
+
+\subsection{IoT and OT Hacking}
+\subsubsection{IoT Concepts}
+\begin{itemize}
+    \item Layers
+    \begin{itemize}
+        \item Internet Layer: A crucial layer as it servers as the main component in carrying out communication between two endpoints, such as device-to-device, device-to-cloud, device-to-gateway, or back-end data sharing.
+        \item Access Gateway Layer: This layer helps to bridge the gap between two endpoints, such as a device and a client. The initial data handling also takes place in this layer. This layer carries out message routing, message identification, and subscribing.
+        \item Middleware Layer: This is one of the most critical layers that operates in two-way mode. It is responsible for important functions such as data management, device management, and various issues like data analysis, data aggregation, data filtering, device information discovery, and access control.
+        \item Edge Technology Layer: This layer consists of all the hardware components, including sensors, radio-frequency identification (RFID) tags, readers, or other soft sensors, and the device itself.
+        \item Application Layer: This layer is placed at the top of the stack, is responsible for the delivery of services the the respective users from different sectors like building, industrial, manufacturing, automobile, security, healthcare, etc.
+    \end{itemize}
+    \item Communication Protocol:
+    \begin{itemize}
+        \item Very Small Aperture Terminal (VSAT): A communication protocol that is used for data transfer using small dish antennas for both broadband and narrowband data.
+        \item QUIC: Quick UDP Internet Connections (QUICs) are multiplexed connection between IoT devices over the User Datagram Protocol (UDP); they provide security equivalent to SSL/TLS.
+        \item Near-Field Communication (NFC): NFC is a type of short-range communication that uses magnetic field induction to enable communication between two electronic devices. It is primarily used in contactless mobile payment, social networking, and the indentifiaction of documents or other products.
+        \item Power-Line Communication (PLC): This is a type of protocol that uses electrical wire to transmit power and data from one endpoint to another. PLC is required for applications in deffernt areas such as home automation, industrial devices, and broadband over power lines (BPL).
+        \item Constrained Application Protocol (CoAP): A web transfer protocol used to transfer messages between constrained nodes and IoT networks.
+        \item LWM2M: Lightweight Machine-to-Machine (LWM2M): An application-layer communication protocol used for application-level communication between IoT devices.
+        \item XMPP: eXtensible Messaging and Presence Protocol (XMPP) is an open technology for real-time communication used for IoT devices. This technology is used for developing interoperable devices, applications, and services for the IoT environment.
+        \item Physical Web: technology used to enable faster and seamless interation with nearby IoT devices. It reveals the list of URLs being broadcast by nearby devices with BLE beacons.
+    \end{itemize}
+    \item Contiki: Used in low power wireless devices such as street lighting, sound monitoring systems, etc.
+    \item Edge: Edge computing helps the IoT environment to move computational processing to the edge of the network, allowing smart devices and gateways to perform tasks and services from the cloud end.
+    \item Sensing Technology: Sensors embedded in the devices sense a wide variety of informaition from their surroundings like temperature, gases, location, working of some industrial machine as well as sensing health data of a patient.
+    \item IoT Gateways: Gateways are used to bridge the gap between the IoT devices (internal network) and the end user (external network) and thus allowing them to connect and communicate with each other. The data collected by the sensors in IoT devices send the collected data to the concerned user or cloud through the gateway.
+    \item Cloud Server/Data storage: the collected data after travelling through the gateway arrives at the cloud, where it is stored and undergoes data analysis. The processed data is then transmitted to the user where he/she takes certain action based on the information recieved by him/her.
+    \item Remote Control using Mobile App: The end user uses remote controls such as mobile phones, tabs, laptops, etc. installed with a mobile app to monitor, control, retrieve data, and take a specific action on IoT devices from a remote location.
+\end{itemize}
+\subsection{IoT Attacks}
+\begin{itemize}
+    \item Security issues at IoT layers:
+    \begin{itemize}
+        \item Cloud: Improper authentication, no encryption for storage and communications, insecure web interface.
+        \item Mobile: Insecure API, lack of communication channels encryption, authenticationm lack of storage security.
+        \item Network: Firewall, improper communications encryption, services, lack of automatic updates.
+        \item Application: Validation of the inputted string, AuthN, AuthZ, no automatic security updates, default passwords.
+    \end{itemize}
+    \item Insecure Data Transfer and Storage: Lack of encryption and access control of data that is in transit or at rest may result in leakage of sensitive information to malicious users.
+    \item Insecure Network Services: Prone to various attacks like buffer overflow attacks, which cause a denial-of-service scenario, thus leaving the device inaccessible to the user.
+    \item Insecure Ecosystem Interfaces: Web, backend API, mobile, and cloud interfaces outside the devices lead to compromized security of the device and its components.
+    \item Insecure Default settings: Insecure or insufficient device settings restrict the operators from modifying configurations to make the device more secure.
+    \item Device Physical interface vulnerabilities:
+    \begin{itemize}
+        \item Firmware extraction
+        \item User/Admin CLI
+        \item Privileged escalation
+        \item Reset to insecure state
+        \item Removal of storage media
+        \item Tamper resistance
+        \item Debug port: UART (Serial), JTAG/SWD
+        \item Device ID/serial number exposure.
+    \end{itemize}
+    \item Device Web Interface Vulnerabilities:
+    \begin{itemize}
+        \item Standard set of web application Vulnerabilities:
+        \begin{itemize}
+            \item OWASP Web Top 10
+            \item OWASP ASVS
+            \item OWASP Testing Guide
+        \end{itemize}
+        \item Credential management vulnerabilities
+        \item Username enumeration
+        \item Weak passwords
+        \item account lockout
+        \item Known default credentials
+        \item insecure password recovery mechanism
+    \end{itemize}
+    \item Device Firmware Vulnerabilities:
+    \begin{itemize}
+        \item Sensitive data exposure (See OWASP Top 10 - A6 Sensitive data exposure):
+        \begin{itemize}
+            \item Backdoor accounts
+            \item Hardcoded credentials
+            \item Encryption keys
+            \item Encryption (symmetric, asymmetric)
+            \item sensitive infomration
+            \item sensitive URL disclosure
+        \end{itemize}
+        \item Firmware version display and/or date of last update.
+        \item Vulnerable services (web, ssh, tftp, etc.)
+        \begin{itemize}
+            \item Verify for old software versions and possible attacks (Heartbleed, Shellshock, old PHP versions, etc.)
+        \end{itemize}
+        \item Security-related function API exposure
+        \item Firmware downgrade possibility
+    \end{itemize}
+    \item Network Traffic Vulnerabilities:
+    \begin{itemize}
+        \item LAN
+        \item LAN to internet.
+        \item Short range
+        \item Non-standard
+        \item Wireless (Wi-Fi, Z-wave, XBee, Zigbee, bluetooth, LoRa)
+        \item Protocol fuzzing.
+    \end{itemize}
+    \item Sybil Attack: The attacker uses multiple forged identities to create a strong illusion of traffic congestion, affecting communication between neighboring nodes and networks.
+    \item Exploitation Kits: The attacker uses malicious scripts to exploit poorly patched vulnerabilities in an IoT device.
+    \item Side-Channel Attack: the attackeer extracts information about encryption keys by observing the emission of signals i.e. "side channels" from IoT devices.
+    \item DNS Rebinding Attack: DNS rebinding is a process of obtaining access to a victim's router using a malicious JavaScript code on a web page.
+    \item Hex Code: A color hex code is a way of specifying color using hexadecimal values. the code itself is a hex triplet, which represents three separate values that specify the levels of the component colors. It is used by programmers to describe locations in memory because it can represent every byte.
+    \item Unicode: Character encoding system to support worldwide interchange, processing, and display of the written texts. This type of code is mostly used in evading IDS.
+    \item Rolling Code: the form of a code from a modern key fob that locks or unlocks the vehicle. Here a code is sent to the vehicle which is defferent for every other use and is only used once, that means if a vehicle receives the same code again it rejects it. This code which locks or unlocks a car or garage is called as Rolling code or Hopping code. it is used in keyless entry systems to prevent replay attacks. An eavesdropper can capture the code transmitted and later use it to unlock the garage or vehicle.
+    \item Polymorphic code: Code that uses a polymorphic engine to mutate while keeping the original algorithm intact. Polymorphic code can also be used to generate encryption algorithms.
+\end{itemize}
+\subsection{IoT Hacking Methodology}
+\begin{itemize}
+    \item Phases:
+    \begin{itemize}
+        \item Information Gathering
+        \item Vulnerability Scanning
+        \item Launching Attacks
+        \item Gaining Remote Access
+        \item Maintaining Remote Access
+    \end{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item MultiPing: find the IP address of any IoT device in the target network.
+        \item RFCrack: Attackers use RFCrack to obtain the rolling code sent by the victim to unlock a vehicle and later use the same code for unlocking and stealing the vehicle.
+        \item FCC ID Search: Helps in finding the details and granted certification of devices. FCC ID contains two elements: Grantee ID (initial 3 or 5 characters) and Product ID (Remaining characters).
+        \item IoT Seeker: will scan a network for specific types of IoT devices to detect if they are using the default, factory set credentials.
+        \item Censys: A public search engine and data-processing facility backed by data collected from ongoing Internet-wide scans. Suports full-text searches on protocol banners and queries a wide range of derived fields. It can identify specific vulnerable devices and networks, and generate statistical reports on broad useage patterns and trends.
+        \item RIoT: Vulnerability Scanner: Retina IoT identifies at-risk IoT devices, such as IP cameras, DVRs, printers, and routers. This tool gives an attacker's view of all the IoT devices and their associated vulnerabilities.
+        \item Foren6: uses sniffers to capture 6LoWPAN traffic and renders the network state in a graphical user interface. Captures all RPL-related information and identifies abnormal behaviors.
+        \item Zigbee Framework: Attify ZigBee framework consists of a set of tools used to perform ZigBee penetration testing. ZigBee protocol makes use of 16 different channels for all communications. Attackers use Zbstumbler from Attify Zigbee framework to identify the channel used by the target device.
+        \item HackRF One: Attackers use HackRF One to perform attacks such as BlueBorne or AirBorne attacks such as replay, fuzzing, jamming, etc. HackRF One is an advanced hardware and software defined radio with the range of 1MHz to 6GHz. It transmits and receives radio waves in half-duplex mode, so it is easy for attackers to perform attacks using this device.
+        \item Smartpage: Meta search engine
+        \item MetaGer: Meta search engine
+        \item eTools.ch: Meta search engine
+        \item Thingful: Search engine for finding and using open IoT data from around the world. Helps organizations make better decisions with external IoT data.
+        \item beSTORM: smart fuzzer that detects buffer overflow vulnerabilities by automating and documenting the process of delivering corrupted inputs and watching for an unexpected response from the application
+        \item RTL-SDR: hardware is available in the form of a USB dongle that can be used to capture active radio signals in the vicinity (an Internet connection is not mandatory).
+        \item Universal Radio Hacker (URH): a software of investigating unknown wireless protocols used by various IoT devices.
+    \end{itemize}
+    \item firmware analysis steps
+    \begin{itemize}
+        \item Obtain firmware
+        \item Analyze firmware
+        \item Extract filesystem
+        \item mount filesystem
+        \item analyze filesystem content
+        \item Emulate firmware for dynamic testing
+    \end{itemize}
+\end{itemize}
+\subsection{IoT Countermeasures}
+\begin{itemize}
+    \item Lack of Secure Update Mechanism:
+    \begin{itemize}
+        \item Verify the source and integrity of updates
+        \item Encrypt communication between endpoints
+        \item Notify end-users of security updates
+    \end{itemize}
+    \item Lack of Physical Hardening:
+    \begin{itemize}
+        \item Set unique password for BIOS/firmware
+        \item Configure device boot order to prevent unauthorized booting
+        \item Minimize the external ports such as USB ports
+    \end{itemize}
+    \item Lack of Device Management:
+    \begin{itemize}
+        \item Blacklist malicious devices from suspicious sources.
+        \item Validate all asset attributes.
+        \item Secure decommissioning of devices.
+    \end{itemize}
+    \item Insecure default settings:
+    \begin{itemize}
+        \item Changee the default usernames and passwords.
+        \item Custom modify the privacy and security settings.
+        \item Disable remote access to IoT devices when not in use.
+    \end{itemize}
+    \item Insecure network services:
+    \begin{itemize}
+        \item Close open network ports
+        \item disable UPnP
+        \item Review network services for vulnerabilities.
+    \end{itemize}
+    \item Insecure Web Interface:
+    \begin{itemize}
+        \item Enable default credentials to be changed.
+        \item Enbale the account lockout mechanism
+        \item Conduct periodic assessment of web applications
+    \end{itemize}
+    \item Insufficient Authentication / Authorization:
+    \begin{itemize}
+        \item Implement secure password recovery mechanisms
+        \item Use strong and complex passwords.
+        \item Enable two-factor authentication
+    \end{itemize}
+    \item Lack of Transport Encryption / Integrity Verification:
+    \begin{itemize}
+        \item Encrypt communication between endpoints.
+        \item Maintain SSL/TLS implementation
+        \item Not to use proprietary encryption solutions.
+    \end{itemize}
+    \item Security Considerations:
+    \begin{itemize}
+        \item Mobile: An ideal framework for the mobile interface should include proper authentication mechanism for the user, account lockout mechanism after a certain number of failed attempts, local storage security, encrypted communication channels and the security of the data transmitted over the channel.
+        \item Gateway: An ideal framework for the gateway should incorporate strong encryption techniques for secure communications between endpoints. Also, the authentication mechanism for the edge components should be as strong as any other component in the framework. Where ever possible the gateway should be designed in such a way that it authenticates multi-directionally to carry out trusted communication between the edge and the cloud. Automatic updates should also be provided to the device for countering vulnerabilities.
+        \item Cloud Platform: A secure framework for the cloud component should include encrypted communications, strong authentication credentials, secure web interface, encrypted storage, automatic updates and so on.
+        \item Edge: Framework consideration for edge would be proper communications and storage encryption, no default credentials, strong passwords, use latest up to date components and so on.
+    \end{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item DigiCert IoT Security Solution: DigiCert Home and Consumer IoT Security Solutions protect private data and home networks while preventing unauthorized access using PKI-based security solutions for consumer IoT devices.
+        \item SeaCat.io: SeaCat.io is a security-first SaaS technology to operate IoT products in a reliable, scalable and secure manner. It provides protection to end users, business, and data.
+        \item Firmalyzer Enterprise: Firmalyzer enables device vendors and security professionals to perform automated security assessment on software that powers IoT devices (firmware) in order to identify configuration and application vulnerabilities. This tool notifies users about the vulnerabilities discovered and assists to mitigate those in a timely manner.
+    \end{itemize}
+\end{itemize}
+\subsection{OT Concepts}
+\begin{itemize}
+    \item DCS: A Distributed Control System (DCS) is used to control production systems spread within the same gepgraphical location.
+    \item BPCS: Basic Process Control System (BPCS) is responsible for performing process control and monitoring for industrial infrastructure.
+    \item SIS: A safety instrumented System (SIS) is an automated control system designed to safeguard the manufactureing environment in case of any hazardous incident in industry.
+    \item PLC: A programmable logic controller (PLC) is a small solid-state control computer where instructions can be customized to perform a specific task. PLC is a Operational Technology (OT) component.
+    \item SCADA: Supervisory Control and Data Acquisition (SCADA) is a centralized supervisory control system that is used for controlling and monitoring industrial facilities and infrastructure.
+    \item Purdue Model:
+    \begin{itemize}
+        \item Level 0 (physiacl process): In this level, the actual physical process is defined, and the product is manufactured.
+        \begin{itemize}
+            \item BACnet, EtherCat, CANopen, Crimson v3, DeviceNet, GE-SRTP, Zigbee, ISA/IEC 62443, ISA SP100, MELSEC-Q, MODBUS, Niagara Fox, Omron Fins, PCWorx, Profibus, Profinet, Sercos II, S7 Communications, WiMax.
+        \end{itemize}
+        \item Level 1 (basic controls/intelligent devices): Analyzation and alteration of the physical process can be done at this level. The operations in basic control include "start motors", "open valves", "move actuators", etc.
+        \begin{itemize}
+            \item BACnet, EtherCat, CANopen, Crimson v3, DeviceNet, GE-SRTP, Zigbee, ISA/IEC 62443, ISA SP100, MELSEC-Q, MODBUS, Niagara Fox, Omron Fins, PCWorx, Profibus, Profinet, Sercos II, S7 Communications, WiMax.
+        \end{itemize}
+        \item Level 2 (Control Systems/Area Supervisory Controls): Supervising, monitoring, and controlling the physical process is carried out at this level.
+        \begin{itemize}
+            \item Level 2 uses protocols such as 6LoWPAN, DNP3, DNS/DNSSEC, FTE, HART-IP, IEC 60870-5-101/104, SOAP.
+        \end{itemize}
+        \item Level 3 (Operational Systems/Site Operations): In this level, the production management, individual plant monitoring, and control functions are defined.
+        \item Level 4
+        \begin{itemize}
+            \item DCOM, DDE, FTP/SFTP, GE-SRTP, IPv4/IPv6, OPC, TCP/IP, Wi-Fi.
+        \end{itemize}
+        \item Level 5
+        \begin{itemize}
+            \item DCOM, DDE, FTP/SFTP, GE-SRTP, IPv4/IPv6, OPC, TCP/IP, Wi-Fi.
+        \end{itemize}
+    \end{itemize}
+    \item ISA/IEC 62443: Provides a flexible framework for addressing and mitigating current and future security vulnerabilities in industrial automation and control systems.
+    \item ICCP (IEC 60870-6): ICCP (inter-control center communications protocol) (IEC 68070) provides a set of standards and protocols for covering ICS or SCADA communication in power system automation.
+    \item IEC 61850: A common protocol that enables interoperability and communications between the IEDs at electrical substations.
+    \item HSCP: Hybrid SCP (Secure Copy Protocol): is developed for transmitting larger file sizes at high speed on long-distance and wideband infrastructure.
+\end{itemize}
+\subsection{OT Hacking Methodology and Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item CRITIFENCE: Online tool that allows attackers to discover the default credentials of a device or product simply by entering the device name or manufacturer name
+        \item GRASSMARLIN: Open source tool that passively maps and visually displays an ICS/SCADA network topology, while safely conducting device discovery, accounting and reporting on these critical cyber-physical systems.
+        \item SCADA Shutdown tool: An ICS testing and automation tool that allows attackers to fuzz, scan, and run remote commands on ICSs, SCADA networks and controllers.
+        \item Gqrx: An SDR implemented with the help of the GNU Radio and Qt GUI tool. Attackers use hardware devices such as FunCube dongles, Airspy, HackRF, and RTL-SDR along with Gqrx SDR, to analyze the spectrum.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Cloud Computing}
+\subsubsection{Cloud Computing Concepts}
+\begin{itemize}
+    \item Cloud Deployment Models:
+    \begin{itemize}
+        \item Public Cloud: In this model, the provider makes services such as applications, servers, and data storage available to the public over the Internet. Therefore, he is liable for the creation and constant maintenance of the public cloud and its IT resources. Public cloud services may be free or based on a pay-per-usage model (e.g., Amazon Elastic Compute Cloud (EC2), Google App Engine, Windows Azure Services Platform, IBM Bluemix).
+        \item Multi Cloud: It is a dynamic heterogeneous environment that combines workloads across multiple cloud vendors that are managed via one proprietary interface to achieve long-term business goals. The multi cloud uses multiple computing and storage services from different cloud vendors. It distributes cloud assets, software, applications, etc. across various cloud-hosting environments.
+        \item Community Cloud: It is a multi-tenant infrastructure shared among organizations from a specific community with common computing concerns, such as security, regulatory compliance, performance requirements, and jurisdiction. The community cloud can be either on- or off-premises and governed by the participated organizations or by a third-party managed service provider (e.g., Optum Health Cloud, Salesforce Health Cloud).
+        \item Hybrid Cloud: It is a cloud environment comprised of two or more clouds (private, public, or community) that remain unique entities but are bound together to offer the benefits of multiple deployment models. In this model, the organization makes available and manages some resources in-house and provides other resources externally (e.g., Microsoft Azure, Zymr, Parangat, Logicalis).
+        \item Private Cloud: Internal or Corporate Cloud is a cloud infrastructure that a single organization operates solely. The organization can implement the private cloud within a corporate firewall. Organizations deploy private cloud infrastructures to retain full control over corporate data.
+    \end{itemize}
+    \item Cloud Storage Layers:
+    \begin{itemize}
+        \item Front-end layer: accessed by the end user where it provides APIs for the management of data storage.
+        \item Middleware Layer: Performs several functions such as data de-duplication and replication of data.
+        \item Back-end layer: Where the hardware is implemented.
+        \item Application Layer: Is a cloud security control layer that includes software development lifecycle, binary analysis, scanners, web app firewalls, transactional sec, etc.
+        \item 
+    \end{itemize}
+    \item NIST Cloud Deployment Actors:
+    \begin{itemize}
+        \item Cloud Carrier: Acts as an intermediary that provides connectivity and transport services between CSPs and cloud consumers. The cloud carrier provides access to consumers via a network, telecommunication, or other access devices.
+        \item Cloud Auditor: A party that performs an independent examination of cloud service controls to express an opinion thereon. Audits verify adherence to standards through a review of the objective evidence.
+        \item Cloud Consumer: A person or organization that maintains a business relationship with the cloud services providers (CSPs) and utilizes the cloud computing services.
+        \item Cloud Provider: A person or organization who acquires and manages the computing infrastructure intended for providing services (directly or via a cloud broker) to interested parties via network access.
+    \end{itemize}
+    \item Infrastructure-as-a-service (IaaS): This cloud computing service enables subscribers to use on-demand fundamental IT resources, such as computing power, virtualization, data storage, and network. This service provides virtual machines and other abstracted hardware and operating systems (OSs), which may be controlled through a service application programming interface (API). As cloud service providers are responsible for managing the underlying cloud computing infrastructure, subscribers can avoid costs of human capital, hardware, and others (e.g., Amazon EC2, GoGrid, Microsoft OneDrive, Rackspace).
+    \item Platform-as-a-Service (PaaS): This type of cloud computing service allows for the development of applications and services. Subscribers need not buy and manage the software and infrastructure underneath it but have authority over deployed applications and perhaps application hosting environment configurations. This offers development tools, configuration management, and deployment platforms on-demand, which can be used by subscribers to develop custom applications (e.g., Google App Engine, Salesforce, Microsoft Azure). Advantages of writing applications in the PaaS environment include dynamic scalability, automated backups, and other platform services, without the need to explicitly code for them.
+    \item Software-as-a-Service (SaaS): This cloud computing service offers application software to subscribers on-demand over the Internet. The provider charges for the service on a pay-per-use basis, by subscription, by advertising, or by sharing among multiple users (e.g., web-based office applications like Google Docs or Calendar, Salesforce CRM, and Freshbooks).
+    \item Identity-as-a-Service (IDaaS): This cloud computing service offers authentication services to the subscribed enterprises and is managed by a third-party vendor to provide identity and access management services. It provides services such as Single-Sign-On (SSO), Multi-Factor-Authentication (MFA), Identity Governance and Administration (IGA), access management, and intelligence collection. These services allow subscribers to access sensitive data more securely both on and off-premises (e.g., OneLogin, Centrify Identity Service, Microsoft Azure Active Directory, Okta).
+    \item Anything-as-a-service (XaaS): also known as everything-as-a-service. Includes all the other types of cloud services.
+    \item service Intermediation: Improves a given function by a specific capability and provides value-added services to cloud consumers.
+    \item Service aggregation: Combines and integrates multiple services into one or more new services.
+    \item Service Arbitrage: It is like service aggregation but without the fixing of the aggregated services (the cloud broker can choose services from multiple agencies).
+    \item Distributed Storage: A characteristic of cloud computing that offers better scalability, availability, and reliability of data. However, cloud distributed storage can potentially raise security and compliance concerns.
+    \item Automated Management: By minimizing user involvement, cloud automation speeds up the process and reduces labor costs and the possibility of human error.
+    \item Measured Service: Cloud system employ the "pay-per-use" metering method. Subscribers pay for cloud services by monthly subscription or according to the usage of resources such as storage levels, processing power, and bandwidth. Cloud service providers monitor, control, report, and charge consumption of resources by customers with complete transparency.
+    \item Virtualization Technology: Enables the rapid scaling of resources in a way that non-virtualized environments cannot achieve.
+    \item Broad network access: Cloud resources are available over the network and accessed through standard procedures via a wide variety of platforms, including laptops, mobile phones, and personal digital assistants (PDAs).
+    \item Rapid Elasticity: The cloud offers instant provisioning of capabilities to rapidly scale up or down, according to demand. To the consumers, the resources available for provisioning seem to be unlimited and can be purchased in any quantity at any point in time.
+    \item Resource Pooling: Cloud service provider pools all the resources together to server multiple customers in the multi-tenant environment, with phtsical and virtual resources dynamically assigned and reassigned on demand by the consumer of the cloud.
+\end{itemize}
+\subsubsection{Container Technology and Serverless Computing}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Computing Threats}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Hacking}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Security}
+\begin{itemize}
+    \item 
+\end{itemize}
 
 \subsection{General / Unsorted}
 \begin{itemize}
@@ -1044,7 +1672,7 @@
     \end{itemize}
     \item Bluetooth
     \begin{itemize}
-        \item Bluesnarfing: Theft of information from a target device using a bluetooth connection.
+        \item Bluesnarfing: Theft of information from a target device using a bluetooth connection. This technique allows an attacker to access the victim's contact list, emails, text messages, photos, videos, business data, and so on stored on the device.
         \item Bluejacking: Transmission of data to a target device using a bluetooth connection.
     \end{itemize}
     \item Operating System Attacks

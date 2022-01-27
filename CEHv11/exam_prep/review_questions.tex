@@ -516,7 +516,216 @@
     \end{itemize}
 \end{itemize}
 
+\subsection{SQL Injection}
+\subsubsection{SQL Injection Concpets}
+\begin{itemize}
+    \item Which of the following system table does MS SQL Server database use to store metadata? Hackers can use this system table to acquire database schema information to further compromise the database.
+    \begin{itemize}
+        \item sysobjects: contains a row for every object that has been created in the database, including stored procedures, views, and user tables.
+    \end{itemize}
+    \item Which of the following methods carries the requested data to the webserver as part of the message body?
+    \begin{itemize}
+        \item HTTP POST
+    \end{itemize}
+    \item Which of the following is the most effective technique in identifying vulnerabilities or flaws in the web page code?
+    \begin{itemize}
+        \item Code analysis
+    \end{itemize}
+\end{itemize}
+\subsubsection{Types of SQL Injection}
+\begin{itemize}
+    \item What is the main difference between a "Normal" SQL injection and a "Blind" SQL injection vulnerability?
+    \begin{itemize}
+        \item The vulnerable application does not display errors with information about the injection results to the attacker.
+    \end{itemize}
+    \item In blined SQLi, attacker can steal data by asking a series of true or false questions through SQL statements. Select all the correct types of blind SQL injections.
+    \begin{itemize}
+        \item Time Delay
+        \item Boolean exploitation.
+    \end{itemize}
+    \item Which of the following SQL queries is an example of a heavy query used in SQL injection?
+    \begin{itemize}
+        \item The following query in Oracle takes a huge amount of time to execute:\\
+        \verb|SELECT count(*) FROM all_users A, all_users B, all_users C|
+        \item If an attacker injects a malicious parameter to the above query to perform a time-based SQL injection without using functions, then it takes the following form:\\
+        \verb|1 AND 1 < SELECT count(*) FROM all_users A, all_users B, all_users C|
+        \item The final resultant query takes the form:\\
+        \verb|SELECT * FROM products WHERE id=1 AND 1 < SELECT count(*) FROM all_users A, all_users B, all_users C|
+    \end{itemize}
+\end{itemize}
+\subsubsection{SQL Injection Methodology}
+\begin{itemize}
+    \item Which of the following countermeasures allows developers to protect PL/SQL code from SQL injection attacks?
+    \begin{itemize}
+        \item Make use of bind parameters in dynamic SQL
+    \end{itemize}
+\end{itemize}
+\subsubsection{SQL Injection Countermeasures}
+\begin{itemize}
+    \item Which of the following practices makes web applications vulnerable to SQL injection attacks?
+    \begin{itemize}
+        \item Database server running OS commands.
+    \end{itemize}
+    \item Which of the following commands has to be disabled to prevent exploitation at the OS level?
+    \begin{itemize}
+        \item The xp\_cmdshell option is an SQL server configuration option that enables system administrators to control whether the xp\_cmdshell extended stored procedure can be executed on a system. Disable commands such as xp\_cmdshell, as they can affect the OS of the system.
+    \end{itemize}
+    \item Which of the following is a Snort rule that is used to detect and block an SQL injection attack?
+    \begin{itemize}
+        \item Many of the common attacks use specific type of code sequences or commands that allow attackers to gain an unauthorized access to the target's system and data. These commands and code sequences allow a user to write Snort rules that aim to detect SQL injection attacks.
+        \item Expression that can be blocked by Snort:
+        \begin{itemize}
+            \item \begin{verbatim}
+                /(%27)|(\')|(\-\-)|(\%23)|(#)/ix
+            \end{verbatim}
+            \item \begin{verbatim}
+                /exec(\s|\+)+(s|x)p\w+/ix
+            \end{verbatim}
+            \item \begin{verbatim}
+                /((\%27)|(\'))((\%6F)|o|(\%4F))((\%72)|r|(\%52))/ix
+            \end{verbatim}
+            \item \begin{verbatim}
+                alert tcp $EXTERNAL_NET and -> $HTTP_SERVERS $HTTP_PORTS (msg:"SQL Injection - Paranoid"; flow:to_server,established;uricontent:".pl";pcre:"/(\%27)|(\')|(\-\-)|(%23)|(#)/i";classtype:Web-application-attack;sid:9000;rev:5
+            \end{verbatim}
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
 
+\subsection{Hacking Wireless Networks}
+\subsubsection{Wireless Concepts}
+\begin{itemize}
+    \item In LAN-to-LAN Wireless Network, the APs provide wireless connectivity to local computers, and computers on different networks that can be interconnected?
+    \begin{itemize}
+        \item True
+    \end{itemize}
+    \item In which of the following processes do the station and access point use the same WEP key to provide authentication, which means that this key should be enabled and configured manually on both the access point and the client?
+    \begin{itemize}
+        \item WEP encryption
+    \end{itemize}
+\end{itemize}
+\subsubsection{Wireless Encryption}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Wireless Threats}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Wireless Hacking Methodology}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Bluetooth Hacking}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Wireless Security Tools and Hacking Countermeasures}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+\subsection{Hacking Mobile Platforms}
+\subsubsection{Mobile Platform Attack Vectors}
+\begin{itemize}
+    \item Which of the following categories of mobile risk covers “Security Decisions via Untrusted Inputs” and is one of the less frequently used categories?
+    \begin{itemize}
+        \item Client Code Quality
+    \end{itemize}
+    \item OWASP Top 10 Mobile Risk?
+    \begin{enumerate}
+        \item Improper platform usage
+        \item Insecure data storage
+        \item Insecure communication
+        \item Insecure authentication
+        \item Insufficient cryptography
+        \item Insecure authorization
+        \item Client code quality
+        \item Code tampering
+        \item Reverse engineering
+        \item Extraneous functionality
+    \end{enumerate}    
+\end{itemize}
+\subsubsection{Hacking Android OS}
+\begin{itemize}
+    \item
+\end{itemize}
+\subsubsection{Hacking iOS}
+\begin{itemize}
+    \item Which of the following statements is not true for securing iOS devices?
+    \begin{itemize}
+        \item Jailbreak detection has to be enabled all the time in any iOS device. Disabling Jailbreaking detection in the device cannot secure the device from jailbreaking and once if jailbreaking has been performed on the device, the device can be prone to installation of applications from any untrusted sources and can also lead to various attacks that can cause data theft.
+    \end{itemize}
+\end{itemize}
+\subsubsection{Mobile Devices Management}
+\begin{itemize}
+    \item Which of the following is the correct BYOD security guideline that an employee should follow to secure sensitive personal or corporate information stored on a mobile device?
+    \begin{itemize}
+        \item Do not allow Jailbroken or rooted devices.
+    \end{itemize}
+    \item Which of the following is not a feature of Mobile Device Management Software?
+    \begin{itemize}
+        \item Sharing confidential data among devices and networks
+    \end{itemize}
+\end{itemize}
+\subsubsection{Mobile Security Guidelines and Tools}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+
+\subsection{IoT Attacks}
+\subsection{IoT Countermeasures}
+\begin{itemize}
+    \item Which of the following practices helps security professionals in defending against IoT hacking?
+    \begin{itemize}
+        \item Monitor traffic on port 48101
+    \end{itemize}
+    \item Which of the following is a security consideration for the gateway component of IoT architecture?
+    \begin{itemize}
+        \item 
+    \end{itemize}
+\end{itemize}
+\subsection{OT Concepts}
+\begin{itemize}
+    \item In which of the following attacks does an attacker use techniques such as timing analysis and power analysis to obtain critical information from a target industrial system?
+    \begin{itemize}
+        \item Side-Channel Attack
+    \end{itemize}
+\end{itemize}
+\subsection{OT Hacking Methodology and Countermeasures}
+\begin{itemize}
+    \item Nmap commands used by attackers to enumerate open ports and services of ICS/SCADA systems:
+    \begin{itemize}
+        \item Identifying HMI systems: \verb|nmap -Pn -sT -p 46824 <TargetIP>|
+        \item Scanning Siemens SIMATIC S7 PLCs: \verb|nmap -Pn -sT -p 102 --script s7-info <TargetIP>|
+        \item Scanning Ethernet/IP Devices: \verb|nmap -Pn -sU 44818 --script enip-info <TargetIP>|
+        \item Scanning Niagara Fox Devices: \verb|nmap -Pn -sT -p 1911,4911 --script fox-info <TargetIP>|
+    \end{itemize}
+\end{itemize}
+
+
+\subsection{Cloud Computing}
+\subsubsection{Cloud Computing Concepts}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Container Technology and Serverless Computing}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Computing Threats}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Hacking}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cloud Security}
+\begin{itemize}
+    \item 
+\end{itemize}
 
 \subsection{General}
 \begin{itemize}
