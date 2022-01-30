@@ -712,19 +712,102 @@
 \end{itemize}
 \subsubsection{Container Technology and Serverless Computing}
 \begin{itemize}
-    \item 
+    \item Which of the following is the property of container technology that makes it less secure than vitual machines?
+    \begin{tabular}[H]{|c|c|}
+        \hline
+        Virtual Machines & Containers\\
+        \hline
+        Heavyweight & Lightweight and portable\\
+        \hline
+        Run on independent operating systems & Share a single host operating system\\
+        \hline
+        Hardware-based virtualization & OS-based virtualization\\
+        \hline
+        Slower provisioning & Scalable and real-time provisioning\\
+        \hline
+        Limited performance & Native performance\\
+        \hline 
+        Completely isolated, making it more secure & Process-level isolation, partially secured\\
+        \hline
+        Created and launched in minutes & created and launched in seconds.\\
+        \hline
+    \end{tabular}
 \end{itemize}
 \subsubsection{Cloud Computing Threats}
 \begin{itemize}
-    \item 
+    \item In one of the following OWASP cloud security risks, unsecured data in transit are susceptible to eavesdropping and interception attacks. Which is this risk?
+    \begin{itemize}
+        \item Service and data integration
+    \end{itemize}
+    \item Which of the following is not a legitimate cloud computing attack?
+    \begin{itemize}
+        \item Port scanning is correct because it is not an attack. It is used in information gathering. DoS/privilege escalation/MiTM are legitimate attacks because they are generally performed with malice so as to cause damage or steal information from an organization.
+    \end{itemize}
 \end{itemize}
 \subsubsection{Cloud Hacking}
 \begin{itemize}
-    \item 
+    \item Which of the following information can be enumerated when an attacker runs the command \begin{verbatim}
+        ps -ef | grep apiserver
+    \end{verbatim} in Kubernetes etcd?
+    \begin{itemize}
+        \item Location of the etcd server and PKI information
+    \end{itemize}
+    \item Which of the following is the docker command used by an attacker to create a container from an image to exploit the docker remote api?
+    \begin{itemize}
+        \item Get an image of Alpine Linux:\\
+        \verb|docker -H <Remote IP:Port> pull alpine|
+        \item Create a container from the image using the following command:\\
+        \verb| docker -H <Remote IP:Port> run -t -d alpine|
+        \item Run the ls command inside the container to retrieve files stored on the Docker host:\\
+        \verb|docker -H <Remote IP:Port> exec modest_goldstine ls|
+        \item Use Nmap to scan the host's internal network to identify running services:\\
+        \verb|docker -H <docker host> run --network=host --rm marsmensch/nmap -ox <IP Range>|
+        \item Retrieve MySQL database credentials?\\
+        \verb|/|
+        \item Steps to exploit misconfigured AWS S3 buckets:
+        \begin{enumerate}
+            \item Identify S3 buckets
+            \item Setup the AWS command-line interface
+            \item Extract access keys
+            \item Configure aws-cli
+            \item Identify vulnerable S3 buckets
+            \item Exploit S3 buckets
+        \end{enumerate}
+        \item Steps to exploit AWS docker containers.
+        \begin{enumerate}
+            \item Abuse AWS credentials
+            \item Pull the target Docker image
+            \item Create a backdoor image
+            \item Push the backdoor Docker image
+        \end{enumerate}
+    \end{itemize}
+    \item In which of the following techniques does an attacker use lambda functions such as rabbit\_lambda, cli\_lambda, and backdoor\_created\_users\_lambda to install a backdoor to AWS infrastructure
+    \begin{itemize}
+        \item Manipulating access keys.
+    \end{itemize}
 \end{itemize}
 \subsubsection{Cloud Security}
 \begin{itemize}
-    \item 
+    \item Best practices for securing Docker environment:
+    \begin{itemize}
+        \item Enable read-only mode on filesystems and volumes by setting the \verb|--read-onlyflag|.
+        \item Limit resources such as memory, CPU, the maximum number of file descriptors, the maximum number of processes, and restarts to prevent DoS attacks.
+        \item Avoid exposing the Docker daemon socket because it is the basic entry point for the Docker API.
+        \item Always run Docker images with \verb|--security-opt=no-new-privileges| to prevent privilege escalation attacks using setuid or setgid binaries.
+        \item Only use trusted Docker images because Docker images created by malicious users may be injected with backdoors.
+        Regularly patch host OS and Docker with the latest security updates.
+        \item Use tools such as InSpec and DevSec to detect Docker vulnerabilities.
+    \end{itemize}
+    \item Best practices for securing the Kubernetes environment:
+    \begin{itemize}
+        \item Use the copy-then-rename method for log rotation to ensure that logs are not lost when restarting the kubelet.
+        \item Use kube-apiserver instances that maintain CRLs to check the presented certificates.
+        \item Use offensive security certified professional stapling to check the revocation status of certificates.
+        \item Use single encoding format for all configuration tasks because it supports centralized validation.
+        Ensure proper validation of file contents and their path at every stage of processing.
+        Avoid using legacy SSH tunnels because they do not perform proper validation of server IP addresses.
+        Use secure TLS by default in development and production configurations to reduce vulnerabilities owing to misconfiguration.
+    \end{itemize}
 \end{itemize}
 
 \subsection{General}

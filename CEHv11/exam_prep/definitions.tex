@@ -1600,19 +1600,125 @@
 \end{itemize}
 \subsubsection{Container Technology and Serverless Computing}
 \begin{itemize}
-    \item 
+    \item Container Technology Tiers:
+    \begin{itemize}
+        \item Tier-1: Developer machines - image creation, testing and accreditation.
+        \item Tier-2: Testing and accreditation systems - Verification and validation of image contents, signing images and sending them to the registries.
+        \item Tier-3: Registries - Storing images and disseminating images to the orchestrators based on requests.
+        \item Tier-4: Orchestrators - Transforming image into containers and deploying containers to hosts.
+        \item Tier-5: Hosts - Operating and managing containers as instructed by the orchestrator.
+    \end{itemize}
+    \item Container network model:
+    \begin{itemize}
+        \item Sandbox: Comprises the container network stack configuration for the management of container interfaces, routing tables, and domain name system (DNS) settings.
+        \item Endpoint: To maintain application portability, an endpoint is connected to a network and is abstracted away from the application, so that services can implement different network drives.
+        \item Network Drivers: The network fucntions through the implementation of Docker network drivers. These drivers are pluggable so that multiple network drivers can be used concurrently on the same network. There are two types of CNM network drivers: namely native and remote network drivers.
+        \item IPAM Drivers: IP address management (IPAM) drivers assign default subnet and IP addresses to the endpoints and networks if they are not assigned.
+        \item Container Orchestration: an automated process of managing the lifecycles of software containers and their dynamic environments. It is used for scheduling and distributing the work of individual containers for microservices-based applications spread across multiple clusters.
+        \item Bridge: A component of docker native network drivers. A bridge driver is used to create a Linux bridge on the host that is managed by the Docker.
+        \item Network: A network is an interconnected collection of endpoints. Endpoints that do not have network connection cannot communicate over the network.
+    \end{itemize}
+    \item Docker netowrk drivers:
+    \begin{itemize}
+        \item Contiv: Open-source network plugin introduced by Cisco for building security and infrastructure policies for multi-tenant microservices deployments.
+        \item Weave: Network plugin that is used to build a virtual network for connecting Docker containers spread across multiple clouds.
+        \item Kuryr: A network plugin that implements the Docker libnetwork remote driver by using Neutron, an OpenStack networking service, and also includes a IPAM driver.
+        \item MACVLAN: used to create a network connection between container interfaces and the parent host interface or sub-interfaces using the Linux MACVLAN bridge mode. It is a native network driver of a Docker engine.
+        \item Host: By using a host driver, a container implements the host networking stack.
+        \item Overlay: An overlay driver is used to enable container communication over the physical network infrastructure.
+        \item None: A none driver implements its own networking stack and is isolated completely from the host networking stack.
+    \end{itemize}
+    \item Domain Snipping: Involves registering an elapsed domain name
+    \item Microservices: Monolithic applications are broken down into cloud-hosted sub-applications called microservices that work together, each performing a unique task. As each microservice is packaged into the Docker container along with the required libraries, frameworks, and configuration files, microservices belonging to a single application can be developed and managed using multiple platforms.
+    \item Docker Engine Components:
+    \begin{itemize}
+        \item Client CLI: the command line interface used to communicate with the daemon and where various Docker commands are initiated.
+        \item Rest API: allows the communication and assignment of tasks to the daemon.
+        \item Server: It is a persistent back-end process, also known as a daemon process (dockerd command).
+        \item Docker Swarm: The Docker engine supports the swarm mode that allows managing multiple Docker engines within the Docker platform. Docker CLI is used for creating a swarm, deploying an application to the swarm, and handling its activity or behavior.
+        \item Docker daemon: (dockerd) processes API requests and handles various Docker objects, such as containers, volumes, images, and networks.
+        \item Docker images: Used to store and deploy containters. They are read-only binary templates with instructions for container creation.
+        \item Docker registries: Locations where images are stored and pulled, and can be either private or public. Docker Cloud and Docker Hub are two popular public registries. Docker Hub is a predefined location of Docker images, which can be used by all users.
+        \item Docker Client: The primary interface through which users communicate with Docker. When commands such as docker run are initiated, the client passes related commands to dockerd, which then executes them. Docker commands use the Docker API for communication.
+    \end{itemize}
+    \item Docker Objects:
+    \begin{itemize}
+        \item Images: Used to store and deploy containers. They are read-only binary templates with instructions for container creation.
+        \item Services: Services enable users to extend the number of containers across daemons, and together they serve as a swarm with several managers and workers. Each swarm member is a daemon, and all these daemons can interact with each other using Docker API.
+        \item Networking: is a channel through which all isolated containers communicate.
+        \item Volumes: A storage where persisting data created by Docker and used by Docker containers are stored.
+    \end{itemize}
+    \item Kubernetes Architecture:
+    \begin{itemize}
+        \item Kube-proxy: A network proxy service that also runs on every worker node. This service maintains the network rules that enable network conncetion to the pods.
+        \item Etcd cluster: A distributed and consistent key-value storage where Kubernetes cluster data, service discovery details, API objects, etc. are stored. It is a master node component.
+        \item Container Runtime: A software designed to run the containers. Kubernetes supports various container runtimes, such as Docker, rktlet, containerd, and cri-o.
+        \item Kubelet: Kubelet is an important service agent that runs on each node and ensures containers running in a pod. It also ensures pods and containers are healthy and running as expected. Kubelet does not handle containers that are not generated by Kubernetes.
+    \end{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Microsoft Azure Functions: 
+        \item Knative
+        \item Red Hat OpenShift
+        \item Portainer
+    \end{itemize}
 \end{itemize}
 \subsubsection{Cloud Computing Threats}
 \begin{itemize}
-    \item 
+    \item DNS Poisoning: Involves diverting users to a spoofed website by poisoning the DNS server or the DNS cache on the user's system.
+    \item Cybersquatting: Involves conducting phishing scams by registering a domain name that is similar to a CSP.
+    \item Domain Hijacking: Involves stealing a CSP domain name.
+    \item Domain Snipping: Involves registering an elapsed domain name.
+    \item Isolation failure: Multi-tenancy and shared resources are the characteristics of cloud computing. Strong isolation or compartmentalization of storage, memory, routing, and reputation among different tenants is lacking. Because of isolation failure, attackers try to control operations of other cloud customers to gain illegal access to the data.
+    \item Privilege Escalation: A mistake in the access allocation system causes a customer, third party, or employee to get more access rights than needed.
+    \item Illegal Access to the cloud: Attackers can exploit weak authentication and authorization to get illegal access, thereby compromising confidential and critical data stored in the cloud.
+    \item Supply Chain Failure: A disruption in the chain may lead to loss of data privacy and integrity, unavailability of services, violation of SLA, economic and reputational losses resulting in failure to meet customer demand, and cascading failure.
+    \item Abuse and Nefarious Use of Cloud services: Presence of weak registration systems in the cloud-computing environment gives rise to this threat. Attackers create anonymous access to cloud services and perpetrate various attacks such as password and critical cracking, building rainbow tables, CAPTCHA-solving farms, launching dynamic attack points, hosting exploits on cloud platforms, hosting malicious data, Botnet command or control, DDoS, etc.
+    \item Insecure Interface and APIs: Attackers exploit user defined policies, reusable passwords/tokens, insufficient input-data validation.
+    \item Data Breach/Loss: Attackers gain illegal access to the data and misuse or modify the data.
+    \item Insufficient Due Diligence: Ignorance of CSP’s cloud environment poses risks in operational responsibilities such as security, encryption, incident response, and more issues such as contractual issues, design and architectural issues, etc.
+    \item Session Hijacking Using Session Riding: Attackers exploit websites by engaging in cross-site request forgeries to transmit unauthorized commands. In session riding, attackers “ride” an active computer session by sending an email or tricking users to visit a malicious web page, during login, to an actual target site. When users click the malicious link, the website executes the request as if the user had already authenticated it. Commands used include modifying or deleting user data, performing online transactions, resetting passwords, and others.
+    \item Wrapping Attack: It is performed during the translation of SOAP messages in the TLS layer, where attackers duplicate the body of the message and send it to the server as a legitimate user.
+    \item DNS Attack: The attacker performs DNS attacks to obtain authentication credentials from Internet users.
+    \item  Side Channel Attack: The attacker compromises the cloud by placing a malicious virtual machine near a target cloud server and then launches a side channel attack.
+    \item Data remanence: Side channel attack
+    \item Timing attack: side channel attack
+    \item Acoustic cryptanalysis: side channel attack
 \end{itemize}
 \subsubsection{Cloud Hacking}
 \begin{itemize}
-    \item 
+    \item Tools:
+    \begin{itemize}
+        \item DumpsterDiver: autoamted tool to identify potential secret leaks and hardcoded passwords in cloud services.
+    \end{itemize}
+    \item rabbit\_lambda: An example lambda function that responds to user-delete events by creating more copies of the deleted user.
+    \item cli\_lambda: Lambda function that acts as an AWS cli proxy and does not require credentials.
+    \item backdoor\_created\_roles\_lambda: Lambda function that adds a trust relationship to each newly created role.
+    \item backdoor\_created\_users\_lambda: Lambda function that adda an access key to each newly created user.
 \end{itemize}
 \subsubsection{Cloud Security}
 \begin{itemize}
-    \item 
+    \item Cloud Security Control Layer:
+    \begin{itemize}
+        \item Tools:
+        \begin{itemize}
+            \item Pacu: Open source AWS exploitation framework for enumerating and hijacking IAM roles.
+            \item Alcide Advisor: As Kubernetes is a de facto container deployment and management tool, its workloads need to be regularly monitored and secured with appropriate security implementations. Security professionals use tools, such as Kube-bench, Alcide Advisor, and StackRox, to secure the Kubernetes environment.
+            \item CloudGoat AWS: CloudGoat is Rhino Security Labs' "Vulnerable by Design" AWS deployment tool. It allows you to hone your cloud cybersecurity skills by creating and completing several "capture-the-flag" style scenarios
+        \end{itemize}
+        \item Application Layer: To harden the application layer, establish the policies that match the industry adoption security standards; e.g., OWASP for a web application. It should meet and comply with appropriate regulatory and business requirements. Application layer controls include software development lifecycle, binary analysis, scanners, web app firewalls, transactional sec, etc.
+        \item Information Layer: Develop and document an information security management program, which includes administrative, technical, and physical safeguards to protect information against unauthorized access, modification, or deletion. Some of the information layer security controls include data loss prevention (DLP), content monitoring and filtering, database activity monitoring, encryption, etc.
+        \item Management Layer: This layer covers the cloud security administrative tasks, which can facilitate continued, uninterrupted, and effective services of the cloud. Cloud consumers should look for the policies mentioned above to avail better services. Some of the management layer security controls include governance-risk-compliance (GRC), IAM, VA/VM, patch management, configuration management, monitoring, etc.
+        \item Network Layer: It deals with various measures and policies adopted by a network administrator to monitor and prevent illegal access, misuse, modification, or denial of network-accessible resources. Additional network layer security controls include network intrusion prevention/detection services, firewalls, deep packet inspection, anti-DDoS, quality of service (QoS), DNSSEC, and OAuth.
+        \item Trusted Computing: Trust computing defines a secured computational environment that implements internal control, auditability, and maintenance to ensure the availability and integrity of cloud operations. Hardware and software RoT \& API are a few security controls for trusted computing.
+        \item Computation and Storage: CSPs must establish policies and procedures for data storage and retention and implement appropriate backup mechanisms to ensure availability and continuity of services that meet with statutory, regulatory, contractual, or business requirements and compliance. Host-based firewalls, host-based intrusion detection/prevention systems, integrity and file/log management, encryption, and masking are some security controls in computation and storage.
+        \item Physical Layer: This layer includes security measures for cloud infrastructure, data centers, and physical resources. Security entities that come under this perimeter are physical plant security, fences, walls, barriers, guards, gates, electronic surveillance, CCTV, physical authentication mechanisms, security patrols, etc.
+        \item Cloud Load Balancing: The process of distributing workloads and computing resources in a cloud computing environment. Load balancing allows enterprises to manage application or workload demands by allocating resources among multiple computers, networks, or servers. Cloud load balancing involves hosting the distribution of workload traffic and demands that reside over the internet.
+        \item Detective Controls: Controls detect and react appropriately to the incidents that happen. For example, employing IDSs, IPSs, and so on helps to detect attacks on cloud systems.
+        \item Deterrent Controls: These controls reduce attacks on the cloud system. Example: Warning sign on the fence or property to inform adverse consequences for potential attackers if they proceed to attack
+        \item Preventive Controls: These controls strengthen the system against incidents, probably by minimizing or eliminating vulnerabilities. Example: Strong authentication mechanism to prevent unauthorized use of cloud systems.
+        \item Corrective controls: These controls minimize the consequences of an incident, probably by limiting the damage. Example: Restoring system backups.
+    \end{itemize}
 \end{itemize}
 
 \subsection{General / Unsorted}
