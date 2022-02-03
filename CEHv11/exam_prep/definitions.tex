@@ -1721,6 +1721,88 @@
     \end{itemize}
 \end{itemize}
 
+
+\subsection{Cryptography}
+\subsubsection{Cryptography Concepts}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item BCTextEncoder: The BCTextEncoder utility simplifies the encoding and decoding of text data. It compresses, encrypts, and converts plaintext data into text format, which the user can then copy to the clipboard or save as a text file. It uses public key encryption methods as well as password-based encryption. Furthermore, it uses strong and approved symmetric and public-key algorithms for data encryption.
+        \item Hash Droid: The Hash Droid utility helps to calculate a hash from a given text or a file stored on the device. In this application, the available hash functions are Adler-32, CRC-32, Haval-128, MD2, MD4, MD5, RIPEMD-128, RIPEMD-160, SHA-1, SHA-256, SHA-384, SHA-512, Tiger, and Whirlpool
+        \item MD5 Calculator: MD5 Calculator is a simple application that calculates the MD5 hash of a given file. It can be used with large files (e.g., several gigabytes in size). It features a progress counter and a text field from which the final MD5 hash can be easily copied to the clipboard. MD5 Calculator can be used to check the integrity of a file.
+        \item HashMyFiles: HashMyFiles is a utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in the system. It allows you to copy the MD5/SHA1 hash list to the clipboard or save it in a text/html/xml file. You can launch HashMyFiles from the context menu of Windows Explorer and display the MD5/SHA1 hashes of the selected files or folders.
+    \end{itemize}
+    \item Key escrow is a key exchange arrangement in which essential cryptographic keys are stored with a third party in escrow. The third party can use or allow others to use the encryption keys under certain predefined circumstances.
+\end{itemize}
+\subsubsection{Encryption algorithms}
+\begin{itemize}
+    \item Substitution Cipher: User replaces units of plain text with ciphertext according to a regular system. The units may be single letters, pairs of letters, or combinations of them, and so on.
+    \item Block Cipher: Deterministic algorithms operating on a block (a group of bits) of fixed size with an unvarying transformation specified
+    \item Transposition cipher: Here letters in plaintext are rearranged according to a regular system to produce the ciphertext. For example, "CRYPTOGRAPHY" when encrypted becomes "AOYCRGPTYRHP"
+    \item Stream cipher: Symmetric-key ciphers are plaintext digits combined with a key stream (pseudorndom cipher digit stream). Here, the user applies the key to each bit, one at a time. Examples include RC4, SEAL, etc.
+    \item Camellia: Camellia is a symmetric-key block cipher having either 18 rounds (for 128-bit keys) or 24 rounds (for 256-bit keys). It is a Feistel cipher with a block size of 128 bits and a key size of 128, 192, and 256 bits. Camellia uses four 8x8-bit S-boxes that perform affine transformations and logical operations. A logical transformation layer FL-function or its inverse is applied every six rounds
+    \item TEA: The tiny encryption algorithm (TEA) was created by David Wheeler and Roger Needham, and it was publicly presented for the first time in 1994. It is a simple algorithm, easy to implement in code. It is a Feistel cipher that uses 64 rounds
+    \item GOST Block Cipher: The GOST (Government Standard) block cipher, also called Magma, is a symmetric-key block cipher having a 32-round Feistel network working on 64-bit blocks with a 256-bit key length. It consists of an S-box that can be kept secret and it contains around 354 bits of secret information. GOST is a simple encryption algorithm, where the round function 32-bit subkey modulo 232 is added and put in the layer of S-boxes and the rotate left shift operation is used for shifting 11 bits, thereby providing the output of the round function.
+    \item Serpent: Serpent is a symmetric-key block cipher that was a finalist in the AES contest. This algorithm was designed by Ross Anderson, Eli Biham, and Lars Knudsen. It uses a 128-bit symmetric block cipher with key sizes of 128, 192, or 256 bits. It can be integrated into software or hardware programs without any restrictions. Serpent involves 32 rounds of computational operations that include substitution and permutation operations on four 32-bit word blocks using 8-variable S-boxes with 4-bit entry and 4-bit exit
+    \item HSM: Hardware security module (HSM) is an additional external security device that is used in a system for crypto-processing and can be used for managing, generating, and securely storing cryptographic keys.
+    \item TPM: Trusted platform module (TPM) is a crypto-processor or chip that is present on the motherboard that can securely store the enctyption keys, and it can perform many cryptographic operations.
+    \item Elliptic Curve Cryptography (ECC): ECC is a modern public-key cryptography developed to avoid larger cryptographic key usage. The asymmetric cryptosystem depends on number theory and mathematical elliptic curves (algebraic structure) to generate short, quick, and robust cryptographic keys. RSA is an incumbent public-key algorithm, but its key size is large. The speed of the encryption always depends on the key size: a smaller key length allows faster encryption. To minimize the key size, elliptic curve cryptography has been proposed as a replacement for the RSA algorithm
+    \item Quantum Cryptography: In quantum cryptography, the data are encrypted by a sequence of photons that have a spinning trait while traveling from one end to another end. These photons keep changing their shapes during their course through filters: vertical, horizontal, forward slash, and backslash. Here, vertical and backslash spins imply “ones,” while horizontal and forward slash spins imply “zeros.”
+    \item Homomorphic Encryption: Homomorphic encryption differs from conventional encryption mechanisms, where math operations are performed to encrypt the plaintext. Homographic encryption allows users to secure and leave their data in an encrypted format even while it is being processed or manipulated. In this technique, encryption and decryption are performed by the same key holder
+    \item Hardware-based Encryption: Hardware-based encryption is a technique that uses computer hardware for assisting or replacing the software when the data encryption process is being performed. Devices that offer encryption techniques can be considered as hardware-based encryption devices.
+    \item MD5 is a widely used cryptographic hash function that takes a message of arbitrary length as input and outputs a 128-bit (16-byte) fingerprint or message digest of the input. MD5 can be used in a wide variety of cryptographic applications and is useful for digital signature applications, file integrity checking, and storing passwords.
+    \item MD6: It uses a Merkle-tree-like structure to allow for large-scale parallel computation of hashes for very long inputs. It is resistant to differential cryptanalysis attacks.
+    \item SHA-2: SHA2 is a family of two similar hash functions with different block sizes, namely SHA-256, which uses 32-bit words, and SHA-512, which uses 64-bit words. The truncated versions of each standard are SHA-224 and SHA-384.
+    \item SHA-3: SHA-3 uses sponge construction in which message blocks are XORed into the initial bits of the state, which the algorithm then invertibly permutes. It supports the same hash lengths as SHA-2 but differs in its internal structure considerably from the rest of the SHA family.
+    \item HMAC: Hash-based message authentication code (HMAC) is a type of message authentication code (MAC) that uses a cryptographic key along with a cryptographic hash function. It is widely used to verify the integrity of data and authentication of a message. This algorithm includes an embedded hash function such as SHA-1 or MD5. The strength of HMAC depends on the embedded hash function, key size, and size of the hash output.
+    \item RIPEMD-160: RACE Integrity Primitives Evaluation Message Digest (RIPEMD) is a 160-bit hash algorithm developed by Hans Dobbertin, Antoon Bosselaers, and Bart Preneel. There exist 128-, 256-, and 320-bit versions of this algorithm, called RIPEMD-128, RIPEMD-256, and RIPEMD-320, respectively. These algorithms replace the original RIPEMD, which was found to have a collision issue. They do not follow any standard security policies or guidelines.
+    \item Diffie-Hellman (DH) groups allows two parties to establish a shared key over an insecure channel. It was developed and published by Whitfield Diffie and Martin Hellman in 1976. Actually, it was independently developed a few years earlier by Malcolm J. Williamson of the British Intelligence Service, but it was classified. There are multiple Diffie-Hellman groups:
+    \begin{itemize}
+        \item Diffie-Hellman group 1—768 bit group
+        \item Diffie-Hellman group 2 —1024 bit group
+        \item Diffie-Hellman group 5—1536 bit group
+        \item Diffie-Hellman group 14—2048 bit group
+        \item Diffie-Hellman group 19—256 bit elliptic curve
+        \item Diffie-Hellman group 20—384 bit elliptic curve group
+    \end{itemize}
+\end{itemize}
+\subsubsection{Public Key Infrastructure (PKI)}
+\begin{itemize}
+    \item Validation Authority (VA): Stores certificates (with their public keys)
+    \item Certificate authority (CA): Issues and verifies digital certificates.
+    \item Registration Authority (RA): Acts as the verifier for the certificate authority.
+    \item End user: Requests, manages, and uses certificates.
+\end{itemize}
+\subsubsection{Email and Disk Encryption}
+\begin{itemize}
+    \item 
+\end{itemize}
+\subsubsection{Cryptanalysis}
+\begin{itemize}
+    \item Ciphertext-only Attack: Ciphertext-only is less effective but much more likely for the attacker. The attacker only has access to a collection of ciphertexts. This is much more likely than known plaintext but is also the most difficult. The attack is completely successful if the corresponding plaintexts (or even better, the key) can be deduced.
+    \item Chosen-plaintext Attack: A chosen plaintext attack is a highly effective type of cryptanalysis attack. In this attack, the attacker obtains the ciphertexts corresponding to a set of plaintexts of his/her own choosing. This allows the attacker to attempt to derive the key used and thus decrypt other messages encrypted with that key.
+    \item Known-plaintext Attack: In this attack, the only information available to the attacker is some plaintext blocks along with the corresponding ciphertext and algorithm used to encrypt and decrypt the text. Using this information, the key used to generate the ciphertext is deduced so as to decipher other messages.
+    \item Adaptive Chosen-plaintext Attack: In this type of attack, an attacker has complete access to the plaintext message including its encryption, and he/she can also modify the content of the message by making a series of interactive queries, choosing subsequent plaintext blocks based on the information from the previous encryption queries and functions.
+    \item Differential Cryptanalysis: Differential cryptanalysis is a form of cryptanalysis applicable to symmetric-key algorithms. It was invented by Eli Biham and Adi Shamir. Essentially, it is the examination of differences in input and how that affects the resultant difference in the output. It originally worked only with chosen plaintext. It can also work with known plaintext and ciphertext
+    \item Linear Cryptanalysis: Linear cryptanalysis is based on finding affine approximations to the action of a cipher. It is commonly used on block ciphers. This technique was invented by Mitsarue Matsui. It is a known plaintext attack and uses a linear approximation to describe the behavior of the block cipher. Given sufficient pairs of plaintext and corresponding ciphertext, bits of information about the key can be obtained
+    \item Integral Cryptanalysis: Integral cryptanalysis was first described by Lars Knudsen. This attack is particularly useful against block ciphers based on substitution-permutation networks as an extension of differential cryptanalysis. The differential analysis looks at pairs of inputs that differ in only one bit position, with all other bits being identical.
+    \item Frequency Analysis: Frequency analysis is a code breaking methodology which isthe study of the frequency of letters or groups of letters in a ciphertext. Frequency analysis of letters and words is another method used to crack ciphers. It works on the principle that, in any given stretch of written language, certain letters and combinations of letters occur with varying frequencies
+    \item Meet-in-the-Middle Attack: A meet-in-the-middle attack is the best attack method for cryptographic algorithms using multiple keys for encryption. This attack reduces the number of brute-force permutations required to decode text encrypted by more than one key. A meet-in-the-middle attack uses space-time trade-off; it is also a type of birthday attack because it exploits the mathematics behind the birthday paradox, and the attack consumes less time than an exhaustive attack. It is called a meet-in-the-middle attack because it works by encrypting from one end and decrypting from the other end, thereby meeting “in the middle.” In the meet-in-the-middle attack, the attacker uses a known plaintext message and has access to both the plaintext as well as the respective encrypted text. It takes less time than an exhaustive attack and is used by attackers for forging signatures, even on digital signatures that use the multiple-encryption scheme.
+    \item Hash Collision Attack: A hash collision attack is performed by finding two different input messages that result in the same hash output. For example, in a hash collision attack, “hash(a1) = hash(a2)”, where a1 and a2 represent some random messages. Since the algorithm itself randomly selects these messages, attackers have no role in the content of these messages
+    \item Side-Channel Attack: A side-channel attack is a physical attack performed on a cryptographic device/cryptosystem to gain sensitive information. Cryptography is generally part of the hardware or software that runs on physical devices
+    \item DUHK Attack: Don't Use Hard-Coded Keys (DUHK) is a cryptographic vulnerability that allows attackers to obtain encryption keys used to secure VPNs and web sessions. This attack mainly affects any hardware/software using the ANSI X9.31 Random Number Generator (RNG). Pseudorandom number generators (PRNGs) generate random sequences of bits based on the initial secret value, called seed, and the current state. The PRNG algorithm generates cryptographic keys that are used to establish a secure communication channel over the VPN.
+    \item Cryptool Project:
+    \begin{itemize}
+        \item Cryptool 1 (CT1): It is written in C++ and is a Windows program. It supports classical and modern cryptographic algorithms (encryption and decryption, key generation, secure passwords, authentication, secure protocols, etc.). It is used to perform cryptanalysis of several algorithms (Vigenère, RSA, AES, etc.)
+        \item CrypTool 2 (CT2): It supports visual programming GUI and execution of cascades of cryptographic procedures. It runs under Windows.
+        \item JCrypTool (JCT): It allows comprehensive cryptographic experimentation on Linux, MAC OS X, and Windows. It also allows users to develop and extend its platform in various ways with their own crypto plug-ins.
+        \item CrypTool-Online (CTO): It runs in a browser and provides a variety of encryption methods and analysis tools.
+    \end{itemize}
+    \item rubber hose attack: attackers extract cryptographic secrets (e.g. the password to an encrypted file) from a person by coercion or torture. Generally, people under pressure cannot maintain security, and they reveal secret or hidden information. Attackers torture the concerned person to reveal secret keys or passwords used to encrypt the information.
+    \item Related key attack: The related-key attack is similar to the chosen plaintext attack, except that the attacker can obtain ciphertexts encrypted under two different keys. This is actually a very useful attack if one can obtain the plaintext and matching ciphertext. The attack requires that the differing keys be closely related, for example, in a wireless environment where subsequent keys might be derived from previous keys. Then, while the keys are different, they are close. Much like the ciphertext-only attack, this one is most likely to yield a partial break.
+\end{itemize}
+
+
 \subsection{General / Unsorted}
 \begin{itemize}
     \item CIA Triad:
