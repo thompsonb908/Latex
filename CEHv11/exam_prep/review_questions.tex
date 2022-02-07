@@ -45,6 +45,50 @@
     \end{itemize}
 \end{itemize}
 
+
+\subsection{Chapter 2: Footprinting and Reconnaisance}
+\subsubsection{Footprinting Concepts}
+\begin{itemize}
+    \item What type of information is gathered by an attacker through Whois database analysis and tracerouting?
+    \begin{itemize}
+        \item DNS records and related information
+    \end{itemize}
+    \item A penetration tester was hired to perform a penetration test for a bank. The tester began searching for IP ranges owned by the bank, performing lookups on the bank's DNS servers, reading news articles online about the bank, watching the bank employees time in and out, searching the bank's job postings (paying special attention to IT-related jobs), and visiting the local dumpster for the bank's corporate office. What phase of the penetration test is the tester currently in?
+    \begin{itemize}
+        \item Passive information gathering
+    \end{itemize}
+\end{itemize}
+\subsubsection{Footprinting Methodology}
+\begin{itemize}
+    \item Which of the following activities of an organization on social networking sites helps an attacker footprint or collect information regarding the type of business handled by the organization?
+    \begin{itemize}
+        \item Background checks to hire employees.
+    \end{itemize}
+    \item Which of the following Google search queries allows an attacker to identify the FTP servers of the target organization and identify sensitive directories on FTP?
+    \begin{itemize}
+        \item type:mil inurl:ftp ext:pdf | ps
+    \end{itemize}
+    \item Google search queires for VoIP footprinting:
+    \begin{itemize}
+        \item \verb|intitle:"Login Page" intext:"Phone Adapter Configuration Utility"|: Pages containing login portals
+        \item \verb|inurl:/voice/advanced/ intitle: Linksys SPA configuration|: Find the Linksys VoIP router configuration.
+        \item \verb|intitle:"D-Link VoIP Router" "Welcome"|: Pages containing D-Link login portals.
+        \item \verb|intitle:asterisk.management.portal web-access|: Looks for the Asterisk management portal.
+        \item \verb|intitle:"SPA504G Configuration"|: finds Cisco SPA504G Configuration Utility for IP phones.
+        \item \verb|intitle:"Sipura.SPA.Configuration" -.pdf|: Finds configuration pages for online VoIP devices.
+        \item \verb|inurl:8080 intitle:"login" intext:"UserLogin" "English"|: VoIP login portals.
+        \item \verb|inurl:"NetworkConfiguration" cisco|: extract Cisco phone details.
+    \end{itemize}
+    \item In website footprinting, which of the following information is aquired by the attacker when the examine the cookies set by the server?
+    \begin{itemize}
+        \item Software in use and its behavior.
+    \end{itemize}
+    \item Which of the following Google dorks is used by an attacker to find Cisco VPN client passwords?
+    \begin{itemize}
+        \item \verb|"[main]" "enc_GroupPwd=" ext:txt|
+    \end{itemize}
+\end{itemize}
+
 \subsection{Scanning}
 \begin{itemize}
     \item In the SYN scan; Nmap will send a SYN message to the target. What is the response if the port is open or closed?

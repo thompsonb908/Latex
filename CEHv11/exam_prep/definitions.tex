@@ -85,10 +85,14 @@
 \subsection{Chapter 2: Footprinting and Reconnaissance}
 \subsubsection{Footprinting Concepts}
 \begin{itemize}
-    \item Sherlock: To search a vast number of social networking sites for a target username. This tool helps the attacker to locate the target user on various social networking sites along with the complete URL.
-    \item BeRoot: BeRoot is a post-exploitation tool to check for common misconfigurations which can allow an attacker to escalate their privileges.
-    \item OpUtils: SNMP enumeration protocol that helps to monitor, diagnose and trouble shoot the IT resources.
-    \item Sublist3r: Sublist3r is a Python script designed to enumerate the subdomains of websites using OSINT. It enables you to enumerate subdomains across multiple sources at once.
+    \item Tools:
+    \begin{itemize}
+        \item Sherlock: To search a vast number of social networking sites for a target username. This tool helps the attacker to locate the target user on various social networking sites along with the complete URL.
+        \item BeRoot: BeRoot is a post-exploitation tool to check for common misconfigurations which can allow an attacker to escalate their privileges.
+        \item OpUtils: SNMP enumeration protocol that helps to monitor, diagnose and trouble shoot the IT resources.
+        \item Sublist3r: Sublist3r is a Python script designed to enumerate the subdomains of websites using OSINT. It enables you to enumerate subdomains across multiple sources at once.
+        \item BuzzSumo: Advanced social search engine that displayed shared activity across all major social networks including Twitter, Facebook, LinkdIn, Google Plus, and Pinterest.
+    \end{itemize}
     \item Passive footprinting: no direct interaction, archived and stored information from publically accessible sources.
     \begin{itemize}
         \item Finding information through search engines
@@ -111,10 +115,88 @@
         \item Performing social engineering.
     \end{itemize}
 \end{itemize}
-
 \subsubsection{Footprinting Methodology}
-
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item TinEye: Reverse image search Attacker use online tools, such as Google Image Search, TinEye reverse image search, Yahoo image search, and Bing image search to perform a reverse image search.
+        \item Mention: An online reputation tracking tool that helps attackers monitoring the web, social media, forums, and blogs to learn more about the target brand and industry.
+        \item Intelius: Attackers can use Intelius people search online service to search for people belonging to the target organization.
+        \item ExoneraTor: Attackers can use deep and dark web searching tools such as Tor Browser, ExoneraTor, and OnionLand Search engine to gather confidential information about the target, such as credit card details, passports information, identification card details, medical records, social media accounts, and Social Security Numbers (SSNs).
+        \item Spokeo: People search online service
+        \item Been Verified: People search online service
+        \item Whitepages: People search online service.
+        \item Professional Toolset: DNS interrogation tools such as Professional Toolset (https://tools.dnsstuff.com) and DNS Records (https://network-tools.com) enable the user to perform DNS footprinting.
+        \item Infoga: Infoga is a tool used for gathering email account information from different public sources and it checks if an email was leaked using the haveibeenpwned.com API.
+        \item Octoparse: Octoparse offers automatic data extraction, as it quickly scrapes web data without coding and turns web pages into structured data.
+        \item Metagoofil: Metagoofil extracts metadata of public documents (pdf, doc, xls, ppt, docx, pptx, and xlsx) belonging to a target company.
+    \end{itemize}
+    \item DNS Record Types:
+    \begin{itemize}
+        \item SOA: Indicates the authority for a domain of the target DNS server.
+        \item A: Points to a host's IP address
+        \item MX: points to domain's mail server
+        \item NS: Points to a host's name server.
+        \item CNAME: Canonical naming allows aliases to a host.
+        \item SRV: Service records.
+        \item PTR: Maps IP address to a hostname
+        \item RP: Responsible person.
+        \item HINFO: Host information record includes CPU type and OS.
+        \item TXT: Unstructured text records.
+    \end{itemize}
+    \item Whois lookup: query and response protocol used for querying databases that store the registered users or assignees of an Internet resource, such as domain name, an IP address block, or an autonomous system. This protocol listens to requests on port 43 (TCP). Regional Internet Registries (RIRs) maintain Whois databases and it contains the personal information of domain owners. For each resource, Whois database provides text records with information about the resource itself, and relevant information of assignees, registrants, and administrative information (creation and expiration dates).\\
+    Returns the following information:
+    \begin{itemize}
+        \item Domain name details
+        \item domain name servers
+        \item NetRange
+        \item When a domain has been created.
+        \item Contact details of domain owner.
+        \item Expiry records
+        \item Records last updated.
+    \end{itemize}
+    \item DNS Lookup reveals information about DNS zone data. including domain names, computer names, IP addresses and more about a particular network.
+\end{itemize}
 \subsubsection{Footprinting Tools and Countermeasures}
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item OSRFramework tools:
+        \begin{itemize}
+            \item usufy.py: Checks for a user profile on up to 290 different platforms.
+            \item mailfy.py: Check for the existence of a given email.
+            \item searchfy.py: Performs a query on the platforms in OSRFramework.
+            \item domainfy.py: Check for the existence of domains.
+            \item phonefy.py: Checks for the existence of a given series of phones.
+            \item entify.py: Uses regular expressions to extract entities.
+        \end{itemize}
+        \item Recon Dog: An all in one tool for all basic information gathering needs. It uses APIs to collect information about the target system.\\
+        Features:
+        \begin{itemize}
+            \item Censys: Uses censys.io to gather a massive amount of information about an IP address.
+            \item NS lookup: Performs name server lookup
+            \item Port scan: Scans most common TCP ports
+            \item Detect CMS: Can detect 400+ content management systems
+            \item Whois lookup: Performs a Whois lookup
+            \item Detect honeypot: Uses shodan.io to check if the target is a honeypot
+            \item  Find subdomains: Uses findsubdomains.com to find subdomains
+            \item Reverse IP lookup: Performs a reverse IP lookup to find domains associated with an IP address
+            \item Detect technologies: Uses wappalyzer.com to detect 1000+ technologies
+            \item All: Runs all utilities against the target
+        \end{itemize}
+        \item FOCA (Fingerprinting Organizations with Collected Archives): Tool used to find metadata and hidden information in the documents it  scans.\\
+        Features:
+        \begin{itemize}
+            \item Web Search - Searches for hosts and domain names through URLs associated with the main domain. Each link is analyzed to extract information from its new host and domain names.
+            \item DNS Search - Checks each domain to ascertain the host names configured in NS, MX, and SPF servers to discover the new host and domain names.
+            \item IP Resolution - Resolves each host name by comparison with the DNS to obtain the IP address associated with this server name. To perform this task accurately, the tool performs analysis against the organization's internal DNS.
+            \item PTR Scanning - Finds more servers in the same segment of a determined address; IP FOCA executes a PTR log scan.
+            \item Bing IP - Launches FOCA, which is a search process for new domain names associated with that IP address for each IP address discovered.
+            \item Common Names - Perform dictionary attacks against the DNS.
+        \end{itemize}
+    \end{itemize}
+\end{itemize}
+
 
 \subsection{Chapter 3: Scanning Networks}
 
@@ -280,7 +362,7 @@
     \end{itemize}
     \item Hiding data
     \begin{itemize}
-        \item Spread Spectrum Techniques: Communcation signals occupy more bandwidth than required to sent the infomration. The sender increases the band spread by means of code (independent of data), and the reciever uses a synchonized reception with the code to recover the information from the spread spectrum data.
+        \item Spread Spectrum Techniques: Communcation signals occupy more bandwidth than required to sent the information. The sender increases the band spread by means of code (independent of data), and the reciever uses a synchonized reception with the code to recover the information from the spread spectrum data.
         \item Transform Domain Techniques: Hides information in significant parts of the cover image, such as cropping, compression, and some other image processing areas.
         \item Substitution Techniques: Attacker tried to encode secret information by substituting the insignificant bits with the secret message.
         \item Distortion Techniques: The user implements a sequence of modifications to the cover to obtain a stego-object. The sequence of modifications represents the transformation of a specific message.
@@ -352,7 +434,7 @@
     \begin{itemize}
         \item TAN Grapper: Transaction Authentication Number (TAN) is a single-use password for authenticating online banking transactions. Banking trojans intercept valid TANs entered by users and replace them with random numbers. Subsiquently, the attacker misuses the intercepted TAN with the target's login details.
         \item HTML Injection: Trojan creates fake form fields on e-banking pages, therby enabling the attacker to collect the target's account details, credit card number, date of birth, etc. The attacker can use this information to impersonate the target and compromise his/her account.
-        \item Form Grabber: Type of malware that captures a target's sensitive data such as IDs and passwords, from a web browser form or page. It is an advanced method for collecting the target's Internet banking infomration. It analysis POST requests and responses to the victims browser. it compromises the scramble pad authentication and intercepts the scramble pad input as the user enters his/her Customer Number and Personal Access Code.
+        \item Form Grabber: Type of malware that captures a target's sensitive data such as IDs and passwords, from a web browser form or page. It is an advanced method for collecting the target's Internet banking information. It analysis POST requests and responses to the victims browser. it compromises the scramble pad authentication and intercepts the scramble pad input as the user enters his/her Customer Number and Personal Access Code.
         \item Covert Credential Grabber: This malware remains dormant until the user performs an online financial transaction. It works covertly to replicate itself on the computer and edits the registry entries each time the computer is started. The trojan also searches the cookie files that had been stored on the computer while browsing financial websites. Once the user attempts to make an online transaction, the Trojan covertly steals the login credentials and transmits them to the hacker.
     \end{itemize}
     \item Covert Channel: methods attackers use to hide data in an undetectable protocol. Rely on tunneling, which enables one protocol to transmit ofver the other. Any process or a bit of data can be a covert channel. Attackers can use covert channels to install backdoors on the target machine.
@@ -456,7 +538,7 @@
     \end{itemize}
     \item Malware:
     \begin{itemize}
-        \item ZeuS: Also known as Zbot, a powerful banking trojan that explicitly attempts to steal confidential infomration like system information, online credentials, banking details, etc. Zeus is spread through drive-by-downloads and phishing schemes.
+        \item ZeuS: Also known as Zbot, a powerful banking trojan that explicitly attempts to steal confidential information like system information, online credentials, banking details, etc. Zeus is spread through drive-by-downloads and phishing schemes.
     \end{itemize}
 \end{itemize}
 
@@ -1178,7 +1260,7 @@
 \begin{itemize}
     \item Confidentiality Attack: Attempt to intercept confidential information sent over wireless associationsm regardless of whether they were sent in clear text or encrypted by Wi-Fi protocols.
     \item Availability Attacks: Aim at obstructing the delivery of wireless services to legitmiate users, wither by crippling those resources or by denying them access to WLAN resources.
-    \item Authentication Attacks: Steal the identity of Wi-Fi clients, their personal infomration, login credentials, etc. to gain unauthorized access to network resources.
+    \item Authentication Attacks: Steal the identity of Wi-Fi clients, their personal information, login credentials, etc. to gain unauthorized access to network resources.
     \item Integrity Attacks: Attackers send forged control, management, or data frames over a wireless network to misdirect the wireless devices to perform anothe type of attacks (e.g., DoS).
     \item Ad hoc associations: An attacker may perform this kind of attack using any Universal Serial Bus (USB) adapter or wireless card. The attacker connects the host to an unsecured client to attack a specific client or to avoid AP security.
     \item Promiscuous Client: Allows an attacker to transmit target network traffic through a fake AP. It is very similar to the evil-twin threat on wireless networks, in which an attacker launches an AP that poses as an authorized AP by beaconing the WLAN's SSID.
@@ -1380,7 +1462,7 @@
     \end{itemize}
     \item Contiki: Used in low power wireless devices such as street lighting, sound monitoring systems, etc.
     \item Edge: Edge computing helps the IoT environment to move computational processing to the edge of the network, allowing smart devices and gateways to perform tasks and services from the cloud end.
-    \item Sensing Technology: Sensors embedded in the devices sense a wide variety of informaition from their surroundings like temperature, gases, location, working of some industrial machine as well as sensing health data of a patient.
+    \item Sensing Technology: Sensors embedded in the devices sense a wide variety of information from their surroundings like temperature, gases, location, working of some industrial machine as well as sensing health data of a patient.
     \item IoT Gateways: Gateways are used to bridge the gap between the IoT devices (internal network) and the end user (external network) and thus allowing them to connect and communicate with each other. The data collected by the sensors in IoT devices send the collected data to the concerned user or cloud through the gateway.
     \item Cloud Server/Data storage: the collected data after travelling through the gateway arrives at the cloud, where it is stored and undergoes data analysis. The processed data is then transmitted to the user where he/she takes certain action based on the information recieved by him/her.
     \item Remote Control using Mobile App: The end user uses remote controls such as mobile phones, tabs, laptops, etc. installed with a mobile app to monitor, control, retrieve data, and take a specific action on IoT devices from a remote location.
@@ -1432,7 +1514,7 @@
             \item Hardcoded credentials
             \item Encryption keys
             \item Encryption (symmetric, asymmetric)
-            \item sensitive infomration
+            \item sensitive information
             \item sensitive URL disclosure
         \end{itemize}
         \item Firmware version display and/or date of last update.
