@@ -199,17 +199,52 @@
 
 
 \subsection{Chapter 3: Scanning Networks}
-
 \subsubsection{Network Scanning Concepts and Tools}
-
+\begin{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Fing: Mobile app network scanning tool, provides complete network information, such as IP address, MAC address, device vendor, and ISP location.
+        \item Hping2/Hping3: A command line oriented network scanning and packet crafting tool for the TCP/IP protocol that sends ICMP echo requests and supports TCP,UDP, ICMP, and raw-IP protocols. It performs network security auditing, firewall testing, manual path MTU discovery, advanced traceroute, remote OS fingerprinting, remote uptime guessing, TCP/IP stacks auditing, and other functions.
+    \end{itemize}
+\end{itemize}
 \subsubsection{Host, Port and Service Discovery}
-
+\begin{itemize}
+    \item ICMP Address Mask Ping Scan: This type of ping method is also effective in identifying the active hosts similarly to the ICMP timestamp ping, specifically when the administrator blocks the traditional ICMP Echo ping
+    \item ICMP ECHO Ping Scan: ICMP ECHO ping scan involves sending ICMP ECHO requests to a host. If the host is alive, it will return an ICMP ECHO reply. This scan is useful for locating active devices or determining if ICMP is passing through a firewall.
+    \item ICMP ECHO Ping Sweep: A ping sweep (also known as an ICMP sweep) is a basic network scanning technique that is adopted to determine the range of IP addresses that map to live hosts (computers). Although a single ping will tell the user whether a specified host computer exists on the network, a ping sweep consists of ICMP ECHO requests sent to multiple hosts. If a specified host is active, it will return an ICMP ECHO reply.
+    \item UDP Ping scan: UDP ping scan is similar to TCP ping scan; however, in the UDP ping scan, Nmap sends UDP packets to the target host.
+    \item UDP Scanning: There is no three-way TCP handshake for UDP scanning. The system does not respond with a message when the port is open. If a UDP packet is sent to a closed port, the system will respond with an ICMP port unreachable message. Spyware, Trojan horses, and other malicious applications use UDP ports
+    \item SCTP INIT Scanning: Attackers send an INIT chunk to the target host, and an INIT+ACK chunk response implies that the port is open, whereas an ABORT Chunk response means that the port is closed. No response from the target or a response of an ICMP unreachable exception indicates that the port is a Filtered port
+    \item SSDP Scanning: The Simple Service Discovery Protocol (SSDP) is a network protocol that works in conjunction with the UPnP to detect plug and play devices. Vulnerabilities in UPnP may allow attackers to launch Buffer overflow or DoS attacks. Attacker may use the UPnP SSDP M-SEARCH information discovery tool to check if the machine is vulnerable to UPnP exploits or not
+    \item List Scanning: This type of scan simply generates and prints a list of IPs/Names without actually pinging them. A reverse DNS resolution is performed to identify the host names
+\end{itemize}
 \subsubsection{OS Discovery and Scanning Beyond IDS/Firewall}
+\begin{itemize}
+    \item Active Banner grabbing techniques:
+    \begin{itemize}
+        \item TCP Sewuence ability test
+        \item Port unreachable 
+    \end{itemize}
+    \item Passive Banner Grabbing techniques:
+    \begin{itemize}
+        \item Banner grabbing from error messages
+        \item Sniffing the network traffic
+        \item Banner grabbing from page extensions
+    \end{itemize}
+    \item Tools:
+    \begin{itemize}
+        \item Tails
+        \item Scany: a network scanner for iPhone and iPad that is used to scan LAN, Wi-Fi networks, websites, open ports, and network devices and can support several networking protocols
+        \item Psiphon
+        \item Whonix
+    \end{itemize}
+\end{itemize}
 
 \subsection{Chapter 4: Enumeration}
-
 \subsubsection{Enumeration Concepts}
-
+\begin{itemize}
+    \item 
+\end{itemize}
 \subsubsection{NetBIOS and SNMP Enumeration}
 \begin{itemize}
     \item Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems on the internet. Used by ISPs to maintain large routing tables. Utilizes port 179
