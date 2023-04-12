@@ -243,11 +243,23 @@
 \subsection{Chapter 4: Enumeration}
 \subsubsection{Enumeration Concepts}
 \begin{itemize}
-    \item 
+    \item Secure Shell (SSH) is a command-level protocol mainly used for managing various networked devices securely. It is generally used as an alternative protocol to the unsecure Telnet protocol. SSH uses the client/server communication model, and the SSH server, by default, listens to its client on TCP port 22
+    \item File Transfer Protocol: FTP is a connection-oriented protocol used for transferring files over the Internet and private networks. FTP is controlled on TCP port 21, and for data transmission, FTP uses TCP port 20 or some dynamic port numbers depending on the server configuration
+    \item Telnet: The Telnet protocol is used for managing various networked devices remotely. It is an unsecure protocol because it transmits login credentials in the cleartext format. Therefore, it is mostly used in private networks. The Telnet server listens to its clients on port 23. Attackers can take advantage of the Telnet protocol to perform banner grabbing on other protocols such as SSH and SMTP, brute-forcing attacks on login credentials, port-forwarding attacks, etc.
+    \item Border Gateway Protocol: BGP is widely used by Internet service providers (ISPs) to maintain huge routing tables and for efficiently processing Internet traffic. BGP routers establish sessions on TCP port 179
+    \item IPSEC IKE: IP Security Internet Key Exchange Protocol is used for establishing Security Association for IPsec Protocol Suite. IKE uses UDP port 500 for establishing security association.
+    \begin{itemize}
+        \item Ipsec NAT-T uses port 4500
+    \end{itemize}
+    \item Remote mail checking uses port 50 TCP/UDP
 \end{itemize}
 \subsubsection{NetBIOS and SNMP Enumeration}
 \begin{itemize}
-    \item Border Gateway Protocol (BGP) is a standardized exterior gateway protocol designed to exchange routing and reachability information among autonomous systems on the internet. Used by ISPs to maintain large routing tables. Utilizes port 179
+    \item Tools:
+    \begin{itemize}
+        \item 
+    \end{itemize}
+    \item PsList: Displays the CPU and memory information or thread statistics.
 \end{itemize}
 
 \subsubsection{LDAP, NTP, NFS, and SMTP Enumeration}
